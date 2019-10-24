@@ -10,8 +10,8 @@ namespace GruppAKonsult.Models
         public int FreelancerID { get; set; }
 
         public string Name { get; set; }
-
-        public string Nationality { get; set; }
+    
+        public string Email { get; set; }
 
         public int Phonenumber { get; set; }
 

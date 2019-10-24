@@ -13,6 +13,8 @@ namespace GruppAKonsult.Models
 
         public string Company { get; set; }
 
+        public string Email { get; set; }
+
         public int Phonenumber { get; set;}
         
         public char Address { get; set;}
