@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "LogIn";
+}
+
+<br><h2>@ViewBag.Message</h2>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Logga in som frilansare</h2><br>
+
+            <form>
+                <fieldset>
+                    <legend>Fyll i dina användaruppgifter</legend>
+                    <div class="form-group row">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="exempel@exempel.se" required>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Lösenord</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*******" required>
+                    </div>
+                </fieldset>
+            </form>
+            <a href='@Url.Action("ProfileFreelancer", "ProfileFreelancer")'>
+                <input type='button' class="btn btn-primary btn-lg" value='Logga in' />
+            </a>
+        </div>
+    </div>
+</div>
+
