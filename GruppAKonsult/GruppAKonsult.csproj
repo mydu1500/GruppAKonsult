@@ -47,10 +47,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -128,8 +136,45 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Employer.cs" />
-    <Compile Include="Models\Freelancer.cs" />
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CV.cs">
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Freelancer.cs">
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GruppAKonsultModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GruppAKonsultModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GruppAKonsultModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GruppAKonsultModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GruppAKonsultModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Jobbank.cs">
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Language.cs">
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Profession.cs">
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Profile.cs">
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Skills.cs">
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +188,16 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\GruppAKonsultModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GruppAKonsultModel.Context.cs</LastGenOutput>
+      <DependentUpon>GruppAKonsultModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\GruppAKonsultModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GruppAKonsultModel.edmx</DependentUpon>
+      <LastGenOutput>GruppAKonsultModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -167,6 +222,13 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Content\_bootswatch.scss" />
     <Content Include="Content\_variables.scss" />
+    <EntityDeploy Include="Models\GruppAKonsultModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>GruppAKonsultModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\GruppAKonsultModel.edmx.diagram">
+      <DependentUpon>GruppAKonsultModel.edmx</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\GruppAKonsult - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\GruppAKonsult - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -229,6 +291,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
