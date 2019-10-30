@@ -1,0 +1,671 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GruppAKonsult_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Customer_Id" />
+          </Key>
+          <Property Name="Customer_Id" Type="int" Nullable="false" />
+          <Property Name="Companyname" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phonenumber" Type="int" />
+        </EntityType>
+        <EntityType Name="CV">
+          <Key>
+            <PropertyRef Name="CV_Id" />
+          </Key>
+          <Property Name="CV_Id" Type="int" Nullable="false" />
+          <Property Name="Candidate_Id" Type="int" Nullable="false" />
+          <Property Name="Derivinglicense" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="Education" Type="varchar" MaxLength="50" />
+          <Property Name="Workexperience" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Freelancer">
+          <Key>
+            <PropertyRef Name="Candidate_Id" />
+          </Key>
+          <Property Name="Candidate_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" />
+          <Property Name="Nationality" Type="varchar" MaxLength="50" />
+          <Property Name="Address" Type="varchar" MaxLength="50" />
+          <Property Name="Postalnumber" Type="int" />
+          <Property Name="City" Type="varchar" MaxLength="50" />
+          <Property Name="Birthdate" Type="int" />
+          <Property Name="Cityofbirth" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phonenumber" Type="int" />
+        </EntityType>
+        <EntityType Name="Jobbank">
+          <Key>
+            <PropertyRef Name="Profile_Id" />
+            <PropertyRef Name="Customer_Id" />
+            <PropertyRef Name="Candidate_Id" />
+          </Key>
+          <Property Name="Profile_Id" Type="int" Nullable="false" />
+          <Property Name="Customer_Id" Type="int" Nullable="false" />
+          <Property Name="Candidate_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="CV_ Id" />
+          </Key>
+          <Property Name="CV_ Id" Type="int" Nullable="false" />
+          <Property Name="Candidate_Id" Type="int" Nullable="false" />
+          <Property Name="Swedish" Type="varchar" MaxLength="50" />
+          <Property Name="English" Type="varchar" MaxLength="50" />
+          <Property Name="French" Type="varchar" MaxLength="50" />
+          <Property Name="Spanish" Type="varchar" MaxLength="50" />
+          <Property Name="German" Type="varchar" MaxLength="50" />
+          <Property Name="Norwegian" Type="varchar" MaxLength="50" />
+          <Property Name="Danish" Type="varchar" MaxLength="50" />
+          <Property Name="Finnish" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Profession">
+          <Key>
+            <PropertyRef Name="Candidate_Id" />
+          </Key>
+          <Property Name="Candidate_Id" Type="int" Nullable="false" />
+          <Property Name="CV_Id" Type="int" Nullable="false" />
+          <Property Name="Webbdeveloper" Type="varchar" MaxLength="50" />
+          <Property Name="Systemdeveloper" Type="varchar" MaxLength="50" />
+          <Property Name="Programmer" Type="varchar" MaxLength="50" />
+          <Property Name="Softwareengineer" Type="varchar" MaxLength="50" />
+          <Property Name="Frontenddeveloper" Type="varchar" MaxLength="50" />
+          <Property Name="Backenddeveloper" Type="varchar" MaxLength="50" />
+          <Property Name="Javadeveloper" Type="varchar" MaxLength="50" />
+          <Property Name="Scrummaster" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Profile_Id" />
+          </Key>
+          <Property Name="Profile_Id" Type="int" Nullable="false" />
+          <Property Name="Customer_Id" Type="int" Nullable="false" />
+          <Property Name="Candidate_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Skills">
+          <Key>
+            <PropertyRef Name="CV_Id" />
+          </Key>
+          <Property Name="CV_Id" Type="int" Nullable="false" />
+          <Property Name="Candidate_Id" Type="int" Nullable="false" />
+          <Property Name="C#" Type="varchar" MaxLength="50" />
+          <Property Name="JavaScript" Type="varchar" MaxLength="50" />
+          <Property Name="Java" Type="varchar" MaxLength="50" />
+          <Property Name="C++" Type="varchar" MaxLength="50" />
+          <Property Name="JQuery" Type="varchar" MaxLength="50" />
+          <Property Name="HTML" Type="varchar" MaxLength="50" />
+          <Property Name="CSS" Type="varchar" MaxLength="50" />
+          <Property Name="SQL" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__CV__Candidate_Id__4D94879B">
+          <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
+          <End Role="CV" Type="Self.CV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freelancer">
+              <PropertyRef Name="Candidate_Id" />
+            </Principal>
+            <Dependent Role="CV">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Jobbank__Candida__534D60F1">
+          <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
+          <End Role="Jobbank" Type="Self.Jobbank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freelancer">
+              <PropertyRef Name="Candidate_Id" />
+            </Principal>
+            <Dependent Role="Jobbank">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Jobbank__Custome__52593CB8">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Jobbank" Type="Self.Jobbank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_Id" />
+            </Principal>
+            <Dependent Role="Jobbank">
+              <PropertyRef Name="Customer_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Jobbank__Profile__5441852A">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+          <End Role="Jobbank" Type="Self.Jobbank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Profile_Id" />
+            </Principal>
+            <Dependent Role="Jobbank">
+              <PropertyRef Name="Profile_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Language__Candid__59063A47">
+          <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
+          <End Role="Language" Type="Self.Language" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freelancer">
+              <PropertyRef Name="Candidate_Id" />
+            </Principal>
+            <Dependent Role="Language">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Professio__CV_Id__5BE2A6F2">
+          <End Role="CV" Type="Self.CV" Multiplicity="1" />
+          <End Role="Profession" Type="Self.Profession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CV">
+              <PropertyRef Name="CV_Id" />
+            </Principal>
+            <Dependent Role="Profession">
+              <PropertyRef Name="CV_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profile__Candida__5629CD9C">
+          <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freelancer">
+              <PropertyRef Name="Candidate_Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profile__Custome__5535A963">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Customer_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Skills__Candidat__5EBF139D">
+          <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
+          <End Role="Skills" Type="Self.Skills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freelancer">
+              <PropertyRef Name="Candidate_Id" />
+            </Principal>
+            <Dependent Role="Skills">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GruppAKonsult_dbModelStoreContainer">
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CV" EntityType="Self.CV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Freelancer" EntityType="Self.Freelancer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Jobbank" EntityType="Self.Jobbank" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profession" EntityType="Self.Profession" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Profile" EntityType="Self.Profile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skills" EntityType="Self.Skills" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CV__Candidate_Id__4D94879B" Association="Self.FK__CV__Candidate_Id__4D94879B">
+            <End Role="Freelancer" EntitySet="Freelancer" />
+            <End Role="CV" EntitySet="CV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Jobbank__Candida__534D60F1" Association="Self.FK__Jobbank__Candida__534D60F1">
+            <End Role="Freelancer" EntitySet="Freelancer" />
+            <End Role="Jobbank" EntitySet="Jobbank" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Jobbank__Custome__52593CB8" Association="Self.FK__Jobbank__Custome__52593CB8">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Jobbank" EntitySet="Jobbank" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Jobbank__Profile__5441852A" Association="Self.FK__Jobbank__Profile__5441852A">
+            <End Role="Profile" EntitySet="Profile" />
+            <End Role="Jobbank" EntitySet="Jobbank" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Language__Candid__59063A47" Association="Self.FK__Language__Candid__59063A47">
+            <End Role="Freelancer" EntitySet="Freelancer" />
+            <End Role="Language" EntitySet="Language" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Professio__CV_Id__5BE2A6F2" Association="Self.FK__Professio__CV_Id__5BE2A6F2">
+            <End Role="CV" EntitySet="CV" />
+            <End Role="Profession" EntitySet="Profession" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profile__Candida__5629CD9C" Association="Self.FK__Profile__Candida__5629CD9C">
+            <End Role="Freelancer" EntitySet="Freelancer" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profile__Custome__5535A963" Association="Self.FK__Profile__Custome__5535A963">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Skills__Candidat__5EBF139D" Association="Self.FK__Skills__Candidat__5EBF139D">
+            <End Role="Freelancer" EntitySet="Freelancer" />
+            <End Role="Skills" EntitySet="Skills" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GruppAKonsult_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Customer_Id" />
+          </Key>
+          <Property Name="Customer_Id" Type="Int32" Nullable="false" />
+          <Property Name="Companyname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phonenumber" Type="Int32" />
+          <NavigationProperty Name="Jobbank" Relationship="Self.FK__Jobbank__Custome__52593CB8" FromRole="Customer" ToRole="Jobbank" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK__Profile__Custome__5535A963" FromRole="Customer" ToRole="Profile" />
+        </EntityType>
+        <EntityType Name="CV">
+          <Key>
+            <PropertyRef Name="CV_Id" />
+          </Key>
+          <Property Name="CV_Id" Type="Int32" Nullable="false" />
+          <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
+          <Property Name="Derivinglicense" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Education" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Workexperience" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Freelancer" Relationship="Self.FK__CV__Candidate_Id__4D94879B" FromRole="CV" ToRole="Freelancer" />
+          <NavigationProperty Name="Profession" Relationship="Self.FK__Professio__CV_Id__5BE2A6F2" FromRole="CV" ToRole="Profession" />
+        </EntityType>
+        <EntityType Name="Freelancer">
+          <Key>
+            <PropertyRef Name="Candidate_Id" />
+          </Key>
+          <Property Name="Candidate_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nationality" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Postalnumber" Type="Int32" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Birthdate" Type="Int32" />
+          <Property Name="Cityofbirth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phonenumber" Type="Int32" />
+          <NavigationProperty Name="CV" Relationship="Self.FK__CV__Candidate_Id__4D94879B" FromRole="Freelancer" ToRole="CV" />
+          <NavigationProperty Name="Jobbank" Relationship="Self.FK__Jobbank__Candida__534D60F1" FromRole="Freelancer" ToRole="Jobbank" />
+          <NavigationProperty Name="Language" Relationship="Self.FK__Language__Candid__59063A47" FromRole="Freelancer" ToRole="Language" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK__Profile__Candida__5629CD9C" FromRole="Freelancer" ToRole="Profile" />
+          <NavigationProperty Name="Skills" Relationship="Self.FK__Skills__Candidat__5EBF139D" FromRole="Freelancer" ToRole="Skills" />
+        </EntityType>
+        <EntityType Name="Jobbank">
+          <Key>
+            <PropertyRef Name="Profile_Id" />
+            <PropertyRef Name="Customer_Id" />
+            <PropertyRef Name="Candidate_Id" />
+          </Key>
+          <Property Name="Profile_Id" Type="Int32" Nullable="false" />
+          <Property Name="Customer_Id" Type="Int32" Nullable="false" />
+          <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Jobbank__Custome__52593CB8" FromRole="Jobbank" ToRole="Customer" />
+          <NavigationProperty Name="Freelancer" Relationship="Self.FK__Jobbank__Candida__534D60F1" FromRole="Jobbank" ToRole="Freelancer" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK__Jobbank__Profile__5441852A" FromRole="Jobbank" ToRole="Profile" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="CV__Id" />
+          </Key>
+          <Property Name="CV__Id" Type="Int32" Nullable="false" />
+          <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
+          <Property Name="Swedish" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="English" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="French" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Spanish" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="German" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Norwegian" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Danish" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Finnish" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Freelancer" Relationship="Self.FK__Language__Candid__59063A47" FromRole="Language" ToRole="Freelancer" />
+        </EntityType>
+        <EntityType Name="Profession">
+          <Key>
+            <PropertyRef Name="Candidate_Id" />
+          </Key>
+          <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
+          <Property Name="CV_Id" Type="Int32" Nullable="false" />
+          <Property Name="Webbdeveloper" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Systemdeveloper" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Programmer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Softwareengineer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Frontenddeveloper" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Backenddeveloper" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Javadeveloper" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Scrummaster" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CV" Relationship="Self.FK__Professio__CV_Id__5BE2A6F2" FromRole="Profession" ToRole="CV" />
+        </EntityType>
+        <EntityType Name="Profile">
+          <Key>
+            <PropertyRef Name="Profile_Id" />
+          </Key>
+          <Property Name="Profile_Id" Type="Int32" Nullable="false" />
+          <Property Name="Customer_Id" Type="Int32" Nullable="false" />
+          <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK__Profile__Custome__5535A963" FromRole="Profile" ToRole="Customer" />
+          <NavigationProperty Name="Freelancer" Relationship="Self.FK__Profile__Candida__5629CD9C" FromRole="Profile" ToRole="Freelancer" />
+          <NavigationProperty Name="Jobbank" Relationship="Self.FK__Jobbank__Profile__5441852A" FromRole="Profile" ToRole="Jobbank" />
+        </EntityType>
+        <EntityType Name="Skills">
+          <Key>
+            <PropertyRef Name="CV_Id" />
+          </Key>
+          <Property Name="CV_Id" Type="Int32" Nullable="false" />
+          <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
+          <Property Name="C_" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JavaScript" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Java" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C__" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="JQuery" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HTML" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CSS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SQL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Freelancer" Relationship="Self.FK__Skills__Candidat__5EBF139D" FromRole="Skills" ToRole="Freelancer" />
+        </EntityType>
+        <Association Name="FK__Jobbank__Custome__52593CB8">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Jobbank" Type="Self.Jobbank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_Id" />
+            </Principal>
+            <Dependent Role="Jobbank">
+              <PropertyRef Name="Customer_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profile__Custome__5535A963">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Customer_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CV__Candidate_Id__4D94879B">
+          <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
+          <End Role="CV" Type="Self.CV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freelancer">
+              <PropertyRef Name="Candidate_Id" />
+            </Principal>
+            <Dependent Role="CV">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Professio__CV_Id__5BE2A6F2">
+          <End Role="CV" Type="Self.CV" Multiplicity="1" />
+          <End Role="Profession" Type="Self.Profession" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CV">
+              <PropertyRef Name="CV_Id" />
+            </Principal>
+            <Dependent Role="Profession">
+              <PropertyRef Name="CV_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Jobbank__Candida__534D60F1">
+          <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
+          <End Role="Jobbank" Type="Self.Jobbank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freelancer">
+              <PropertyRef Name="Candidate_Id" />
+            </Principal>
+            <Dependent Role="Jobbank">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Language__Candid__59063A47">
+          <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
+          <End Role="Language" Type="Self.Language" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freelancer">
+              <PropertyRef Name="Candidate_Id" />
+            </Principal>
+            <Dependent Role="Language">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profile__Candida__5629CD9C">
+          <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freelancer">
+              <PropertyRef Name="Candidate_Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Skills__Candidat__5EBF139D">
+          <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
+          <End Role="Skills" Type="Self.Skills" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freelancer">
+              <PropertyRef Name="Candidate_Id" />
+            </Principal>
+            <Dependent Role="Skills">
+              <PropertyRef Name="Candidate_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Jobbank__Profile__5441852A">
+          <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
+          <End Role="Jobbank" Type="Self.Jobbank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Profile">
+              <PropertyRef Name="Profile_Id" />
+            </Principal>
+            <Dependent Role="Jobbank">
+              <PropertyRef Name="Profile_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GruppAKonsult_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customer" EntityType="Self.Customer" />
+          <EntitySet Name="CV" EntityType="Self.CV" />
+          <EntitySet Name="Freelancer" EntityType="Self.Freelancer" />
+          <EntitySet Name="Jobbank" EntityType="Self.Jobbank" />
+          <EntitySet Name="Language" EntityType="Self.Language" />
+          <EntitySet Name="Profession" EntityType="Self.Profession" />
+          <EntitySet Name="Profile" EntityType="Self.Profile" />
+          <EntitySet Name="Skills" EntityType="Self.Skills" />
+          <AssociationSet Name="FK__Jobbank__Custome__52593CB8" Association="Self.FK__Jobbank__Custome__52593CB8">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Jobbank" EntitySet="Jobbank" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profile__Custome__5535A963" Association="Self.FK__Profile__Custome__5535A963">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CV__Candidate_Id__4D94879B" Association="Self.FK__CV__Candidate_Id__4D94879B">
+            <End Role="Freelancer" EntitySet="Freelancer" />
+            <End Role="CV" EntitySet="CV" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Professio__CV_Id__5BE2A6F2" Association="Self.FK__Professio__CV_Id__5BE2A6F2">
+            <End Role="CV" EntitySet="CV" />
+            <End Role="Profession" EntitySet="Profession" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Jobbank__Candida__534D60F1" Association="Self.FK__Jobbank__Candida__534D60F1">
+            <End Role="Freelancer" EntitySet="Freelancer" />
+            <End Role="Jobbank" EntitySet="Jobbank" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Language__Candid__59063A47" Association="Self.FK__Language__Candid__59063A47">
+            <End Role="Freelancer" EntitySet="Freelancer" />
+            <End Role="Language" EntitySet="Language" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profile__Candida__5629CD9C" Association="Self.FK__Profile__Candida__5629CD9C">
+            <End Role="Freelancer" EntitySet="Freelancer" />
+            <End Role="Profile" EntitySet="Profile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Skills__Candidat__5EBF139D" Association="Self.FK__Skills__Candidat__5EBF139D">
+            <End Role="Freelancer" EntitySet="Freelancer" />
+            <End Role="Skills" EntitySet="Skills" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Jobbank__Profile__5441852A" Association="Self.FK__Jobbank__Profile__5441852A">
+            <End Role="Profile" EntitySet="Profile" />
+            <End Role="Jobbank" EntitySet="Jobbank" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GruppAKonsult_dbModelStoreContainer" CdmEntityContainer="GruppAKonsult_dbEntities">
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="GruppAKonsult_dbModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+                <ScalarProperty Name="Companyname" ColumnName="Companyname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CV">
+            <EntityTypeMapping TypeName="GruppAKonsult_dbModel.CV">
+              <MappingFragment StoreEntitySet="CV">
+                <ScalarProperty Name="CV_Id" ColumnName="CV_Id" />
+                <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+                <ScalarProperty Name="Derivinglicense" ColumnName="Derivinglicense" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Education" ColumnName="Education" />
+                <ScalarProperty Name="Workexperience" ColumnName="Workexperience" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Freelancer">
+            <EntityTypeMapping TypeName="GruppAKonsult_dbModel.Freelancer">
+              <MappingFragment StoreEntitySet="Freelancer">
+                <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Postalnumber" ColumnName="Postalnumber" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Cityofbirth" ColumnName="Cityofbirth" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Jobbank">
+            <EntityTypeMapping TypeName="GruppAKonsult_dbModel.Jobbank">
+              <MappingFragment StoreEntitySet="Jobbank">
+                <ScalarProperty Name="Profile_Id" ColumnName="Profile_Id" />
+                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+                <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Language">
+            <EntityTypeMapping TypeName="GruppAKonsult_dbModel.Language">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="CV__Id" ColumnName="CV_ Id" />
+                <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+                <ScalarProperty Name="Swedish" ColumnName="Swedish" />
+                <ScalarProperty Name="English" ColumnName="English" />
+                <ScalarProperty Name="French" ColumnName="French" />
+                <ScalarProperty Name="Spanish" ColumnName="Spanish" />
+                <ScalarProperty Name="German" ColumnName="German" />
+                <ScalarProperty Name="Norwegian" ColumnName="Norwegian" />
+                <ScalarProperty Name="Danish" ColumnName="Danish" />
+                <ScalarProperty Name="Finnish" ColumnName="Finnish" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profession">
+            <EntityTypeMapping TypeName="GruppAKonsult_dbModel.Profession">
+              <MappingFragment StoreEntitySet="Profession">
+                <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+                <ScalarProperty Name="CV_Id" ColumnName="CV_Id" />
+                <ScalarProperty Name="Webbdeveloper" ColumnName="Webbdeveloper" />
+                <ScalarProperty Name="Systemdeveloper" ColumnName="Systemdeveloper" />
+                <ScalarProperty Name="Programmer" ColumnName="Programmer" />
+                <ScalarProperty Name="Softwareengineer" ColumnName="Softwareengineer" />
+                <ScalarProperty Name="Frontenddeveloper" ColumnName="Frontenddeveloper" />
+                <ScalarProperty Name="Backenddeveloper" ColumnName="Backenddeveloper" />
+                <ScalarProperty Name="Javadeveloper" ColumnName="Javadeveloper" />
+                <ScalarProperty Name="Scrummaster" ColumnName="Scrummaster" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Profile">
+            <EntityTypeMapping TypeName="GruppAKonsult_dbModel.Profile">
+              <MappingFragment StoreEntitySet="Profile">
+                <ScalarProperty Name="Profile_Id" ColumnName="Profile_Id" />
+                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+                <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skills">
+            <EntityTypeMapping TypeName="GruppAKonsult_dbModel.Skills">
+              <MappingFragment StoreEntitySet="Skills">
+                <ScalarProperty Name="CV_Id" ColumnName="CV_Id" />
+                <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
+                <ScalarProperty Name="C_" ColumnName="C#" />
+                <ScalarProperty Name="JavaScript" ColumnName="JavaScript" />
+                <ScalarProperty Name="Java" ColumnName="Java" />
+                <ScalarProperty Name="C__" ColumnName="C++" />
+                <ScalarProperty Name="JQuery" ColumnName="JQuery" />
+                <ScalarProperty Name="HTML" ColumnName="HTML" />
+                <ScalarProperty Name="CSS" ColumnName="CSS" />
+                <ScalarProperty Name="SQL" ColumnName="SQL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
