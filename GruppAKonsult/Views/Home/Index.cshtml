@@ -12,7 +12,9 @@
                 Här kan du som frilansare registera dig och ladda upp ditt CV som potentiella
                 arbetsgivare kan ta del av
             </p><br>
-            <button type="button" class="btn btn-primary btn-lg">Frilansare</button>
+                <a href='@Url.Action("RegisterFreelancer", "Home")'>
+                    <input type='button' class="btn btn-primary btn-lg" value='Registrera frilansare' />
+                </a>
         </div>
 
         <div class="col-md-6">
@@ -20,7 +22,10 @@
             <p>
                 Registrera dig nu och hitta just den talang du söker
             </p><br>
-            <button type="button" class="btn btn-primary btn-lg">Arbetsgivare</button>
+            <a href='@Url.Action("RegisterEmployer", "Home")'>
+                <input type='button' class="btn btn-primary btn-lg" value='Registrera arbetsgivare' />
+            </a>
+            @*<button type="button" class="btn btn-primary btn-lg">Arbetsgivare</button>*@
         </div>
     </div>
 </div>

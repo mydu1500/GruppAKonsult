@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "";
+}
+
+
+
+<br><h2>Här registrerar du som är frilansare dig</h2>
+
+<form>
+    <fieldset>
+        <legend>Ange din epost (detta kommer att bli ditt användarnamn) och välj ett säkert lösenord</legend>
+        <div class="form-group row">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="frilansare@frilansare.se" required>
+
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Lösenord</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*******" required>
+        </div>
+    </fieldset>
+</form>
+<a href='@Url.Action("ProfileFreelancer", "ProfileFreelancer")'>
+    <input type='button' class="btn btn-primary btn-lg" value='Registrera' />
+</a>
+
