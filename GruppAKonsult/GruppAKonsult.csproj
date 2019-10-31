@@ -184,6 +184,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Img\ProfilePic.png" />
     <Content Include="Content\StyleATeam.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

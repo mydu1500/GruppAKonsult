@@ -2,15 +2,16 @@
 @{
     ViewBag.Title = "RegisterEmployer";
 }
+<br><h2>Här registrerar du som är arbetsgivare dig</h2>
 
 <form>
     <fieldset>
-        <legend>Fyll i din epost och välj ett säkert lösenord</legend>
+        <legend>Ange din epost (detta kommer att bli användarnamnet) och välj ett säkert lösenord</legend>
         <div class="form-group row">
         </div>
         <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="exempel@exempel.se" required>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="företag@företag.se" required>
 
         </div>
         <div class="form-group">
@@ -20,6 +21,6 @@
     </fieldset>
 </form>
 <a href='@Url.Action("", "")'>
-    <input type='button' class="btn btn-primary btn-lg" value='Logga in' />
+    <input type='button' class="btn btn-primary btn-lg" value='Registrera' />
 </a>
 
