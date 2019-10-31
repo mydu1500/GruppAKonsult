@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "EmployerView";
+}
+
+
+<br><h1>It Company</h1><br><br>
+
+<div class="jumbotron">
+    <h2>Företagsinformation</h2><br>
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="card-header">It Company</h3>
+            <div class="card-body">
+
+                <h5 class="card-title">Adress</h5>
+                <h6 class="card-subtitle text-muted"> Itvägen 1</h6><br>
+                <h6 class="card-subtitle text-muted"> 112233, Malmö </h6><br>
+                <h6 class="card-subtitle text-muted"> Sverige </h6><br>
+
+                <h5 class="card-title">Epost</h5>
+                <h6 class="card-subtitle text-muted">ItCompany@gmail.com</h6><br>
+
+                <h5 class="card-title">Telefonnummer</h5>
+                <h6 class="card-subtitle text-muted">040112233</h6><br>
+
+                <h5 class="card-title">Stad</h5>
+                <h6 class="card-subtitle text-muted">Malmö</h6><br>
+            </div>
+        </div>
+    </div>
+
+    @*<p><label>Namn: </label> Petter Petterson</p>
+        <p><label>Email: </label> PetterPetterson@gmail.com</p>
+        <p><label>Telefonnummer: </label> 0700000000</p>
+        <p><label>Stad: </label> Stockholm</p>*@
+
+    <hr class="PLine">
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="card-header">Sök Kompetens</h3>
+            <div class="card-body">
+                <h5 class="card-title">Språk</h5>
+                <h6 class="card-subtitle text-muted">Svenska, Engelska</h6><br>
+
+                <h5 class="card-title">Färdigheter</h5>
+                <h6 class="card-subtitle text-muted">Javascript, HTML, CSS</h6>
+            </div>
+        </div>
+
+        <br>
+       
+        </div><br><br><br>
+
+    <button type="button" class="btn btn-primary btn-lg">Arbetsgivare</button>
+        <hr class="PLine"><br>
+        <a href='@Url.Action("FreelancerCV", "ProfileFreelancer")'>
+            <input id="EditBtn" type='button' class="btn btn-primary btn-lg" value='SÖK' />
+        </a>
+    </div>
+
+</div>
+
+
