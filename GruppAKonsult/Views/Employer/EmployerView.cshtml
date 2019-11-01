@@ -12,7 +12,7 @@
         <div class="col-md-6">
             <h3 class="card-header">It Company</h3>
             <div class="card-body">
-
+               
                 <h5 class="card-title">Adress</h5>
                 <h6 class="card-subtitle text-muted"> Itvägen 1</h6><br>
                 <h6 class="card-subtitle text-muted"> 112233, Malmö </h6><br>
@@ -35,30 +35,63 @@
         <p><label>Telefonnummer: </label> 0700000000</p>
         <p><label>Stad: </label> Stockholm</p>*@
 
-    <hr class="PLine">
-    <div class="row">
-        <div class="col-md-6">
-            <h3 class="card-header">Sök Kompetens</h3>
-            <div class="card-body">
-                <h5 class="card-title">Språk</h5>
-                <h6 class="card-subtitle text-muted">Svenska, Engelska</h6><br>
+    
+    <div class="col-md-6">
+    <h3 class="card-header">Sök kandidat</h3>
+   
+        @*Dropboxarna ser inte så fina ut och kolumn är inte så fina heller. Har provat column 3-4-5 men ser fortfarande ful ut.*@
 
-                <h5 class="card-title">Färdigheter</h5>
-                <h6 class="card-subtitle text-muted">Javascript, HTML, CSS</h6>
-            </div>
+    <div class="row">
+        <div class="col-md-4">
+            <br /><h5 class="card-title">Yrkesområde</h5>
+            <select>
+                <option value="Backendutvecklare">Backendutvecklare</option>
+                <option value="Frontendutvecklare">Frontendutvecklare</option>
+                <option value="Javautvecklare">Javautvecklare</option>
+                <option value="Mjukvaruutvecklare">Mjukvaruutvecklare</option>
+                <option value="Programmerare">ProgrammerareL</option>
+                <option value="Scrummaster">Scrummaster</option>
+                <option value="Systemutvecklare">Systemutvecklare</option>
+                <option value="Webbutvecklare">Webbutvecklare</option>
+            </select>
         </div>
 
-        <br>
-       
-        </div><br><br><br>
+        <div class="col-md-4">
 
-    <button type="button" class="btn btn-primary btn-lg">Arbetsgivare</button>
-        <hr class="PLine"><br>
-        <a href='@Url.Action("FreelancerCV", "ProfileFreelancer")'>
-            <input id="EditBtn" type='button' class="btn btn-primary btn-lg" value='SÖK' />
-        </a>
+            <br /><h5 class="card-title">Kompetens</h5>
+            <select>
+                <option value="C#">C#</option>
+                <option value="C++">C++</option>
+                <option value="CSS">CSS</option>
+                <option value="HTML">HTML</option>
+                <option value="Javascript">Javascript</option>
+                <option value="Java">Java</option>
+                <option value="Jquery">Jquery</option>
+                <option value="SQL">SQL</option>
+            </select>
+        </div>
+
+
+        <div class="col-md-4">
+            <br /><h5 class="card-title">Språk</h5>
+
+            <select>
+                <option value="Svenska">Svenska</option>
+                <option value="Engelska">Engelska</option>
+                <option value="Danska">Danska</option>
+                <option value="Norska">Norska</option>
+                <option value="Franska">Franska</option>
+                <option value="Spanska">Spanska</option>
+                <option value="Tyska">Tyska</option>
+            </select>
+        </div>
+
+
+        </div>
     </div>
-
 </div>
+
+
+
 
 
