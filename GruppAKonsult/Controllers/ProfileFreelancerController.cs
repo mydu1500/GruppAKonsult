@@ -18,5 +18,12 @@ namespace GruppAKonsult.Controllers
         {
             return View();
         }
+
+        //Lägg till redigeringsprofil för att ändra CV
+
+        public ActionResult FreelancerCV()
+        {
+            return View();
+        }
     }
 }

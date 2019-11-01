@@ -6,18 +6,17 @@ using System.Web.Mvc;
 
 namespace GruppAKonsult.Controllers
 {
-    public class EmployerLogInController : Controller
+    public class EmployerController : Controller
     {
-        // GET: EmployerLogIn
+        // GET: Employer
         public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult EmployerLogIn()
+        public ActionResult EmployerView()
         {
-            ViewBag.Message = "";
             return View();
         }
+
     }
 }

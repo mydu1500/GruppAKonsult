@@ -14,7 +14,13 @@ namespace GruppAKonsult.Controllers
             return View();
         }
 
-        public ActionResult LogIn()
+        public ActionResult FreelancerLogIn()
+        {
+            ViewBag.Message = "";
+            return View();
+        }
+
+        public ActionResult EmployerLogIn()
         {
             ViewBag.Message = "";
             return View();

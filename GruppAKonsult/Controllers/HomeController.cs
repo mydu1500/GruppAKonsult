@@ -33,5 +33,15 @@ namespace GruppAKonsult.Controllers
 
             return View();
         }
+
+        public ActionResult RegisterFreelancer()
+        {
+            return View();
+        }
+
+        public ActionResult RegisterEmployer()
+        {
+            return View();
+        }
     }
 }

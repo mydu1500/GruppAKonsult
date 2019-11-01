@@ -130,7 +130,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\EmployerLogInController.cs" />
+    <Compile Include="Controllers\EmployerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LogInController.cs" />
     <Compile Include="Controllers\ProfileFreelancerController.cs" />
@@ -138,43 +138,43 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CV.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Freelancer.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GruppAKonsultModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GruppAKonsultModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GruppAKonsultModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GruppAKonsultModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GruppAKonsultModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Jobbank.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Language.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Profession.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Profile.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Skills.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -189,15 +189,15 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\GruppAKonsultModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>GruppAKonsultModel.Context.cs</LastGenOutput>
+      <DependentUpon>GruppAKonsultModel.edmx</DependentUpon>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\GruppAKonsultModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>GruppAKonsultModel.edmx</DependentUpon>
+      <LastGenOutput>GruppAKonsultModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -223,13 +223,15 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Content\_bootswatch.scss" />
     <Content Include="Content\_variables.scss" />
-    <EntityDeploy Include="Models\Model1.edmx">
+    <EntityDeploy Include="Models\GruppAKonsultModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>GruppAKonsultModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <Content Include="Models\GruppAKonsultModel.edmx.diagram">
+      <DependentUpon>GruppAKonsultModel.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\GruppAKonsult - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\GruppAKonsult - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -272,9 +274,11 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\LogIn\LogIn.cshtml" />
+    <Content Include="Views\LogIn\FreelancerLogIn.cshtml" />
     <Content Include="Views\ProfileFreelancer\ProfileFreelancer.cshtml" />
-    <Content Include="Views\EmployerLogIn\EmployerLogIn.cshtml" />
+    <Content Include="Views\LogIn\EmployerLogIn.cshtml" />
+    <Content Include="Views\ProfileFreelancer\FreelancerCV.cshtml" />
+    <Content Include="Views\Employer\EmployerView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
