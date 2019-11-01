@@ -45,6 +45,7 @@
         <div class="col-md-4">
             <br /><h5 class="card-title">Yrkesområde</h5>
             <select>
+                <option value="Väljyrke">Välj yrke</option>
                 <option value="Backendutvecklare">Backendutvecklare</option>
                 <option value="Frontendutvecklare">Frontendutvecklare</option>
                 <option value="Javautvecklare">Javautvecklare</option>
@@ -60,6 +61,7 @@
 
             <br /><h5 class="card-title">Kompetens</h5>
             <select>
+                <option value="Väljkompetens">Välj kompetens</option>
                 <option value="C#">C#</option>
                 <option value="C++">C++</option>
                 <option value="CSS">CSS</option>
@@ -76,6 +78,7 @@
             <br /><h5 class="card-title">Språk</h5>
 
             <select>
+                <option value="Väljspråk">Välj språk</option>
                 <option value="Svenska">Svenska</option>
                 <option value="Engelska">Engelska</option>
                 <option value="Danska">Danska</option>
@@ -90,14 +93,21 @@
             <br /><h5 class="card-title">Stad</h5>
 
             <select>
+                <option value="Väljstad">Välj stad</option>
                 <option value="Helsingborg">Helsingborg</option>
                 <option value="Kristianstad">Kristianstad</option>
                 <option value="Landskrona">Landskrona</option>
                 <option value="Lund">Lund</option>
                 <option value="Malmö">Malmö</option>
                 <option value="Ystad">Ystad</option>
-             
             </select>
+        </div>
+
+        <div class="col-md-1">
+            <a href='@Url.Action(", ")'>
+                <br /><br /><br /><br /><br /><br />
+                <input type='button' class="btn btn-primary btn-lg" value='SÖK' />
+            </a>
         </div>
 
     </div>
