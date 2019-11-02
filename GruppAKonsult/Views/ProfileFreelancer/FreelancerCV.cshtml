@@ -3,5 +3,114 @@
     ViewBag.Title = "FreelancerCV";
 }
 
-<h2>CV</h2>
+<h2>Mitt CV</h2><br>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card border-primary" style="max-width: 25rem;">
+            <div class="card-header">Kontaktuppgifter</div>
+            <div class="card-body">
+                <label class="col-form-label" for="inputDefault">Namn</label>
+                <input type="text" class="form-control" placeholder="Förnamn och efternamn" id="inputDefault">
+                <label class="col-form-label" for="inputDefault">Epost</label>
+                <input type="text" class="form-control" placeholder="exempel@exempel.se" id="inputDefault">
+                <label class="col-form-label" for="inputDefault">Mobilnummer</label>
+                <input type="text" class="form-control" placeholder="Ex. 070*******" id="inputDefault">
+                <label class="col-form-label" for="inputDefault">Adress</label>
+                <input type="text" class="form-control" placeholder="Ex. Storgatan 1" id="inputDefault">
+                <label class="col-form-label" for="inputDefault">Stad</label>
+                <input type="text" class="form-control" placeholder="Ex. Stockholm" id="inputDefault">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card border-primary col-mb-6" style="max-width: 50rem;">
+            <div class="card-header">Utbildning och arbetsliv</div>
+            <div class="card-body">
+                <label for="exampleTextarea">Utbildning (skolans namn, datum, ämne, examen)</label>
+                <textarea class="form-control" id="educationTextarea" rows="3"></textarea>
+                <label for="exampleTextarea">Arbetsliv (befattning, datum, arbetsuppgifter)</label>
+                <textarea class="form-control" id="workTextarea" rows="3"></textarea><br>
+
+                <div class="form-group">
+                    <select class="custom-select">
+                        <option selected="">Språk</option>
+                        <option value="1">Arabiska</option>
+                        <option value="2">Engelska</option>
+                        <option value="3">Svenska</option>
+                        <option value="">Spanska</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label>Körkort</label>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1" unchecked="">
+                        <label class="custom-control-label" for="customCheck1">Ja</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck2" unchecked="">
+                        <label class="custom-control-label" for="customCheck2">Nej</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Profession">Kompetenser</label>
+            <select multiple="" class="form-control" id="Profession">
+                <option>Grafisk designer</option>
+                <option>Programmerare</option>
+                <option>Webbutvecklare</option>
+                <option>Javautvecklare</option>
+                <option>Scrummaster</option>
+                <option>Frontend utvecklare</option>
+                <option>Backend utvecklare</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="Skills">Kunskaper</label>
+            <select multiple="" class="form-control" id="Skills">
+                <option>C#</option>
+                <option>Java</option>
+                <option>HTML</option>
+                <option>Javascript/option>
+                <option>CSS</option>
+                <option>C++</option>
+                <option>JQuery</option>
+                <option>SQL</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<br><div class="form-group">
+    <label for="exampleTextarea">Berätta lite om dig själv</label>
+    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+</div><br>
+
+<div class="form-group">
+    <div class="input-group mb-3">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile02">
+            <label class="custom-file-label" for="inputGroupFile02">Välj fil</label>
+        </div>
+        <div class="input-group-append">
+            <span class="input-group-text" id="">Upload</span>
+        </div>
+    </div>
+</div>
+<br>
+<a href='@Url.Action("ProfileFreelancer", "ProfileFreelancer")'>
+    <input id="EditBtn" type='button' class="btn btn-primary btn-lg" value='Spara' />
+</a>
+
+
 

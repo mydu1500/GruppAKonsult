@@ -286,6 +286,8 @@
     <Content Include="Views\LogIn\EmployerLogIn.cshtml" />
     <Content Include="Views\ProfileFreelancer\FreelancerCV.cshtml" />
     <Content Include="Views\Employer\EmployerView.cshtml" />
+    <Content Include="Views\Home\RegisterEmployer.cshtml" />
+    <Content Include="Views\Home\RegisterFreelancer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
