@@ -26,6 +26,10 @@ namespace GruppAKonsult.Controllers
         {
             return View();
         }
+        public ActionResult EmptyNewProfile2()
+        {
+            return View();
+        }
 
         public ActionResult FreelancerCV()
         {
@@ -43,6 +47,12 @@ namespace GruppAKonsult.Controllers
                     inputGroupFile02.SaveAs(path);
                     ViewBag.Message = "Filen är korrekt uppladdad";
 
+                    //using (GruppAKonsult_dbEntities db = new GruppAKonsult_dbEntities())
+                    //{
+                    //        = inputGroupFile02
+                    //}
+
+
                 }
                 catch (Exception ex)
                 {
@@ -53,6 +63,7 @@ namespace GruppAKonsult.Controllers
 
                 ViewBag.Message = " Vänligen välj en fil";
             }
+
 
                     
 
