@@ -281,6 +281,9 @@
     <Content Include="Views\Employer\EmployerView.cshtml" />
     <Content Include="Views\Home\RegisterEmployer.cshtml" />
     <Content Include="Views\Home\RegisterFreelancer.cshtml" />
+    <Content Include="Views\Employer\EmployerFind.cshtml">
+      <BrowseToURL>~/Employer/EmployerFind</BrowseToURL>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
