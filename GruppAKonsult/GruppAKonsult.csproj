@@ -281,7 +281,6 @@
     <Content Include="Views\Employer\EmployerView.cshtml" />
     <Content Include="Views\Home\RegisterEmployer.cshtml" />
     <Content Include="Views\Home\RegisterFreelancer.cshtml" />
-    <Content Include="Views\ProfileFreelancer\EmptyNewProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
