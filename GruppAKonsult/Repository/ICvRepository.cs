@@ -18,6 +18,7 @@ namespace GruppAKonsult.Repository
             string AddOrUpdateCv(CV cv, int candidateId);
             Freelancer GetPersonalInfo(int candidateId);
             bool AddProfession(Profession profession, int candidateId);
+            bool AddDriverLicense(CV cv, int candidateID);
 
 
 

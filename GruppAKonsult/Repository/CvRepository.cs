@@ -13,8 +13,14 @@ namespace GruppAKonsult.Repository
         //db 
         private readonly GruppAKonsult_dbEntities dbEntities = new GruppAKonsult_dbEntities();
 
+        public bool AddDriverLicense(CV cv, int candidateID)
+        {
+            throw new NotImplementedException();
+        }
+
 
         //Implementering av Interface
+
         public bool AddFreelancerInformation(Freelancer freelancer, HttpPostedFileBase file)
         {
             throw new NotImplementedException();
@@ -32,6 +38,9 @@ namespace GruppAKonsult.Repository
                 temp = dbEntities.SaveChanges();
 
             }
+            return temp > 0 ? true : false;
+
+
 
         }
 
