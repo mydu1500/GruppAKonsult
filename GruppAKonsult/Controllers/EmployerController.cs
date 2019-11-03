@@ -18,5 +18,10 @@ namespace GruppAKonsult.Controllers
             return View();
         }
 
+        public ActionResult EmployerFind()
+        {
+            return View();
+        }
+
     }
 }
