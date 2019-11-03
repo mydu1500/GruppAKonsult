@@ -15,14 +15,14 @@ namespace GruppAKonsult.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Vilka är vi?";
+            ViewBag.Message = "Om oss";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Här hittar du våra kontaktuppgifter";
+            ViewBag.Message = "Kontakta oss";
 
             return View();
         }
