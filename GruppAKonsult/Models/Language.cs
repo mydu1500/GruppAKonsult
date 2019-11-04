@@ -14,7 +14,7 @@ namespace GruppAKonsult.Models
     
     public partial class Language
     {
-        public int CV__Id { get; set; }
+        public int CV_Id { get; set; }
         public int Candidate_Id { get; set; }
         public string Swedish { get; set; }
         public string English { get; set; }

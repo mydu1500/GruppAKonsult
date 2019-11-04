@@ -5,25 +5,25 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="GruppAKonsult_dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="Customer_Id" />
-          </Key>
-          <Property Name="Customer_Id" Type="int" Nullable="false" />
-          <Property Name="Companyname" Type="varchar" MaxLength="50" />
-          <Property Name="Email" Type="varchar" MaxLength="50" />
-          <Property Name="Phonenumber" Type="int" />
-        </EntityType>
         <EntityType Name="CV">
           <Key>
             <PropertyRef Name="CV_Id" />
           </Key>
           <Property Name="CV_Id" Type="int" Nullable="false" />
           <Property Name="Candidate_Id" Type="int" Nullable="false" />
-          <Property Name="Derivinglicense" Type="varchar" MaxLength="50" />
-          <Property Name="Description" Type="varchar" MaxLength="50" />
+          <Property Name="Drivinglicense" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
           <Property Name="Education" Type="varchar" MaxLength="50" />
           <Property Name="Workexperience" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Employer">
+          <Key>
+            <PropertyRef Name="Employer_Id" />
+          </Key>
+          <Property Name="Employer_Id" Type="int" Nullable="false" />
+          <Property Name="Companyname" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Phonenumber" Type="int" />
         </EntityType>
         <EntityType Name="Freelancer">
           <Key>
@@ -44,18 +44,19 @@
         <EntityType Name="Jobbank">
           <Key>
             <PropertyRef Name="Profile_Id" />
-            <PropertyRef Name="Customer_Id" />
+            <PropertyRef Name="Employer_Id" />
             <PropertyRef Name="Candidate_Id" />
           </Key>
           <Property Name="Profile_Id" Type="int" Nullable="false" />
-          <Property Name="Customer_Id" Type="int" Nullable="false" />
+          <Property Name="Employer_Id" Type="int" Nullable="false" />
           <Property Name="Candidate_Id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Language">
           <Key>
-            <PropertyRef Name="CV_ Id" />
+            <PropertyRef Name="CV_Id" />
+            <PropertyRef Name="Candidate_Id" />
           </Key>
-          <Property Name="CV_ Id" Type="int" Nullable="false" />
+          <Property Name="CV_Id" Type="int" Nullable="false" />
           <Property Name="Candidate_Id" Type="int" Nullable="false" />
           <Property Name="Swedish" Type="varchar" MaxLength="50" />
           <Property Name="English" Type="varchar" MaxLength="50" />
@@ -69,6 +70,7 @@
         <EntityType Name="Profession">
           <Key>
             <PropertyRef Name="Candidate_Id" />
+            <PropertyRef Name="CV_Id" />
           </Key>
           <Property Name="Candidate_Id" Type="int" Nullable="false" />
           <Property Name="CV_Id" Type="int" Nullable="false" />
@@ -84,14 +86,17 @@
         <EntityType Name="Profile">
           <Key>
             <PropertyRef Name="Profile_Id" />
+            <PropertyRef Name="Employer_Id" />
+            <PropertyRef Name="Candidate_Id" />
           </Key>
           <Property Name="Profile_Id" Type="int" Nullable="false" />
-          <Property Name="Customer_Id" Type="int" Nullable="false" />
+          <Property Name="Employer_Id" Type="int" Nullable="false" />
           <Property Name="Candidate_Id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Skills">
           <Key>
             <PropertyRef Name="CV_Id" />
+            <PropertyRef Name="Candidate_Id" />
           </Key>
           <Property Name="CV_Id" Type="int" Nullable="false" />
           <Property Name="Candidate_Id" Type="int" Nullable="false" />
@@ -104,7 +109,7 @@
           <Property Name="CSS" Type="varchar" MaxLength="50" />
           <Property Name="SQL" Type="varchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__CV__Candidate_Id__4D94879B">
+        <Association Name="FK__CV__Candidate_Id__656C112C">
           <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
           <End Role="CV" Type="Self.CV" Multiplicity="*" />
           <ReferentialConstraint>
@@ -128,31 +133,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Jobbank__Custome__52593CB8">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+        <Association Name="FK__Jobbank__Employe__6B24EA82">
+          <End Role="Employer" Type="Self.Employer" Multiplicity="1" />
           <End Role="Jobbank" Type="Self.Jobbank" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="Customer_Id" />
+            <Principal Role="Employer">
+              <PropertyRef Name="Employer_Id" />
             </Principal>
             <Dependent Role="Jobbank">
-              <PropertyRef Name="Customer_Id" />
+              <PropertyRef Name="Employer_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Jobbank__Profile__5441852A">
-          <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
-          <End Role="Jobbank" Type="Self.Jobbank" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Profile">
-              <PropertyRef Name="Profile_Id" />
-            </Principal>
-            <Dependent Role="Jobbank">
-              <PropertyRef Name="Profile_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Language__Candid__59063A47">
+        <Association Name="FK__Language__Candid__6FE99F9F">
           <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
           <End Role="Language" Type="Self.Language" Multiplicity="*" />
           <ReferentialConstraint>
@@ -164,7 +157,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Professio__CV_Id__5BE2A6F2">
+        <Association Name="FK__Professio__CV_Id__72C60C4A">
           <End Role="CV" Type="Self.CV" Multiplicity="1" />
           <End Role="Profession" Type="Self.Profession" Multiplicity="*" />
           <ReferentialConstraint>
@@ -176,7 +169,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Profile__Candida__5629CD9C">
+        <Association Name="FK__Profile__Candida__6C190EBB">
           <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
           <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -188,19 +181,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Profile__Custome__5535A963">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+        <Association Name="FK__Profile__Employe__6D0D32F4">
+          <End Role="Employer" Type="Self.Employer" Multiplicity="1" />
           <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="Customer_Id" />
+            <Principal Role="Employer">
+              <PropertyRef Name="Employer_Id" />
             </Principal>
             <Dependent Role="Profile">
-              <PropertyRef Name="Customer_Id" />
+              <PropertyRef Name="Employer_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Skills__Candidat__5EBF139D">
+        <Association Name="FK__Skills__Candidat__68487DD7">
           <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
           <End Role="Skills" Type="Self.Skills" Multiplicity="*" />
           <ReferentialConstraint>
@@ -213,15 +206,15 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="GruppAKonsult_dbModelStoreContainer">
-          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CV" EntityType="Self.CV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employer" EntityType="Self.Employer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Freelancer" EntityType="Self.Freelancer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Jobbank" EntityType="Self.Jobbank" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Profession" EntityType="Self.Profession" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Profile" EntityType="Self.Profile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Skills" EntityType="Self.Skills" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__CV__Candidate_Id__4D94879B" Association="Self.FK__CV__Candidate_Id__4D94879B">
+          <AssociationSet Name="FK__CV__Candidate_Id__656C112C" Association="Self.FK__CV__Candidate_Id__656C112C">
             <End Role="Freelancer" EntitySet="Freelancer" />
             <End Role="CV" EntitySet="CV" />
           </AssociationSet>
@@ -229,31 +222,27 @@
             <End Role="Freelancer" EntitySet="Freelancer" />
             <End Role="Jobbank" EntitySet="Jobbank" />
           </AssociationSet>
-          <AssociationSet Name="FK__Jobbank__Custome__52593CB8" Association="Self.FK__Jobbank__Custome__52593CB8">
-            <End Role="Customer" EntitySet="Customer" />
+          <AssociationSet Name="FK__Jobbank__Employe__6B24EA82" Association="Self.FK__Jobbank__Employe__6B24EA82">
+            <End Role="Employer" EntitySet="Employer" />
             <End Role="Jobbank" EntitySet="Jobbank" />
           </AssociationSet>
-          <AssociationSet Name="FK__Jobbank__Profile__5441852A" Association="Self.FK__Jobbank__Profile__5441852A">
-            <End Role="Profile" EntitySet="Profile" />
-            <End Role="Jobbank" EntitySet="Jobbank" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Language__Candid__59063A47" Association="Self.FK__Language__Candid__59063A47">
+          <AssociationSet Name="FK__Language__Candid__6FE99F9F" Association="Self.FK__Language__Candid__6FE99F9F">
             <End Role="Freelancer" EntitySet="Freelancer" />
             <End Role="Language" EntitySet="Language" />
           </AssociationSet>
-          <AssociationSet Name="FK__Professio__CV_Id__5BE2A6F2" Association="Self.FK__Professio__CV_Id__5BE2A6F2">
+          <AssociationSet Name="FK__Professio__CV_Id__72C60C4A" Association="Self.FK__Professio__CV_Id__72C60C4A">
             <End Role="CV" EntitySet="CV" />
             <End Role="Profession" EntitySet="Profession" />
           </AssociationSet>
-          <AssociationSet Name="FK__Profile__Candida__5629CD9C" Association="Self.FK__Profile__Candida__5629CD9C">
+          <AssociationSet Name="FK__Profile__Candida__6C190EBB" Association="Self.FK__Profile__Candida__6C190EBB">
             <End Role="Freelancer" EntitySet="Freelancer" />
             <End Role="Profile" EntitySet="Profile" />
           </AssociationSet>
-          <AssociationSet Name="FK__Profile__Custome__5535A963" Association="Self.FK__Profile__Custome__5535A963">
-            <End Role="Customer" EntitySet="Customer" />
+          <AssociationSet Name="FK__Profile__Employe__6D0D32F4" Association="Self.FK__Profile__Employe__6D0D32F4">
+            <End Role="Employer" EntitySet="Employer" />
             <End Role="Profile" EntitySet="Profile" />
           </AssociationSet>
-          <AssociationSet Name="FK__Skills__Candidat__5EBF139D" Association="Self.FK__Skills__Candidat__5EBF139D">
+          <AssociationSet Name="FK__Skills__Candidat__68487DD7" Association="Self.FK__Skills__Candidat__68487DD7">
             <End Role="Freelancer" EntitySet="Freelancer" />
             <End Role="Skills" EntitySet="Skills" />
           </AssociationSet>
@@ -263,29 +252,29 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="GruppAKonsult_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Customer">
-          <Key>
-            <PropertyRef Name="Customer_Id" />
-          </Key>
-          <Property Name="Customer_Id" Type="Int32" Nullable="false" />
-          <Property Name="Companyname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Phonenumber" Type="Int32" />
-          <NavigationProperty Name="Jobbank" Relationship="Self.FK__Jobbank__Custome__52593CB8" FromRole="Customer" ToRole="Jobbank" />
-          <NavigationProperty Name="Profile" Relationship="Self.FK__Profile__Custome__5535A963" FromRole="Customer" ToRole="Profile" />
-        </EntityType>
         <EntityType Name="CV">
           <Key>
             <PropertyRef Name="CV_Id" />
           </Key>
           <Property Name="CV_Id" Type="Int32" Nullable="false" />
           <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
-          <Property Name="Derivinglicense" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Drivinglicense" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Education" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Workexperience" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Freelancer" Relationship="Self.FK__CV__Candidate_Id__4D94879B" FromRole="CV" ToRole="Freelancer" />
-          <NavigationProperty Name="Profession" Relationship="Self.FK__Professio__CV_Id__5BE2A6F2" FromRole="CV" ToRole="Profession" />
+          <NavigationProperty Name="Freelancer" Relationship="Self.FK__CV__Candidate_Id__656C112C" FromRole="CV" ToRole="Freelancer" />
+          <NavigationProperty Name="Profession" Relationship="Self.FK__Professio__CV_Id__72C60C4A" FromRole="CV" ToRole="Profession" />
+        </EntityType>
+        <EntityType Name="Employer">
+          <Key>
+            <PropertyRef Name="Employer_Id" />
+          </Key>
+          <Property Name="Employer_Id" Type="Int32" Nullable="false" />
+          <Property Name="Companyname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Phonenumber" Type="Int32" />
+          <NavigationProperty Name="Jobbank" Relationship="Self.FK__Jobbank__Employe__6B24EA82" FromRole="Employer" ToRole="Jobbank" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK__Profile__Employe__6D0D32F4" FromRole="Employer" ToRole="Profile" />
         </EntityType>
         <EntityType Name="Freelancer">
           <Key>
@@ -302,30 +291,30 @@
           <Property Name="Cityofbirth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Phonenumber" Type="Int32" />
-          <NavigationProperty Name="CV" Relationship="Self.FK__CV__Candidate_Id__4D94879B" FromRole="Freelancer" ToRole="CV" />
+          <NavigationProperty Name="CV" Relationship="Self.FK__CV__Candidate_Id__656C112C" FromRole="Freelancer" ToRole="CV" />
           <NavigationProperty Name="Jobbank" Relationship="Self.FK__Jobbank__Candida__534D60F1" FromRole="Freelancer" ToRole="Jobbank" />
-          <NavigationProperty Name="Language" Relationship="Self.FK__Language__Candid__59063A47" FromRole="Freelancer" ToRole="Language" />
-          <NavigationProperty Name="Profile" Relationship="Self.FK__Profile__Candida__5629CD9C" FromRole="Freelancer" ToRole="Profile" />
-          <NavigationProperty Name="Skills" Relationship="Self.FK__Skills__Candidat__5EBF139D" FromRole="Freelancer" ToRole="Skills" />
+          <NavigationProperty Name="Language" Relationship="Self.FK__Language__Candid__6FE99F9F" FromRole="Freelancer" ToRole="Language" />
+          <NavigationProperty Name="Profile" Relationship="Self.FK__Profile__Candida__6C190EBB" FromRole="Freelancer" ToRole="Profile" />
+          <NavigationProperty Name="Skills" Relationship="Self.FK__Skills__Candidat__68487DD7" FromRole="Freelancer" ToRole="Skills" />
         </EntityType>
         <EntityType Name="Jobbank">
           <Key>
             <PropertyRef Name="Profile_Id" />
-            <PropertyRef Name="Customer_Id" />
+            <PropertyRef Name="Employer_Id" />
             <PropertyRef Name="Candidate_Id" />
           </Key>
           <Property Name="Profile_Id" Type="Int32" Nullable="false" />
-          <Property Name="Customer_Id" Type="Int32" Nullable="false" />
+          <Property Name="Employer_Id" Type="Int32" Nullable="false" />
           <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK__Jobbank__Custome__52593CB8" FromRole="Jobbank" ToRole="Customer" />
+          <NavigationProperty Name="Employer" Relationship="Self.FK__Jobbank__Employe__6B24EA82" FromRole="Jobbank" ToRole="Employer" />
           <NavigationProperty Name="Freelancer" Relationship="Self.FK__Jobbank__Candida__534D60F1" FromRole="Jobbank" ToRole="Freelancer" />
-          <NavigationProperty Name="Profile" Relationship="Self.FK__Jobbank__Profile__5441852A" FromRole="Jobbank" ToRole="Profile" />
         </EntityType>
         <EntityType Name="Language">
           <Key>
-            <PropertyRef Name="CV__Id" />
+            <PropertyRef Name="CV_Id" />
+            <PropertyRef Name="Candidate_Id" />
           </Key>
-          <Property Name="CV__Id" Type="Int32" Nullable="false" />
+          <Property Name="CV_Id" Type="Int32" Nullable="false" />
           <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
           <Property Name="Swedish" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="English" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -335,11 +324,12 @@
           <Property Name="Norwegian" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Danish" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Finnish" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Freelancer" Relationship="Self.FK__Language__Candid__59063A47" FromRole="Language" ToRole="Freelancer" />
+          <NavigationProperty Name="Freelancer" Relationship="Self.FK__Language__Candid__6FE99F9F" FromRole="Language" ToRole="Freelancer" />
         </EntityType>
         <EntityType Name="Profession">
           <Key>
             <PropertyRef Name="Candidate_Id" />
+            <PropertyRef Name="CV_Id" />
           </Key>
           <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
           <Property Name="CV_Id" Type="Int32" Nullable="false" />
@@ -351,22 +341,24 @@
           <Property Name="Backenddeveloper" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Javadeveloper" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Scrummaster" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CV" Relationship="Self.FK__Professio__CV_Id__5BE2A6F2" FromRole="Profession" ToRole="CV" />
+          <NavigationProperty Name="CV" Relationship="Self.FK__Professio__CV_Id__72C60C4A" FromRole="Profession" ToRole="CV" />
         </EntityType>
         <EntityType Name="Profile">
           <Key>
             <PropertyRef Name="Profile_Id" />
+            <PropertyRef Name="Employer_Id" />
+            <PropertyRef Name="Candidate_Id" />
           </Key>
           <Property Name="Profile_Id" Type="Int32" Nullable="false" />
-          <Property Name="Customer_Id" Type="Int32" Nullable="false" />
+          <Property Name="Employer_Id" Type="Int32" Nullable="false" />
           <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK__Profile__Custome__5535A963" FromRole="Profile" ToRole="Customer" />
-          <NavigationProperty Name="Freelancer" Relationship="Self.FK__Profile__Candida__5629CD9C" FromRole="Profile" ToRole="Freelancer" />
-          <NavigationProperty Name="Jobbank" Relationship="Self.FK__Jobbank__Profile__5441852A" FromRole="Profile" ToRole="Jobbank" />
+          <NavigationProperty Name="Employer" Relationship="Self.FK__Profile__Employe__6D0D32F4" FromRole="Profile" ToRole="Employer" />
+          <NavigationProperty Name="Freelancer" Relationship="Self.FK__Profile__Candida__6C190EBB" FromRole="Profile" ToRole="Freelancer" />
         </EntityType>
         <EntityType Name="Skills">
           <Key>
             <PropertyRef Name="CV_Id" />
+            <PropertyRef Name="Candidate_Id" />
           </Key>
           <Property Name="CV_Id" Type="Int32" Nullable="false" />
           <Property Name="Candidate_Id" Type="Int32" Nullable="false" />
@@ -378,33 +370,9 @@
           <Property Name="HTML" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="CSS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="SQL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Freelancer" Relationship="Self.FK__Skills__Candidat__5EBF139D" FromRole="Skills" ToRole="Freelancer" />
+          <NavigationProperty Name="Freelancer" Relationship="Self.FK__Skills__Candidat__68487DD7" FromRole="Skills" ToRole="Freelancer" />
         </EntityType>
-        <Association Name="FK__Jobbank__Custome__52593CB8">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="Jobbank" Type="Self.Jobbank" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="Customer_Id" />
-            </Principal>
-            <Dependent Role="Jobbank">
-              <PropertyRef Name="Customer_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Profile__Custome__5535A963">
-          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
-          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="Customer_Id" />
-            </Principal>
-            <Dependent Role="Profile">
-              <PropertyRef Name="Customer_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CV__Candidate_Id__4D94879B">
+        <Association Name="FK__CV__Candidate_Id__656C112C">
           <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
           <End Role="CV" Type="Self.CV" Multiplicity="*" />
           <ReferentialConstraint>
@@ -416,7 +384,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Professio__CV_Id__5BE2A6F2">
+        <Association Name="FK__Professio__CV_Id__72C60C4A">
           <End Role="CV" Type="Self.CV" Multiplicity="1" />
           <End Role="Profession" Type="Self.Profession" Multiplicity="*" />
           <ReferentialConstraint>
@@ -425,6 +393,30 @@
             </Principal>
             <Dependent Role="Profession">
               <PropertyRef Name="CV_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Jobbank__Employe__6B24EA82">
+          <End Role="Employer" Type="Self.Employer" Multiplicity="1" />
+          <End Role="Jobbank" Type="Self.Jobbank" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employer">
+              <PropertyRef Name="Employer_Id" />
+            </Principal>
+            <Dependent Role="Jobbank">
+              <PropertyRef Name="Employer_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Profile__Employe__6D0D32F4">
+          <End Role="Employer" Type="Self.Employer" Multiplicity="1" />
+          <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employer">
+              <PropertyRef Name="Employer_Id" />
+            </Principal>
+            <Dependent Role="Profile">
+              <PropertyRef Name="Employer_Id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -440,7 +432,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Language__Candid__59063A47">
+        <Association Name="FK__Language__Candid__6FE99F9F">
           <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
           <End Role="Language" Type="Self.Language" Multiplicity="*" />
           <ReferentialConstraint>
@@ -452,7 +444,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Profile__Candida__5629CD9C">
+        <Association Name="FK__Profile__Candida__6C190EBB">
           <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
           <End Role="Profile" Type="Self.Profile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -464,7 +456,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Skills__Candidat__5EBF139D">
+        <Association Name="FK__Skills__Candidat__68487DD7">
           <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
           <End Role="Skills" Type="Self.Skills" Multiplicity="*" />
           <ReferentialConstraint>
@@ -476,62 +468,46 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Jobbank__Profile__5441852A">
-          <End Role="Profile" Type="Self.Profile" Multiplicity="1" />
-          <End Role="Jobbank" Type="Self.Jobbank" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Profile">
-              <PropertyRef Name="Profile_Id" />
-            </Principal>
-            <Dependent Role="Jobbank">
-              <PropertyRef Name="Profile_Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="GruppAKonsult_dbEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Customer" EntityType="Self.Customer" />
+        <EntityContainer Name="GruppAKonsult_dbEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CV" EntityType="Self.CV" />
+          <EntitySet Name="Employer" EntityType="Self.Employer" />
           <EntitySet Name="Freelancer" EntityType="Self.Freelancer" />
           <EntitySet Name="Jobbank" EntityType="Self.Jobbank" />
           <EntitySet Name="Language" EntityType="Self.Language" />
           <EntitySet Name="Profession" EntityType="Self.Profession" />
           <EntitySet Name="Profile" EntityType="Self.Profile" />
           <EntitySet Name="Skills" EntityType="Self.Skills" />
-          <AssociationSet Name="FK__Jobbank__Custome__52593CB8" Association="Self.FK__Jobbank__Custome__52593CB8">
-            <End Role="Customer" EntitySet="Customer" />
-            <End Role="Jobbank" EntitySet="Jobbank" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Profile__Custome__5535A963" Association="Self.FK__Profile__Custome__5535A963">
-            <End Role="Customer" EntitySet="Customer" />
-            <End Role="Profile" EntitySet="Profile" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CV__Candidate_Id__4D94879B" Association="Self.FK__CV__Candidate_Id__4D94879B">
+          <AssociationSet Name="FK__CV__Candidate_Id__656C112C" Association="Self.FK__CV__Candidate_Id__656C112C">
             <End Role="Freelancer" EntitySet="Freelancer" />
             <End Role="CV" EntitySet="CV" />
           </AssociationSet>
-          <AssociationSet Name="FK__Professio__CV_Id__5BE2A6F2" Association="Self.FK__Professio__CV_Id__5BE2A6F2">
+          <AssociationSet Name="FK__Professio__CV_Id__72C60C4A" Association="Self.FK__Professio__CV_Id__72C60C4A">
             <End Role="CV" EntitySet="CV" />
             <End Role="Profession" EntitySet="Profession" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Jobbank__Employe__6B24EA82" Association="Self.FK__Jobbank__Employe__6B24EA82">
+            <End Role="Employer" EntitySet="Employer" />
+            <End Role="Jobbank" EntitySet="Jobbank" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Profile__Employe__6D0D32F4" Association="Self.FK__Profile__Employe__6D0D32F4">
+            <End Role="Employer" EntitySet="Employer" />
+            <End Role="Profile" EntitySet="Profile" />
           </AssociationSet>
           <AssociationSet Name="FK__Jobbank__Candida__534D60F1" Association="Self.FK__Jobbank__Candida__534D60F1">
             <End Role="Freelancer" EntitySet="Freelancer" />
             <End Role="Jobbank" EntitySet="Jobbank" />
           </AssociationSet>
-          <AssociationSet Name="FK__Language__Candid__59063A47" Association="Self.FK__Language__Candid__59063A47">
+          <AssociationSet Name="FK__Language__Candid__6FE99F9F" Association="Self.FK__Language__Candid__6FE99F9F">
             <End Role="Freelancer" EntitySet="Freelancer" />
             <End Role="Language" EntitySet="Language" />
           </AssociationSet>
-          <AssociationSet Name="FK__Profile__Candida__5629CD9C" Association="Self.FK__Profile__Candida__5629CD9C">
+          <AssociationSet Name="FK__Profile__Candida__6C190EBB" Association="Self.FK__Profile__Candida__6C190EBB">
             <End Role="Freelancer" EntitySet="Freelancer" />
             <End Role="Profile" EntitySet="Profile" />
           </AssociationSet>
-          <AssociationSet Name="FK__Skills__Candidat__5EBF139D" Association="Self.FK__Skills__Candidat__5EBF139D">
+          <AssociationSet Name="FK__Skills__Candidat__68487DD7" Association="Self.FK__Skills__Candidat__68487DD7">
             <End Role="Freelancer" EntitySet="Freelancer" />
             <End Role="Skills" EntitySet="Skills" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Jobbank__Profile__5441852A" Association="Self.FK__Jobbank__Profile__5441852A">
-            <End Role="Profile" EntitySet="Profile" />
-            <End Role="Jobbank" EntitySet="Jobbank" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -539,26 +515,26 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GruppAKonsult_dbModelStoreContainer" CdmEntityContainer="GruppAKonsult_dbEntities">
-          <EntitySetMapping Name="Customer">
-            <EntityTypeMapping TypeName="GruppAKonsult_dbModel.Customer">
-              <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
-                <ScalarProperty Name="Companyname" ColumnName="Companyname" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="GruppAKonsult_dbModelStoreContainer" CdmEntityContainer="GruppAKonsult_dbEntities2">
           <EntitySetMapping Name="CV">
             <EntityTypeMapping TypeName="GruppAKonsult_dbModel.CV">
               <MappingFragment StoreEntitySet="CV">
                 <ScalarProperty Name="CV_Id" ColumnName="CV_Id" />
                 <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
-                <ScalarProperty Name="Derivinglicense" ColumnName="Derivinglicense" />
+                <ScalarProperty Name="Drivinglicense" ColumnName="Drivinglicense" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Education" ColumnName="Education" />
                 <ScalarProperty Name="Workexperience" ColumnName="Workexperience" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employer">
+            <EntityTypeMapping TypeName="GruppAKonsult_dbModel.Employer">
+              <MappingFragment StoreEntitySet="Employer">
+                <ScalarProperty Name="Employer_Id" ColumnName="Employer_Id" />
+                <ScalarProperty Name="Companyname" ColumnName="Companyname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phonenumber" ColumnName="Phonenumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -583,7 +559,7 @@
             <EntityTypeMapping TypeName="GruppAKonsult_dbModel.Jobbank">
               <MappingFragment StoreEntitySet="Jobbank">
                 <ScalarProperty Name="Profile_Id" ColumnName="Profile_Id" />
-                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+                <ScalarProperty Name="Employer_Id" ColumnName="Employer_Id" />
                 <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -591,7 +567,7 @@
           <EntitySetMapping Name="Language">
             <EntityTypeMapping TypeName="GruppAKonsult_dbModel.Language">
               <MappingFragment StoreEntitySet="Language">
-                <ScalarProperty Name="CV__Id" ColumnName="CV_ Id" />
+                <ScalarProperty Name="CV_Id" ColumnName="CV_Id" />
                 <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
                 <ScalarProperty Name="Swedish" ColumnName="Swedish" />
                 <ScalarProperty Name="English" ColumnName="English" />
@@ -624,7 +600,7 @@
             <EntityTypeMapping TypeName="GruppAKonsult_dbModel.Profile">
               <MappingFragment StoreEntitySet="Profile">
                 <ScalarProperty Name="Profile_Id" ColumnName="Profile_Id" />
-                <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+                <ScalarProperty Name="Employer_Id" ColumnName="Employer_Id" />
                 <ScalarProperty Name="Candidate_Id" ColumnName="Candidate_Id" />
               </MappingFragment>
             </EntityTypeMapping>

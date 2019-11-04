@@ -13,10 +13,10 @@ namespace GruppAKonsult.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GruppAKonsult_dbEntities : DbContext
+    public partial class GruppAKonsult_dbEntities2 : DbContext
     {
-        public GruppAKonsult_dbEntities()
-            : base("name=GruppAKonsult_dbEntities")
+        public GruppAKonsult_dbEntities2()
+            : base("name=GruppAKonsult_dbEntities2")
         {
         }
     
@@ -25,8 +25,8 @@ namespace GruppAKonsult.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Customer> Customer { get; set; }
         public virtual DbSet<CV> CV { get; set; }
+        public virtual DbSet<Employer> Employer { get; set; }
         public virtual DbSet<Freelancer> Freelancer { get; set; }
         public virtual DbSet<Jobbank> Jobbank { get; set; }
         public virtual DbSet<Language> Language { get; set; }

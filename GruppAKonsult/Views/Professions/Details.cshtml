@@ -1,0 +1,90 @@
+﻿@model GruppAKonsult.Models.Profession
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Profession</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Webbdeveloper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Webbdeveloper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Systemdeveloper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Systemdeveloper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Programmer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Programmer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Softwareengineer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Softwareengineer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Frontenddeveloper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Frontenddeveloper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Backenddeveloper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Backenddeveloper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Javadeveloper)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Javadeveloper)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Scrummaster)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Scrummaster)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CV.Drivinglicense)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CV.Drivinglicense)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

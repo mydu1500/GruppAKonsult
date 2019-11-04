@@ -1,0 +1,81 @@
+﻿@model IEnumerable<GruppAKonsult.Models.Skills>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.C_)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JavaScript)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Java)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.C__)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JQuery)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HTML)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CSS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SQL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Freelancer.Firstname)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.C_)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JavaScript)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Java)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.C__)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JQuery)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HTML)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CSS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SQL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Freelancer.Firstname)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
