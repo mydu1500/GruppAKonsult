@@ -15,11 +15,10 @@ namespace GruppAKonsult.Models
     public partial class Jobbank
     {
         public int Profile_Id { get; set; }
-        public int Customer_Id { get; set; }
+        public int Employer_Id { get; set; }
         public int Candidate_Id { get; set; }
     
-        public virtual Customer Customer { get; set; }
+        public virtual Employer Employer { get; set; }
         public virtual Freelancer Freelancer { get; set; }
-        public virtual Profile Profile { get; set; }
     }
 }

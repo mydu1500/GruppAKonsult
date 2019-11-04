@@ -22,7 +22,7 @@ namespace GruppAKonsult.Models
     
         public int CV_Id { get; set; }
         public int Candidate_Id { get; set; }
-        public string Derivinglicense { get; set; }
+        public string Drivinglicense { get; set; }
         public string Description { get; set; }
         public string Education { get; set; }
         public string Workexperience { get; set; }
