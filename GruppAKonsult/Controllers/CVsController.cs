@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GruppAKonsult.Models;
+using GruppAKonsult.ViewModels;
 
 namespace GruppAKonsult.Controllers
 {
@@ -59,6 +60,30 @@ namespace GruppAKonsult.Controllers
 
             ViewBag.Candidate_Id = new SelectList(db.Freelancer, "Candidate_Id", "Firstname", cV.Candidate_Id);
             return View(cV);
+        }
+
+        public ActionResult Edit(int? Candidate_Id)
+        {
+            if (Candidate_Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var cvvm = new CVViewModel
+            {
+                cv = db.CV.Include(i => i.Profession).First(i => i.Candidate_Id == Candidate_Id),
+            };
+            if (cvvm.cv == null)
+                return HttpNotFound();
+            var coursesList = db.Profession.ToList();
+            cvvm.AllProfessions = coursesList.Select(o => new SelectListItem
+            {
+                Text = o.CourseName,
+                Value = o.Id.ToString()
+            });
+            ViewBag.EmployerID =
+            new SelectList(db.Student, "Id", "Name",
+            programViewModel.Program.StudentID);
+            return View(programViewModel);
         }
 
         // GET: CVs/Edit/5

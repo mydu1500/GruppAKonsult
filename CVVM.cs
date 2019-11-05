@@ -1,4 +1,5 @@
 ﻿using System;
+using GruppAKonsult.Models;
 
 public class CVVM
 {
@@ -6,7 +7,7 @@ public class CVVM
 	{
 	}
 
-    public CV CV { get; set; }
+    public CV cv { get; set; }
     public IEnumerable<SelectListItem> AllProfessions { get; set; }
     private List<int> listOfProfessions;
     public List<int> ListOfProfessions

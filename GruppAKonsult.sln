@@ -7,11 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GruppAKonsult", "GruppAKons
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GruppAKonsult.Tests", "GruppAKonsult.Tests\GruppAKonsult.Tests.csproj", "{A1D72DD0-3DCB-49A8-9160-5A76748CA4FF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModels", "ViewModels", "{6DF4E0DB-AED2-403D-B1DA-534304BE4A91}"
-	ProjectSection(SolutionItems) = preProject
-		CVVM.cs = CVVM.cs
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
