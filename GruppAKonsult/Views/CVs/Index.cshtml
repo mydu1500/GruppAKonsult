@@ -29,29 +29,37 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Drivinglicense)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Education)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Workexperience)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Freelancer.Firstname)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CV_Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.CV_Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CV_Id })
+            </td>
+        </tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Profession)
+        </th>
         <td>
-            @Html.DisplayFor(modelItem => item.Drivinglicense)
+            @Html.ListBox("Candidate_Id", new SelectList(item.Profession, "Candidate_Id", "Webdeveloper"))
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Education)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Workexperience)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Freelancer.Firstname)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CV_Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CV_Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CV_Id })
-        </td>
-    </tr>
-}
+    }
 
 </table>
