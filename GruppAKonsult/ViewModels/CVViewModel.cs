@@ -9,7 +9,7 @@ namespace GruppAKonsult.ViewModels
 {
     public class CVViewModel
     {
-        public CV cv { get; set; }
+        public CV Cv { get; set; }
         public IEnumerable<SelectListItem> AllProfessions { get; set; }
         private List<int> listOfProfessions;
         public List<int> ListOfProfessions
@@ -18,7 +18,7 @@ namespace GruppAKonsult.ViewModels
             {
                 if (listOfProfessions == null)
                 {
-                    listOfProfessions = CV.Profession.Select(m => m.Candidate_Id).ToList();
+                    listOfProfessions = Cv.Profession.Select(m => m.Candidate_Id).ToList();
                 }
                 return listOfProfessions;
             }
