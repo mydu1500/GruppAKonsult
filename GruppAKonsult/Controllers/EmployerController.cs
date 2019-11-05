@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GruppAKonsult.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,10 @@ namespace GruppAKonsult.Controllers
 {
     public class EmployerController : Controller
     {
+
+        GruppAKonsult_dbEntities2 db = new GruppAKonsult_dbEntities2();
+
+
         // GET: Employer
         public ActionResult Index()
         {
@@ -20,7 +25,9 @@ namespace GruppAKonsult.Controllers
 
         public ActionResult EmployerFind()
         {
-            return View();
+
+            
+            return View(db.);
         }
 
     }
