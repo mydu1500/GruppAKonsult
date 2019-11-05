@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GruppAKonsult.Models;
+using GruppAKonsult.ViewModels;
 
 namespace GruppAKonsult.Controllers
 {
@@ -61,21 +62,45 @@ namespace GruppAKonsult.Controllers
             return View(cV);
         }
 
-        // GET: CVs/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? Candidate_Id)
         {
-            if (id == null)
+            if (Candidate_Id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CV cV = db.CV.Find(id);
-            if (cV == null)
+            var cvvm = new CVViewModel
             {
+                Cv = db.CV.Include(i => i.Profession).First(i => i.Candidate_Id == Candidate_Id),
+            };
+            if (cvvm.Cv == null)
                 return HttpNotFound();
-            }
-            ViewBag.Candidate_Id = new SelectList(db.Freelancer, "Candidate_Id", "Firstname", cV.Candidate_Id);
-            return View(cV);
+            var professionList = db.Profession.ToList();
+            cvvm.AllProfessions = professionList.Select(o => new SelectListItem
+            {
+                Text = o.Backenddeveloper,
+                Value = o.Candidate_Id.ToString()
+            });
+            ViewBag.EmployerID =
+            new SelectList(db.CV, "Candidate_Id", "Profession",
+            cvvm.Cv.Candidate_Id);
+            return View(cvvm);
         }
+
+        // GET: CVs/Edit/5
+        //public ActionResult Edit(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    CV cV = db.CV.Find(id);
+        //    if (cV == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    ViewBag.Candidate_Id = new SelectList(db.Freelancer, "Candidate_Id", "Firstname", cV.Candidate_Id);
+        //    return View(cV);
+        //}
 
         // POST: CVs/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
