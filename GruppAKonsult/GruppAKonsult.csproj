@@ -148,6 +148,7 @@
     <Compile Include="Models\CV.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataManager\DbManager.cs" />
     <Compile Include="Models\Employer.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
