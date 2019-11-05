@@ -14,19 +14,11 @@ namespace GruppAKonsult.Models
     
     public partial class Profile
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Profile()
-        {
-            this.Jobbank = new HashSet<Jobbank>();
-        }
-    
         public int Profile_Id { get; set; }
-        public int Customer_Id { get; set; }
+        public int Employer_Id { get; set; }
         public int Candidate_Id { get; set; }
     
-        public virtual Customer Customer { get; set; }
+        public virtual Employer Employer { get; set; }
         public virtual Freelancer Freelancer { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Jobbank> Jobbank { get; set; }
     }
 }

@@ -11,7 +11,8 @@ namespace GruppAKonsult.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Mvc;
+
     public partial class CV
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,10 +20,15 @@ namespace GruppAKonsult.Models
         {
             this.Profession = new HashSet<Profession>();
         }
-    
+
+        public IEnumerable<SelectListItem> AllProfessions { get; set; }
+        public List<int> listOfProfessions;
+        public List<int> ListOfProfessions;
+
+
         public int CV_Id { get; set; }
         public int Candidate_Id { get; set; }
-        public string Derivinglicense { get; set; }
+        public string Drivinglicense { get; set; }
         public string Description { get; set; }
         public string Education { get; set; }
         public string Workexperience { get; set; }

@@ -130,60 +130,63 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CVsController.cs" />
     <Compile Include="Controllers\EmployerController.cs" />
+    <Compile Include="Controllers\EmployersController.cs" />
+    <Compile Include="Controllers\FreelancersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobbanksController.cs" />
+    <Compile Include="Controllers\LanguagesController.cs" />
     <Compile Include="Controllers\LogInController.cs" />
+    <Compile Include="Controllers\ProfessionsController.cs" />
     <Compile Include="Controllers\ProfileFreelancerController.cs" />
+    <Compile Include="Controllers\ProfilesController.cs" />
+    <Compile Include="Controllers\SkillsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Customer.cs">
-      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\CV.cs">
-      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataManager\DbManager.cs" />
+    <Compile Include="Models\Employer.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Freelancer.cs">
-      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GruppAKonsultModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GruppAKonsultModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GruppAKonsultModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\GruppAKonsultModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GruppAKonsultModel.edmx</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Jobbank.cs">
-      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Language.cs">
-      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Profession.cs">
-      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Profile.cs">
-      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Skills.cs">
-      <DependentUpon>GruppAKonsultModel.tt</DependentUpon>
+      <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\CvRepository.cs" />
-    <Compile Include="Repository\ICvRepository.cs" />
-    <Compile Include="ViewModels\CVVM.cs" />
-    <Compile Include="ViewModels\EmployerVM.cs" />
-    <Compile Include="ViewModels\FreelancerVM.cs" />
-    <Compile Include="ViewModels\LanguageVM.cs" />
-    <Compile Include="ViewModels\ProfessionVM.cs" />
+    <Compile Include="ViewModels\CVViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -192,19 +195,20 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Pictures\workplace.jpg" />
     <Content Include="Content\StyleATeam.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\GruppAKonsultModel.Context.tt">
+    <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>GruppAKonsultModel.Context.cs</LastGenOutput>
-      <DependentUpon>GruppAKonsultModel.edmx</DependentUpon>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\GruppAKonsultModel.tt">
+    <Content Include="Models\Model1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GruppAKonsultModel.edmx</DependentUpon>
-      <LastGenOutput>GruppAKonsultModel.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -230,12 +234,12 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Content\_bootswatch.scss" />
     <Content Include="Content\_variables.scss" />
-    <EntityDeploy Include="Models\GruppAKonsultModel.edmx">
+    <EntityDeploy Include="Models\Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GruppAKonsultModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\GruppAKonsultModel.edmx.diagram">
-      <DependentUpon>GruppAKonsultModel.edmx</DependentUpon>
+    <Content Include="Models\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\GruppAKonsult - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\GruppAKonsult - Web Deploy1.pubxml" />
@@ -288,6 +292,49 @@
     <Content Include="Views\Employer\EmployerView.cshtml" />
     <Content Include="Views\Home\RegisterEmployer.cshtml" />
     <Content Include="Views\Home\RegisterFreelancer.cshtml" />
+    <Content Include="Views\Employer\EmployerFind.cshtml">
+      <BrowseToURL>~/Employer/EmployerFind</BrowseToURL>
+    </Content>
+    <Content Include="Views\CVs\Create.cshtml" />
+    <Content Include="Views\CVs\Delete.cshtml" />
+    <Content Include="Views\CVs\Details.cshtml" />
+    <Content Include="Views\CVs\Edit.cshtml" />
+    <Content Include="Views\CVs\Index.cshtml" />
+    <Content Include="Views\Employers\Create.cshtml" />
+    <Content Include="Views\Employers\Delete.cshtml" />
+    <Content Include="Views\Employers\Details.cshtml" />
+    <Content Include="Views\Employers\Edit.cshtml" />
+    <Content Include="Views\Employers\Index.cshtml" />
+    <Content Include="Views\Freelancers\Create.cshtml" />
+    <Content Include="Views\Freelancers\Delete.cshtml" />
+    <Content Include="Views\Freelancers\Details.cshtml" />
+    <Content Include="Views\Freelancers\Edit.cshtml" />
+    <Content Include="Views\Freelancers\Index.cshtml" />
+    <Content Include="Views\Jobbanks\Create.cshtml" />
+    <Content Include="Views\Jobbanks\Delete.cshtml" />
+    <Content Include="Views\Jobbanks\Details.cshtml" />
+    <Content Include="Views\Jobbanks\Edit.cshtml" />
+    <Content Include="Views\Jobbanks\Index.cshtml" />
+    <Content Include="Views\Languages\Create.cshtml" />
+    <Content Include="Views\Languages\Delete.cshtml" />
+    <Content Include="Views\Languages\Details.cshtml" />
+    <Content Include="Views\Languages\Edit.cshtml" />
+    <Content Include="Views\Languages\Index.cshtml" />
+    <Content Include="Views\Professions\Create.cshtml" />
+    <Content Include="Views\Professions\Delete.cshtml" />
+    <Content Include="Views\Professions\Details.cshtml" />
+    <Content Include="Views\Professions\Edit.cshtml" />
+    <Content Include="Views\Professions\Index.cshtml" />
+    <Content Include="Views\Profiles\Create.cshtml" />
+    <Content Include="Views\Profiles\Delete.cshtml" />
+    <Content Include="Views\Profiles\Details.cshtml" />
+    <Content Include="Views\Profiles\Edit.cshtml" />
+    <Content Include="Views\Profiles\Index.cshtml" />
+    <Content Include="Views\Skills\Create.cshtml" />
+    <Content Include="Views\Skills\Delete.cshtml" />
+    <Content Include="Views\Skills\Details.cshtml" />
+    <Content Include="Views\Skills\Edit.cshtml" />
+    <Content Include="Views\Skills\Index.cshtml" />
     <Content Include="Views\ProfileFreelancer\EmptyNewProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>

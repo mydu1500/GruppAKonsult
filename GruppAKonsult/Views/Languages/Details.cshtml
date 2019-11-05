@@ -1,0 +1,90 @@
+﻿@model GruppAKonsult.Models.Language
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Language</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Swedish)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Swedish)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.English)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.English)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.French)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.French)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Spanish)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spanish)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.German)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.German)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Norwegian)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Norwegian)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Danish)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Danish)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Finnish)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Finnish)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Freelancer.Firstname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Freelancer.Firstname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

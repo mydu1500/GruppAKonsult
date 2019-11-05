@@ -26,7 +26,10 @@ namespace GruppAKonsult.Controllers
         {
             return View();
         }
-       
+        public ActionResult EmptyNewProfile2()
+        {
+            return View();
+        }
 
         public ActionResult FreelancerCV()
         {

@@ -4,24 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="21bb7182a18e4ecb9557f38419bc2318" Name="Diagram1">
-        <EntityTypeShape EntityType="GruppAKonsult_dbModel.Customer" Width="1.5" PointX="3.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="GruppAKonsult_dbModel.CV" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="GruppAKonsult_dbModel.Freelancer" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="GruppAKonsult_dbModel.Jobbank" Width="1.5" PointX="6" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="GruppAKonsult_dbModel.Language" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="GruppAKonsult_dbModel.Profession" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="GruppAKonsult_dbModel.Profile" Width="1.5" PointX="6" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="GruppAKonsult_dbModel.Skills" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
-        <AssociationConnector Association="GruppAKonsult_dbModel.FK__Jobbank__Custome__52593CB8" ManuallyRouted="false" />
-        <AssociationConnector Association="GruppAKonsult_dbModel.FK__Profile__Custome__5535A963" ManuallyRouted="false" />
-        <AssociationConnector Association="GruppAKonsult_dbModel.FK__CV__Candidate_Id__4D94879B" ManuallyRouted="false" />
-        <AssociationConnector Association="GruppAKonsult_dbModel.FK__Professio__CV_Id__5BE2A6F2" ManuallyRouted="false" />
+      <Diagram DiagramId="aed4f090ff754d8e94d1b66c12a531d1" Name="Diagram1">
+        <EntityTypeShape EntityType="GruppAKonsult_dbModel.CV" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GruppAKonsult_dbModel.Employer" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GruppAKonsult_dbModel.Freelancer" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GruppAKonsult_dbModel.Jobbank" Width="1.5" PointX="6" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GruppAKonsult_dbModel.Language" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GruppAKonsult_dbModel.Profession" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GruppAKonsult_dbModel.Profile" Width="1.5" PointX="6" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GruppAKonsult_dbModel.Skills" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <AssociationConnector Association="GruppAKonsult_dbModel.FK__CV__Candidate_Id__656C112C" ManuallyRouted="false" />
+        <AssociationConnector Association="GruppAKonsult_dbModel.FK__Professio__CV_Id__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="GruppAKonsult_dbModel.FK__Jobbank__Employe__6B24EA82" ManuallyRouted="false" />
+        <AssociationConnector Association="GruppAKonsult_dbModel.FK__Profile__Employe__6D0D32F4" ManuallyRouted="false" />
         <AssociationConnector Association="GruppAKonsult_dbModel.FK__Jobbank__Candida__534D60F1" ManuallyRouted="false" />
-        <AssociationConnector Association="GruppAKonsult_dbModel.FK__Language__Candid__59063A47" ManuallyRouted="false" />
-        <AssociationConnector Association="GruppAKonsult_dbModel.FK__Profile__Candida__5629CD9C" ManuallyRouted="false" />
-        <AssociationConnector Association="GruppAKonsult_dbModel.FK__Skills__Candidat__5EBF139D" ManuallyRouted="false" />
-        <AssociationConnector Association="GruppAKonsult_dbModel.FK__Jobbank__Profile__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="GruppAKonsult_dbModel.FK__Language__Candid__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="GruppAKonsult_dbModel.FK__Profile__Candida__6C190EBB" ManuallyRouted="false" />
+        <AssociationConnector Association="GruppAKonsult_dbModel.FK__Skills__Candidat__68487DD7" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
