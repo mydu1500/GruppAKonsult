@@ -13,23 +13,21 @@ namespace GruppAKonsult.Controllers
 {
     public class CVsController : Controller
     {
-        private GruppAKonsult_dbEntities2 db = new GruppAKonsult_dbEntities2();
-        public CVViewModel cvvm = new CVViewModel();
-       
-        public List<int> ListOfProfessions;
-        var listOfProfessions = ();
-        
-        
-
+        GruppAKonsult_dbEntities2 db = new GruppAKonsult_dbEntities2();
         // GET: CVs
         public ActionResult Index()
         {
-            var cV = db.CV.Include(c => c.Freelancer);
-            return View(cV.ToList());
+           
+            CVViewModel cvvm = new CVViewModel();
+            List<CV> ListOfCv = new List<CV>();
+            var freelancercv = db.CV.Include(c => c.Freelancer);
 
+            //var listOfProfessions = ();
+            return View(freelancercv.ToList());
         }
 
-        // GET: CVs/Details/5
+
+       // GET: CVs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
