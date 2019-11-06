@@ -16,8 +16,7 @@ namespace GruppAKonsult.Controllers
         GruppAKonsult_dbEntities2 db = new GruppAKonsult_dbEntities2();
         // GET: CVs
         public ActionResult Index()
-        {
-           
+        {           
             CVViewModel cvvm = new CVViewModel();
             List<CV> ListOfCv = new List<CV>();
             var freelancercv = db.CV.Include(c => c.Freelancer);
