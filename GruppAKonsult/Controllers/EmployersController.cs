@@ -15,9 +15,13 @@ namespace GruppAKonsult.Controllers
         private GruppAKonsult_dbEntities2 db = new GruppAKonsult_dbEntities2();
 
         // GET: Employers
+        //public ActionResult Index()
+        //{
+        //    return View(db.Employer.ToList());
+        //}
         public ActionResult Index()
         {
-            return View(db.Employer.ToList());
+            return View();
         }
 
         // GET: Employers/Details/5
