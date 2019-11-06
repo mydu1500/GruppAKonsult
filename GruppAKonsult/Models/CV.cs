@@ -12,6 +12,7 @@ namespace GruppAKonsult.Models
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
+    using GruppAKonsult.ViewModels;
 
     public partial class CV
     {
