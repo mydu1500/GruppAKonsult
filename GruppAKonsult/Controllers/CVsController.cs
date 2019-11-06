@@ -14,12 +14,19 @@ namespace GruppAKonsult.Controllers
     public class CVsController : Controller
     {
         private GruppAKonsult_dbEntities2 db = new GruppAKonsult_dbEntities2();
+        public CVViewModel cvvm = new CVViewModel();
+       
+        public List<int> ListOfProfessions;
+        var listOfProfessions = ();
+        
+        
 
         // GET: CVs
         public ActionResult Index()
         {
             var cV = db.CV.Include(c => c.Freelancer);
             return View(cV.ToList());
+
         }
 
         // GET: CVs/Details/5
