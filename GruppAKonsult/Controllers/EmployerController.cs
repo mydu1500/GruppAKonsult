@@ -25,9 +25,8 @@ namespace GruppAKonsult.Controllers
 
         public ActionResult EmployerFind()
         {
-
-            
-            return View(db.);
+           
+            return View();
         }
 
     }

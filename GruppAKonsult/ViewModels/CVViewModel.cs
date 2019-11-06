@@ -22,6 +22,9 @@ namespace GruppAKonsult.ViewModels
         public Nullable<int> Phonenumber { get; set; }
 
         //Egenskaper från freelancer
+        public int Candidate_Id { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
         public string Nationality { get; set; }
         public string Address { get; set; }
         public Nullable<int> Postalnumber { get; set; }
