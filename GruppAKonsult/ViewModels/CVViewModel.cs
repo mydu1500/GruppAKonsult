@@ -10,6 +10,8 @@ namespace GruppAKonsult.ViewModels
     public class CVViewModel
     {
         public CV Cv { get; set; }
+        public Profession Profession { get; set; }  //Lägga till alla klasser här, skills, language etc?
+
         public IEnumerable<SelectListItem> AllProfessions { get; set; }
         private List<int> listOfProfessions;
         public List<int> ListOfProfessions
