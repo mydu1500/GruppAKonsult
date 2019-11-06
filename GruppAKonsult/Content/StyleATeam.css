@@ -10,7 +10,7 @@ h2{
 
 #registerText{
     text-align: left;
-    color: darkred;
+    
 }
 
 
@@ -20,12 +20,11 @@ h2{
 }
 
 #btnRegisterFreelancer{
-    text-align: center;
-    color: red;
+    text-align: right;
 }
 
 #btnRegisterEmployer{
-    text-align: center;
+    text-align: right;
 }
 
 footer {
