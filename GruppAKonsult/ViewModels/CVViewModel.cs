@@ -30,9 +30,9 @@ namespace GruppAKonsult.ViewModels
         public string Cityofbirth { get; set; }
       
 
-        public List<Language> language { get; set; }
-        public List<Skills> skills { get; set; }
-        public List<Profession> profession { get; set; }
+        public List<Language> Language { get; set; }
+        public List<Skills> Skills { get; set; }
+        public List<Profession> Profession { get; set; }
 
 
         public void AddLanguageList ()
