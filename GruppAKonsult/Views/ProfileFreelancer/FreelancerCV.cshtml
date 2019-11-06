@@ -1,125 +1,132 @@
-﻿
+﻿@model GruppAKonsult.ViewModels.FreeLancerCVViewModel
 @{
     ViewBag.Title = "FreelancerCV";
 }
-<br>
-<h2>Mitt CV</h2><br>
-
-<div class="card border-primary" style="max-width: 100rem;">
-    <div class="row">
-        <div class="col-md-5">
-            <div class="card-header">Kontaktuppgifter</div>
-            <div class="card-body">
-                <label class="col-form-label" for="inputDefault">Namn</label>
-                <input type="text" class="form-control" placeholder="Förnamn och efternamn" id="inputDefault">
-                <label class="col-form-label" for="inputDefault">Epost</label>
-                <input type="text" class="form-control" placeholder="exempel@exempel.se" id="inputDefault">
-                <label class="col-form-label" for="inputDefault">Telefonnummer</label>
-                <input type="text" class="form-control" placeholder="Ex. 070*******" id="inputDefault">
-                <label class="col-form-label" for="inputDefault">Födelsedatum</label>
-                <input type="text" class="form-control" placeholder="Ex. YYMMDD" id="inputDefault">
-                <label class="col-form-label" for="inputDefault">Adress</label>
-                <input type="text" class="form-control" placeholder="Ex. Storgatan 1" id="inputDefault">
-                <label class="col-form-label" for="inputDefault">Stad</label>
-                <input type="text" class="form-control" placeholder="Ex. Stockholm" id="inputDefault">
-            </div>
-
-            <div class="card-header">Allmänt</div>
-            <div class="card-body">
-                <div class="form-group">
-                    <label>Körkort</label>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="licenseCheckYes" unchecked="">
-                        <label class="custom-control-label" for="customCheck1">Ja</label>
-                    </div>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="licenseCheckNo" unchecked="">
-                        <label class="custom-control-label" for="customCheck2">Nej</label>
-                    </div><br>
-                </div>
-                <div class="form-group">
-                    <label for="exampleTextarea">Berätta lite om dig själv</label>
-                    <textarea class="form-control" id="exampleTextarea" rows="5"></textarea>
-                </div><br>
-            </div>
-        </div>
+@using (Html.BeginForm("ProfileFreelancer", "ProfileFreelancer", FormMethod.Post))
+{
 
 
 
-        <div class="col-md-7">
-            <div class="card-header">Utbildning och arbetslivserfarenhet</div>
-            <div class="card-body">
-                <label for="exampleTextarea">Utbildning (skolans namn, datum, ämne, examen)</label>
-                <textarea class="form-control" id="educationTextarea" cols="5" rows="4"></textarea>
-                <label for="exampleTextarea">Arbetsliv (befattning, datum, arbetsuppgifter)</label>
-                <textarea class="form-control" id="workTextarea" cols="3" rows="4"></textarea><br>
 
-                <div class="form-group">
-                    <select class="custom-select">
-                        <option selected="">Språk</option>
-                        <option value="1">Svenska</option>
-                        <option value="2">Engelska</option>
-                        <option value="3">Franska</option>
-                        <option value="5">Spanska</option>
-                        <option value="6">Tyska</option>
-                        <option value="7">Norska</option>
-                        <option value="6">Danska</option>
-                        <option value="6">Finska</option>
-                    </select>
-                </div><br><br>
+    <br>
+    <h2>Mitt CV</h2><br>
 
-                <div class="card-header">Yrke och kunskaper</div>
+    <div class="card border-primary" style="max-width: 100rem;">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card-header">Kontaktuppgifter</div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="Profession">Kompetenser</label>
-                        <select multiple="" class="form-control" id="Profession">
-                            <option>Grafisk designer</option>
-                            <option>Programmerare</option>
-                            <option>Webbutvecklare</option>
-                            <option>Javautvecklare</option>
-                            <option>Scrummaster</option>
-                            <option>Frontend utvecklare</option>
-                            <option>Backend utvecklare</option>
-                        </select>
+                        <label class="col-form-label" for="inputDefault">Namn</label>
+                        @Html.TextBoxFor(m => m.Freelancer.Firstname)
                     </div>
 
+                    <input type="text" class="form-control" placeholder="Förnamn och efternamn" id="inputDefault">
                     <div class="form-group">
-                        <label for="Skills">Kunskaper</label>
-                        <select multiple="" class="form-control" id="Skills">
-                            <option>C#</option>
-                            <option>Java</option>
-                            <option>HTML</option>
-                            <option>Javascript</option>
-                            <option>CSS</option>
-                            <option>C++</option>
-                            <option>JQuery</option>
-                            <option>SQL</option>
-                        </select>
+                        <label class="col-form-label" for="inputDefault">Epost</label>
+                        @Html.TextBoxFor(m => m.Freelancer.Email)
                     </div>
+
+                    <input type="text" class="form-control" placeholder="exempel@exempel.se" id="inputDefault">
+                    <label class="col-form-label" for="inputDefault">Telefonnummer</label>
+                    <input type="text" class="form-control" placeholder="Ex. 070*******" id="inputDefault">
+                    <label class="col-form-label" for="inputDefault">Födelsedatum</label>
+                    <input type="text" class="form-control" placeholder="Ex. YYMMDD" id="inputDefault">
+                    <label class="col-form-label" for="inputDefault">Adress</label>
+                    <input type="text" class="form-control" placeholder="Ex. Storgatan 1" id="inputDefault">
+                    <label class="col-form-label" for="inputDefault">Stad</label>
+                    <input type="text" class="form-control" placeholder="Ex. Stockholm" id="inputDefault">
                 </div>
-
-                <div class="form-group">
-                    <div class="input-group mb-2">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="inputFile">
-                            <label class="custom-file-label" for="inputFile">Välj fil</label>
+                <div class="card-header">Allmänt</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Körkort</label>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="licenseCheckYes" unchecked="">
+                            <label class="custom-control-label" for="customCheck1">Ja</label>
                         </div>
-                        <div class="input-group-append">
-                            <span class="input-group-text" id="">Upload</span>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="licenseCheckNo" unchecked="">
+                            <label class="custom-control-label" for="customCheck2">Nej</label>
+                        </div><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea">Berätta lite om dig själv</label>
+                        <textarea class="form-control" id="exampleTextarea" rows="5"></textarea>
+                    </div><br>
+                </div>
+            </div>
+
+            <div class="col-md-7">
+                <div class="card-header">Utbildning och arbetslivserfarenhet</div>
+                <div class="card-body">
+                    <label for="exampleTextarea">Utbildning (skolans namn, datum, ämne, examen)</label>
+                    <textarea class="form-control" id="educationTextarea" cols="5" rows="4"></textarea>
+                    <label for="exampleTextarea">Arbetsliv (befattning, datum, arbetsuppgifter)</label>
+                    <textarea class="form-control" id="workTextarea" cols="3" rows="4"></textarea><br>
+                    <div class="form-group">
+                        <select class="custom-select">
+                            <option selected="">Språk</option>
+                            <option value="1">Svenska</option>
+                            <option value="2">Engelska</option>
+                            <option value="3">Franska</option>
+                            <option value="5">Spanska</option>
+                            <option value="6">Tyska</option>
+                            <option value="7">Norska</option>
+                            <option value="6">Danska</option>
+                            <option value="6">Finska</option>
+                        </select>
+                    </div><br><br>
+                    <div class="card-header">Yrke och kunskaper</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="Profession">Kompetenser</label>
+                            <select multiple="" class="form-control" id="Profession">
+                                <option>Grafisk designer</option>
+                                <option>Programmerare</option>
+                                <option>Webbutvecklare</option>
+                                <option>Javautvecklare</option>
+                                <option>Scrummaster</option>
+                                <option>Frontend utvecklare</option>
+                                <option>Backend utvecklare</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="Skills">Kunskaper</label>
+                            <select multiple="" class="form-control" id="Skills">
+                                <option>C#</option>
+                                <option>Java</option>
+                                <option>HTML</option>
+                                <option>Javascript</option>
+                                <option>CSS</option>
+                                <option>C++</option>
+                                <option>JQuery</option>
+                                <option>SQL</option>
+                            </select>
                         </div>
                     </div>
-                </div><br>
+                    <div class="form-group">
+                        <div class="input-group mb-2">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputFile">
+                                <label class="custom-file-label" for="inputFile">Välj fil</label>
+                            </div>
+                            <div class="input-group-append">
+                                <span class="input-group-text" id="">Upload</span>
+                            </div>
+                        </div>
+                    </div><br>
+                </div>
             </div>
+
         </div>
-
-        
     </div>
-</div>
 
-<br>
-<a href='@Url.Action("ProfileFreelancer", "ProfileFreelancer")'>
-    <input id="EditBtn" type='button' class="btn btn-primary btn-lg" value='Spara' />
-</a>
+    <br>
+    <a href='@Url.Action("ProfileFreelancer", "ProfileFreelancer")'>
+        <input id="EditBtn" type='submit' class="btn btn-primary btn-lg" value='Spara' />
+    </a>
 
 
+}
 
