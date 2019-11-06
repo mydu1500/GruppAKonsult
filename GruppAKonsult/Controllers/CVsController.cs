@@ -13,16 +13,20 @@ namespace GruppAKonsult.Controllers
 {
     public class CVsController : Controller
     {
-        private GruppAKonsult_dbEntities2 db = new GruppAKonsult_dbEntities2();
-
+        GruppAKonsult_dbEntities2 db = new GruppAKonsult_dbEntities2();
         // GET: CVs
         public ActionResult Index()
-        {
-            var cV = db.CV.Include(c => c.Freelancer);
-            return View(cV.ToList());
+        {           
+            CVViewModel cvvm = new CVViewModel();
+            List<CV> ListOfCv = new List<CV>();
+            var freelancercv = db.CV.Include(c => c.Freelancer);
+
+            //var listOfProfessions = ();
+            return View(freelancercv.ToList());
         }
 
-        // GET: CVs/Details/5
+
+       // GET: CVs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -61,30 +65,31 @@ namespace GruppAKonsult.Controllers
             ViewBag.Candidate_Id = new SelectList(db.Freelancer, "Candidate_Id", "Firstname", cV.Candidate_Id);
             return View(cV);
         }
+        //Kommenterat bort koden nedan sålänge då den inte fungerar i nuläget
 
-        public ActionResult Edit(int? Candidate_Id)
-        {
-            if (Candidate_Id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            var cvvm = new CVViewModel
-            {
-                Cv = db.CV.Include(i => i.Profession).First(i => i.Candidate_Id == Candidate_Id),
-            };
-            if (cvvm.Cv == null)
-                return HttpNotFound();
-            var professionList = db.Profession.ToList();
-            cvvm.AllProfessions = professionList.Select(o => new SelectListItem
-            {
-                Text = o.Backenddeveloper,
-                Value = o.Candidate_Id.ToString()
-            });
-            ViewBag.EmployerID =
-            new SelectList(db.CV, "Candidate_Id", "Profession",
-            cvvm.Cv.Candidate_Id);
-            return View(cvvm);
-        }
+        //public ActionResult Edit(int? Candidate_Id)
+        //{
+        //    if (Candidate_Id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    var cvvm = new CVViewModel
+        //    {
+        //        Cv = db.CV.Include(i => i.Profession).First(i => i.Candidate_Id == Candidate_Id),
+        //    };
+        //    if (cvvm.Cv == null)
+        //        return HttpNotFound();
+        //    var professionList = db.Profession.ToList();
+        //    cvvm.AllProfessions = professionList.Select(o => new SelectListItem
+        //    {
+        //        Text = o.Backenddeveloper,
+        //        Value = o.Candidate_Id.ToString()
+        //    });
+        //    ViewBag.EmployerID =
+        //    new SelectList(db.CV, "Candidate_Id", "Profession",
+        //    cvvm.Cv.Candidate_Id);
+        //    return View(cvvm);
+        //}
 
         // GET: CVs/Edit/5
         //public ActionResult Edit(int? id)
