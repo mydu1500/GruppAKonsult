@@ -22,10 +22,6 @@ namespace GruppAKonsult.Models
             this.Profession = new HashSet<Profession>();
         }
 
-        public IEnumerable<SelectListItem> AllProfessions { get; set; }
-        public List<int> listOfProfessions;
-        public List<int> ListOfProfessions;
-
 
         public int CV_Id { get; set; }
         public int Candidate_Id { get; set; }

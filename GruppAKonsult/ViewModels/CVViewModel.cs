@@ -31,7 +31,7 @@ namespace GruppAKonsult.ViewModels
         public string City { get; set; }
         public Nullable<int> Birthdate { get; set; }
         public string Cityofbirth { get; set; }
-      
+        
 
         public List<Language> Language { get; set; }
         public List<Skills> Skills { get; set; }
