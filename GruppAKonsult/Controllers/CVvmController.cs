@@ -47,7 +47,7 @@ namespace GruppAKonsult.Controllers
                           }).ToList();
             ////Query för att hämta data från databasen genom att använda JOIN för att joina de två tabellerna och lagra data i studentlist
             foreach (var item in cvlist)       //foreach loop för att fylla data från
-                                                    //studentlist till List < CVViewModel >
+                                                    //cvlist till List < CVViewModel >
             {
                 CVViewModel objcvvm = new CVViewModel(); //ViewModel
                 objcvvm.Drivinglicense = item.Drivinglicense;
