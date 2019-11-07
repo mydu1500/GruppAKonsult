@@ -18,7 +18,7 @@ namespace GruppAKonsult.Controllers
         //Skapa en lista med vymodellobjekt från våra viewmodel
         // Listan som innehåller en massa objekt 
 
-        public List<CVViewModel> cvvmList()
+        public List<CVViewModel> CvVmList()
         {
             GruppAKonsult_dbEntities2 vmdb = new GruppAKonsult_dbEntities2(); //db Context class
             List<CVViewModel> cvVMList = new List<CVViewModel>(); //lista med detaljer från både CV och Freelancer modellerna
@@ -28,14 +28,22 @@ namespace GruppAKonsult.Controllers
                           select new
                           {
                               cvitem.Drivinglicense,
-                              cvitem.Education,
+                              cvitem.Education,         //Det som hör till CV-tabellen
                               cvitem.Workexperience,
                               cvitem.Description,
+
                               freelanceritem.Firstname,
                               freelanceritem.Lastname,
+                              freelanceritem.Email,
+                              freelanceritem.Phonenumber,     //Det som hör till Freelancer-tabellen
                               freelanceritem.Nationality,
-                              freelanceritem.Phonenumber,
+                              freelanceritem.Birthdate,
+                              freelanceritem.Cityofbirth,
+                              freelanceritem.Address,
+                              freelanceritem.Postalnumber,
+                              freelanceritem.City,
 
+                              //Här får vi lägga till language, skills, profession 
                           }).ToList();
             ////Query för att hämta data från databasen genom att använda JOIN för att joina de två tabellerna och lagra data i studentlist
             foreach (var item in cvlist)       //foreach loop för att fylla data från

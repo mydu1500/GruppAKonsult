@@ -90,6 +90,10 @@
                     @Html.EditorFor(model => model.Freelancer.Phonenumber, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Freelancer.Phonenumber, "", new { @class = "text-danger" })
 
+                    @Html.LabelFor(model => model.Freelancer.Nationality, "Nationalitet")<br>
+                    @Html.EditorFor(model => model.Freelancer.Nationality, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Freelancer.Nationality, "", new { @class = "text-danger" })
+
                     @Html.LabelFor(model => model.Freelancer.Birthdate, "Födelsedatum")<br>
                     @Html.EditorFor(model => model.Freelancer.Birthdate, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Freelancer.Birthdate, "", new { @class = "text-danger" })
@@ -109,6 +113,8 @@
                     @Html.LabelFor(model => model.Freelancer.City, "Stad")<br>
                     @Html.EditorFor(model => model.Freelancer.City, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Freelancer.City, "", new { @class = "text-danger" })
+
+
                     <br>
                 </div>
             </div>
