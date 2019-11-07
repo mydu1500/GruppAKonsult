@@ -131,6 +131,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CVsController.cs" />
+    <Compile Include="Controllers\CVvmController.cs" />
     <Compile Include="Controllers\EmployerController.cs" />
     <Compile Include="Controllers\EmployersController.cs" />
     <Compile Include="Controllers\FreelancersController.cs" />
@@ -344,6 +345,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\CVvm\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
