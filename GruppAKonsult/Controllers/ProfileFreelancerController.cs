@@ -83,12 +83,14 @@ namespace GruppAKonsult.Controllers
                     CV_Id = cv.CV_Id,
                     Candidate_Id = candidate.Candidate_Id,
 
-                    Programmer = professions.Contains("2") ? "True" : "False",
-                    Webbdeveloper = professions.Contains("3") ? "True" : "False",
-                    Javadeveloper = professions.Contains("4") ? "True" : "False",
-                    Scrummaster = professions.Contains("5") ? "True" : "False",
+                    Webbdeveloper = professions.Contains("2") ? "True" : "False",
+                    Systemdeveloper = professions.Contains("3") ? "True" : "False",
+                    Programmer = professions.Contains("4") ? "True" : "False",
+                    Softwareengineer = professions.Contains("5") ? "True" : "False",
                     Frontenddeveloper = professions.Contains("6") ? "True" : "False",
                     Backenddeveloper = professions.Contains("7") ? "True" : "False",
+                    Javadeveloper = professions.Contains("8") ? "True" : "False",
+                    Scrummaster = professions.Contains("9") ? "True" : "False",
                 };
 
                 db.Profession.Add(p);
@@ -99,13 +101,14 @@ namespace GruppAKonsult.Controllers
                 {
                     CV_Id = cv.CV_Id,
                     Candidate_Id = candidate.Candidate_Id,
-                    Java = skills.Contains("1") ? "True" : "False",
-                    HTML = skills.Contains("2") ? "True" : "False",
-                    JavaScript = skills.Contains("3") ? "True" : "False",
-                    CSS = skills.Contains("4") ? "True" : "False",
-                    C__ = skills.Contains("5") ? "True" : "False",
-                    JQuery = skills.Contains("6") ? "True" : "False",
-                    SQL = skills.Contains("7") ? "True" : "False",
+                    C_ = skills.Contains("1") ? "True" : "False",
+                    JavaScript = skills.Contains("2") ? "True" : "False",
+                    Java = skills.Contains("3") ? "True" : "False",
+                    C__ = skills.Contains("4") ? "True" : "False",
+                    JQuery = skills.Contains("5") ? "True" : "False",
+                    HTML = skills.Contains("6") ? "True" : "False",
+                    CSS = skills.Contains("7") ? "True" : "False",
+                    SQL = skills.Contains("7") ? "True" : "False"
 
                 };
 

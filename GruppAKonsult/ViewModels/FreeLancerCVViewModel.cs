@@ -45,21 +45,20 @@ namespace GruppAKonsult.ViewModels
                 new SelectListItem { Value = "8", Text = "Danska"},
                 new SelectListItem { Value = "9", Text = "Finska"}
 
-
             };
         }
-
         private void AddProfessionList()
         {
             ProfessionList = new List<SelectListItem>()
             {
-                new SelectListItem { Value = "1", Text = "Grafisk designer" },
-                new SelectListItem { Value = "2", Text = "Programmerare" },
-                new SelectListItem { Value = "3", Text = "Webbutvecklare" },
-                new SelectListItem { Value = "4", Text = "Javautvecklare" },
-                new SelectListItem { Value = "5", Text = "Scrummaster" },
-                new SelectListItem { Value = "6", Text = "Frontend utvecklare" },
-                new SelectListItem { Value = "7", Text = "Backend utvecklar" }
+                new SelectListItem { Value = "1", Text = "Webbutvecklare" },
+                new SelectListItem { Value = "2", Text = "Systemutvecklare" },
+                new SelectListItem { Value = "3", Text = "Programmerare" },
+                new SelectListItem { Value = "4", Text = "Mjukvaruutveklare" },
+                new SelectListItem { Value = "5", Text = "Frontendutvecklare" },
+                new SelectListItem { Value = "6", Text = "Backendutvecklare" },
+                new SelectListItem { Value = "7", Text = "Javautvecklare" },
+                new SelectListItem { Value = "8", Text = "Scrummaster" }
             };
         }
 
@@ -67,12 +66,13 @@ namespace GruppAKonsult.ViewModels
         {
             SkillsList = new List<SelectListItem>()
             {
-                new SelectListItem { Value = "1", Text = "Java" },
-                new SelectListItem { Value = "2", Text = "HTML" },
-                new SelectListItem { Value = "3", Text = "Javascript" },
-                new SelectListItem { Value = "4", Text = "CSS" },
-                new SelectListItem { Value = "5", Text = "C++" },
-                new SelectListItem { Value = "6", Text = "JQuery" },
+                new SelectListItem { Value = "1", Text = "C#" },
+                new SelectListItem { Value = "2", Text = "Javascript" },
+                new SelectListItem { Value = "3", Text = "Java" },
+                new SelectListItem { Value = "4", Text = "C++" },
+                new SelectListItem { Value = "5", Text = "JQuery" },
+                new SelectListItem { Value = "6", Text = "HTML" },
+                new SelectListItem { Value = "7", Text = "CSS" },
                 new SelectListItem { Value = "7", Text = "SQL" }
             };
         }
