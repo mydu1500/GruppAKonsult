@@ -158,7 +158,7 @@ namespace GruppAKonsult.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult ProfileFreelancer(FreelancerCVViewModel model)
+        public ActionResult ProfileFreelancer(CVViewModel model)
         {
             if (ModelState.IsValid)
             {
