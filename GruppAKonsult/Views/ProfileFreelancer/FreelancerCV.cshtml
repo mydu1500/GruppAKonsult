@@ -17,8 +17,18 @@
                 <div class="card-header">Kontaktuppgifter</div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Namn</label>
-                        @Html.TextBoxFor(m => m.Freelancer.Firstname, new Dictionary<string, object> { { "placeholder", "Förnamn och efternamn" } })
+                        <label class="col-form-label" for="inputDefault">Förnamn</label>
+                        @Html.TextBoxFor(m => m.Freelancer.Firstname, new Dictionary<string, object> { { "placeholder", "Förnamn" } })
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputDefault">Efternamn</label>
+                        @Html.TextBoxFor(m => m.Freelancer.Lastname, new Dictionary<string, object> { { "placeholder", "Efternamn" } })
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputDefault">Nationalitet</label>
+                        @Html.TextBoxFor(m => m.Freelancer.Nationality, new Dictionary<string, object> { { "placeholder", "Nationalitet" } })
                     </div>
 
                     <div class="form-group">
@@ -38,7 +48,7 @@
                         @Html.TextBoxFor(m => m.Freelancer.Address, new Dictionary<string, object> { { "placeholder", "Ex. Storgatan 1" } })
                     </div>
                     <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Adress</label>
+                        <label class="col-form-label" for="inputDefault">Stad</label>
                         @Html.TextBoxFor(m => m.Freelancer.City, new Dictionary<string, object> { { "placeholder", "Ex. Stockholm" } })
                     </div>
                 </div>
