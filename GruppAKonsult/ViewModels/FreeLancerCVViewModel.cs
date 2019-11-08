@@ -45,10 +45,8 @@ namespace GruppAKonsult.ViewModels
                 new SelectListItem { Value = "8", Text = "Danska"},
                 new SelectListItem { Value = "9", Text = "Finska"}
 
-
             };
         }
-
         private void AddProfessionList()
         {
             ProfessionList = new List<SelectListItem>()
