@@ -1,12 +1,12 @@
-﻿@model GruppAKonsult.Models.CV
+﻿@model GruppAKonsult.ViewModels.CVViewModel
 
 @{
-    /**/
+    /**/                           //Vägen stämmer inte?
 
     ViewBag.Title = "Create";
 }
+@using (Html.BeginForm("Create", "Create", FormMethod.Post))           
 
-@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
@@ -131,21 +131,22 @@
 
     <div class="col-md-7" id="Profession">
         <div class="card-header">Yrke</div>
-        <div class="row">                                   @*//Fungerar inte ännu*@
+        <div class="row">
+            @*//Fungerar inte ännu*@
             <div class="card-body">
-                @Html.LabelFor(model => model.Profession, "Ange ditt huvudsakliga yrke")<br>
+                @*@Html.LabelFor(model => model.Profession, "Ange ditt huvudsakliga yrke")<br>*@
                 @*@Html.ListBoxFor(m => m.SelectedProfessions, Model.ProfessionList)*@
-                @Html.TextAreaFor(model => model.Profession, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Profession, "", new { @class = "text-danger" })
+                @*@Html.TextAreaFor(model => model.Profession, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Profession, "", new { @class = "text-danger" })*@
                 <br>
             </div>
         </div>
     </div>
 
     <div class="col-md-7" id="Skills">
-        <div class="card-header">Färdigheter</div>  
+        <div class="card-header">Färdigheter</div>
         <div class="row">
-                                                                    @*//Fungerar inte ännu*@
+            @*//Fungerar inte ännu*@
             <div class="card-body">
                 @Html.LabelFor(model => model.Freelancer.Skills, "Ange dina kompetenser och kunskaper")<br>
                 @*@Html.ListBoxFor(m => m.SelectedSkills, Model.SkillsList)*@
@@ -158,7 +159,8 @@
 
     <div class="col-md-7" id="Language">
         <div class="card-header">Språk</div>
-        <div class="row">                       @*//Denna fungerar inte än*@
+        <div class="row">
+            @*//Denna fungerar inte än*@
             <div class="card-body">
                 @Html.LabelFor(model => model.Freelancer.Language, "Ange dina språkkunskaper")<br>
                 @*@Html.ListBoxFor(m => m.SelectedLanguage, Model.LanguageList)*@
@@ -181,7 +183,7 @@
                     <label class="" for="licenseCheckNo">Nej</label>
                 </div><br>
                 @*@Html.LabelFor(model => model.Drivinglicense, "Svara Ja/Nej")<br>
-                @Html.EditorFor(model => model.Drivinglicense, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.EditorFor(model => model.Drivinglicense, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.Drivinglicense, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -194,7 +196,7 @@
                 @Html.TextAreaFor(m => m.Description, new Dictionary<string, object> { { "row", "5" }, { "class", "form-control" } })
                 @*@Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            
+
             </div>
         </div>
     </div>
@@ -207,9 +209,9 @@
                 @Html.LabelFor(model => model.Education, "Ange skolans namn, datum, ämne och examen")<br>
                 @Html.TextAreaFor(m => m.Education,
                       new Dictionary<string, object> { { "id","educationTextarea" }, { "row","5" }, { "class","form-control" } })
-                
+
                 @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
-               
+
             </div>
         </div>
     </div>
