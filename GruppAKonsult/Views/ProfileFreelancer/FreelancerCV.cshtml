@@ -1,8 +1,7 @@
-﻿@model GruppAKonsult.ViewModels.FreeLancerCVViewModel
+﻿@model GruppAKonsult.ViewModels.FreelancerCVViewModel
 @{
     ViewBag.Title = "FreelancerCV";
 }
-@*//Lagt till denna rad (binding) för att kunna skicka metoden till databasen*@
 @using (Html.BeginForm("ProfileFreelancer", "ProfileFreelancer", FormMethod.Post))
 {
 
@@ -19,41 +18,46 @@
                 <div class="card-body">
                     <div class="form-group">
                         <label class="col-form-label" for="inputDefault">Namn</label>
-                        @Html.TextBoxFor(m => m.Freelancer.Firstname)
+                        @Html.TextBoxFor(m => m.Freelancer.Firstname, new Dictionary<string, object> { { "placeholder", "Förnamn och efternamn" } })
                     </div>
 
-                    <input type="text" class="form-control" placeholder="Förnamn och efternamn" id="inputDefault">
                     <div class="form-group">
                         <label class="col-form-label" for="inputDefault">Epost</label>
-                        @Html.TextBoxFor(m => m.Freelancer.Email)
+                        @Html.TextBoxFor(m => m.Freelancer.Email, new Dictionary<string, object> { { "placeholder", "exempel@exempel.se" } })
                     </div>
-
-                    <input type="text" class="form-control" placeholder="exempel@exempel.se" id="inputDefault">
-                    <label class="col-form-label" for="inputDefault">Telefonnummer</label>
-                    <input type="text" class="form-control" placeholder="Ex. 070*******" id="inputDefault">
-                    <label class="col-form-label" for="inputDefault">Födelsedatum</label>
-                    <input type="text" class="form-control" placeholder="Ex. YYMMDD" id="inputDefault">
-                    <label class="col-form-label" for="inputDefault">Adress</label>
-                    <input type="text" class="form-control" placeholder="Ex. Storgatan 1" id="inputDefault">
-                    <label class="col-form-label" for="inputDefault">Stad</label>
-                    <input type="text" class="form-control" placeholder="Ex. Stockholm" id="inputDefault">
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputDefault">Telefonnummer</label>
+                        @Html.TextBoxFor(m => m.Freelancer.Phonenumber, new Dictionary<string, object> { { "placeholder", "Ex. 070*******" } })
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputDefault">Födelsedatum</label>
+                        @Html.TextBoxFor(m => m.Freelancer.Birthdate, new Dictionary<string, object> { { "placeholder", "Ex. YYMMDD" } })
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputDefault">Adress</label>
+                        @Html.TextBoxFor(m => m.Freelancer.Address, new Dictionary<string, object> { { "placeholder", "Ex. Storgatan 1" } })
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputDefault">Adress</label>
+                        @Html.TextBoxFor(m => m.Freelancer.City, new Dictionary<string, object> { { "placeholder", "Ex. Stockholm" } })
+                    </div>
                 </div>
                 <div class="card-header">Allmänt</div>
                 <div class="card-body">
                     <div class="form-group">
                         <label>Körkort</label>
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="licenseCheckYes" unchecked="">
-                            <label class="custom-control-label" for="customCheck1">Ja</label>
+                            @Html.RadioButtonFor(m => m.CV.Drivinglicense, "Ja")
+                            <label class="" for="licenseCheckYes">Ja</label>
                         </div>
                         <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="licenseCheckNo" unchecked="">
-                            <label class="custom-control-label" for="customCheck2">Nej</label>
+                            @Html.RadioButtonFor(m => m.CV.Drivinglicense, new Dictionary<string, object> { { "id", "licenseCheckNo" } })
+                            <label class="" for="licenseCheckNo">Nej</label>
                         </div><br>
                     </div>
                     <div class="form-group">
                         <label for="exampleTextarea">Berätta lite om dig själv</label>
-                        <textarea class="form-control" id="exampleTextarea" rows="5"></textarea>
+                        @Html.TextAreaFor(m => m.CV.Description, new Dictionary<string, object> { { "row", "5" }, { "class", "form-control" } })
                     </div><br>
                 </div>
             </div>
@@ -61,49 +65,32 @@
             <div class="col-md-7">
                 <div class="card-header">Utbildning och arbetslivserfarenhet</div>
                 <div class="card-body">
-                    <label for="exampleTextarea">Utbildning (skolans namn, datum, ämne, examen)</label>
-                    <textarea class="form-control" id="educationTextarea" cols="5" rows="4"></textarea>
-                    <label for="exampleTextarea">Arbetsliv (befattning, datum, arbetsuppgifter)</label>
-                    <textarea class="form-control" id="workTextarea" cols="3" rows="4"></textarea><br>
                     <div class="form-group">
-                        <select class="custom-select">
-                            <option selected="">Språk</option>
-                            <option value="1">Svenska</option>
-                            <option value="2">Engelska</option>
-                            <option value="3">Franska</option>
-                            <option value="5">Spanska</option>
-                            <option value="6">Tyska</option>
-                            <option value="7">Norska</option>
-                            <option value="6">Danska</option>
-                            <option value="6">Finska</option>
-                        </select>
+                        <label for="exampleTextarea">Utbildning (skolans namn, datum, ämne, examen)</label>
+                        @Html.TextAreaFor(m => m.CV.Education,
+                       new Dictionary<string, object> { { "id","educationTextarea" }, { "row","5" }, { "class","form-control" } })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea">Arbetsliv (befattning, datum, arbetsuppgifter)</label>
+                        @Html.TextAreaFor(m => m.CV.Workexperience,
+                       new Dictionary<string, object> { { "id","workTextarea" }, { "row","5" }, { "class","form-control" } })
+                    </div>
+                    <div class="form-group">
+                        @Html.ListBoxFor(m => m.SelectedLanguage, Model.LanguageList)
                     </div><br><br>
                     <div class="card-header">Yrke och kunskaper</div>
                     <div class="card-body">
                         <div class="form-group">
                             <label for="Profession">Kompetenser</label>
-                            <select multiple="" class="form-control" id="Profession">
-                                <option>Grafisk designer</option>
-                                <option>Programmerare</option>
-                                <option>Webbutvecklare</option>
-                                <option>Javautvecklare</option>
-                                <option>Scrummaster</option>
-                                <option>Frontend utvecklare</option>
-                                <option>Backend utvecklare</option>
-                            </select>
+                            <div class="form-group">
+                                @Html.ListBoxFor(m => m.SelectedProfessions, Model.ProfessionList)
+                            </div><br><br>
                         </div>
                         <div class="form-group">
                             <label for="Skills">Kunskaper</label>
-                            <select multiple="" class="form-control" id="Skills">
-                                <option>C#</option>
-                                <option>Java</option>
-                                <option>HTML</option>
-                                <option>Javascript</option>
-                                <option>CSS</option>
-                                <option>C++</option>
-                                <option>JQuery</option>
-                                <option>SQL</option>
-                            </select>
+                            <div class="form-group">
+                                @Html.ListBoxFor(m => m.SelectedSkills, Model.SkillsList)
+                            </div><br><br>
                         </div>
                     </div>
                     <div class="form-group">
