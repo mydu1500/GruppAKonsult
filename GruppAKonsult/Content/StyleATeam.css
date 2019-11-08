@@ -13,10 +13,11 @@ h2{
     
 }
 
-
 #EditBtn{
-    text-align: right;
-    color: black;
+    text-align: center;
+    font-size: 50px;
+    color: white;
+ 
 }
 
 #btnRegisterFreelancer{
@@ -31,4 +32,12 @@ footer {
 
     text-align: center;
 }
+
+#LinkGithub, LinkLinkedin{
+    text-align: right;
+    list-style: none;
+    display: inline;
+    
+}
+
   

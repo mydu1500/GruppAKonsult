@@ -3,96 +3,107 @@
     ViewBag.Title = "ProfileFreelancer";
 }
 
-<br><h1>Profil</h1><br><br>
+<br>
+<h1>Profil</h1><br><br>
 
 <div class="jumbotron">
-<h2>Mitt CV</h2><br>
-<div class="row">
-    <div class="col-md-6">
-        <h3 class="card-header">Kontakuppgifter</h3>
-        <div class="card-body">
-            <h5 class="card-title">Namn</h5>
-            <h6 class="card-subtitle text-muted"> Petter Pettersson</h6><br>
+    <h2>Mitt CV</h2><br>
+    <div class="row">
+        <div class="col-md-6">
+            <h3 class="card-header">Kontakuppgifter</h3>
+            <div class="card-body">
+                <h5 class="card-title">Namn</h5>
+                <h6 class="card-subtitle text-muted"> Petter Pettersson</h6><br>
 
-            <h5 class="card-title">Epost</h5>
-            <h6 class="card-subtitle text-muted">PetterPetterson@gmail.com</h6><br>
+                <h5 class="card-title">Epost</h5>
+                <h6 class="card-subtitle text-muted">PetterPetterson@gmail.com</h6><br>
 
-            <h5 class="card-title">Telefonnummer</h5>
-            <h6 class="card-subtitle text-muted">0700000000</h6><br>
+                <h5 class="card-title">Telefonnummer</h5>
+                <h6 class="card-subtitle text-muted">0700000000</h6><br>
 
-            <h5 class="card-title">Födelsedatum</h5>
-            <h6 class="card-subtitle text-muted">19801030</h6><br>
+                <h5 class="card-title">Födelsedatum</h5>
+                <h6 class="card-subtitle text-muted">19801030</h6><br>
 
-            <h5 class="card-title">Adress</h5>
-            <h6 class="card-subtitle text-muted">Storgatan 1</h6><br>
+                <h5 class="card-title">Adress</h5>
+                <h6 class="card-subtitle text-muted">Storgatan 1</h6><br>
 
-            <h5 class="card-title">Stad</h5>
-            <h6 class="card-subtitle text-muted">Stockholm</h6><br>
-        </div>
-    </div>
-    
-
-    <div class="col-md-6">
-        <h3 class="card-header">Foto</h3>
-        <div class="card-body">
-        <img style="height: 300px; width: 100%; display: block;" src="~/Content/Img/ProfilePic.png" alt="Card image">   
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <h3 class="card-header">Allmänt</h3>
-        <div class="card-body">
-            <div class="form-group">
-                <h5 class="card-title">Körkort</h5>
-                <h6 class="card-subtitle text-muted">Ja</h6>
+                <h5 class="card-title">Stad</h5>
+                <h6 class="card-subtitle text-muted">Stockholm</h6><br>
             </div>
-            <div class="form-group">
-                <label for="exampleTextarea">Berätta lite om dig själv</label>
-                <textarea class="form-control" id="exampleTextarea" rows="5" disabled>Lite text om Petter Pettersson</textarea>
-            </div><br>
+        </div>
 
+
+        <div class="col-md-6">
+            <h3 class="card-header">Foto</h3>
+            <div class="card-body">
+                <img style="height: 300px; width: 100%; display: block;" src="~/Content/Img/ProfilePic.png" alt="Card image"><br>
+                <div class="row">
+                    <li id="LinkGithub"><a href="#"> <img style="list-style:none; text-align:center; margin: 15px; height:70px; width:70px; display:inline-block;" src="~/Content/Pictures/github.png"> </a></li>
+                    <li id="LinkLinkedin"><a href="#"> <img style="list-style:none; text-align:center; margin: 15px; height:70px; width:70px; display:inline-block;" src="~/Content/Pictures/linkedin.png"></a></li>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="col-md-6">
-        <h3 class="card-header">Språk</h3>
-        <div class="card-body">
-            <h5 class="card-title">Språk</h5>
-            <h6 class="card-subtitle text-muted">Svenska, Engelska</h6>
+
+    <div class="EditBtn">
+        <div class="row">
+            <a href='@Url.Action("FreelancerCV", "ProfileFreelancer")'>
+                <input id="EditBtn" type='button' class="btn btn-primary btn-lg" value='Redigera CV' />
+            </a><br><br>
         </div>
     </div>
 
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 class="card-header">Yrke och färdigheter</h3>
-                    <div class="card-body">
-                        <h5 class="card-title">Kompetenser</h5>
-                        <h6 class="card-subtitle text-muted">Webbutvecklare</h6><br>
 
-                        <h5 class="card-title">Färdigheter</h5>
-                        <h6 class="card-subtitle text-muted">Javascript, HTML, CSS</h6>
+    @*<div class="row">
+        <div class="col-md-6">
+            <h3 class="card-header">Allmänt</h3>
+            <div class="card-body">
+                <div class="form-group">
+                    <h5 class="card-title">Körkort</h5>
+                    <h6 class="card-subtitle text-muted">Ja</h6>
+                </div>
+                <div class="form-group">
+                    <label for="exampleTextarea">Berätta lite om dig själv</label>
+                    <textarea class="form-control" id="exampleTextarea" rows="5" disabled>Lite text om Petter Pettersson</textarea>
+                </div><br>
+
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h3 class="card-header">Språk</h3>
+            <div class="card-body">
+                <h5 class="card-title">Språk</h5>
+                <h6 class="card-subtitle text-muted">Svenska, Engelska</h6>
+            </div>
+        </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="card-header">Yrke och färdigheter</h3>
+                        <div class="card-body">
+                            <h5 class="card-title">Kompetenser</h5>
+                            <h6 class="card-subtitle text-muted">Webbutvecklare</h6><br>
+
+                            <h5 class="card-title">Färdigheter</h5>
+                            <h6 class="card-subtitle text-muted">Javascript, HTML, CSS</h6>
+                        </div>
                     </div>
-                </div>
 
-                <br>
+                    <br>
 
-                <div class="col-md-6">
-                    <h3 class="card-header">Utbildning & arbetslivserfarenhet</h3>
-                    <div class="card-body">
-                        <h5 class="card-title">Utbildning</h5>
-                        <h6 class="card-subtitle text-muted">2016-2019- Informatik med inriktning systemutveckling</h6><br>
+                    <div class="col-md-6">
+                        <h3 class="card-header">Utbildning & arbetslivserfarenhet</h3>
+                        <div class="card-body">
+                            <h5 class="card-title">Utbildning</h5>
+                            <h6 class="card-subtitle text-muted">2016-2019- Informatik med inriktning systemutveckling</h6><br>
 
-                        <h5 class="card-title">Arbetslivserfarenheter</h5>
-                        <h6 class="card-subtitle text-muted">2017- Webbutvecklare på A-Team Consulting</h6>
-                    </div><br><br>
-                </div>
-            </div>
-        </div><br><br><br>
-
-        <a href='@Url.Action("FreelancerCV", "ProfileFreelancer")'>
-            <input id="EditBtn" type='button' class="btn btn-primary btn-lg" value='Redigera CV' />
-        </a>
+                            <h5 class="card-title">Arbetslivserfarenheter</h5>
+                            <h6 class="card-subtitle text-muted">2017- Webbutvecklare på A-Team Consulting</h6>
+                        </div><br><br>
+                    </div>
+                </div>*@
+</div><br><br><br>
 
 
-    </div>
+
+
