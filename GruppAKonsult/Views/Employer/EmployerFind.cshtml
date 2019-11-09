@@ -1,115 +1,148 @@
-﻿
+﻿@model GruppAKonsult.ViewModels.EmployerFindViewModel
 @{
     ViewBag.Title = "EmployerFind";
 }
-<div class="col-md-6">
-    <h3 class="card-header">Sök kandidat</h3>
 
-    @*Dropboxarna ser inte så fina ut och kolumn är inte så fina heller. Har provat column 3-4-5 men ser fortfarande ful ut.*@
+@using (Html.BeginForm("EmployerFind", "Employer", FormMethod.Post))
+{
+    <div class="col-md-6">
+        <h3 class="card-header">Sök kandidat</h3>
+
+        @*Dropboxarna ser inte så fina ut och kolumn är inte så fina heller. Har provat column 3-4-5 men ser fortfarande ful ut.*@
+
+        <div class="row">
+            <div class="col-4">
+
+                <div class="form-group">
+                    <label class="control-label">Yrkesområde</label>
+                    <div>
+                        @if (Model.ProfessionList != null)
+                        {
+                            @Html.DropDownListFor(m => m.SelectedProfession, Model.ProfessionList, new Dictionary<string, object> {{"class", "form-control"}})
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+
+                <div class="form-group">
+                    <label class="control-label">Kompetenser</label>
+                    <div>
+                        @if (Model.SkillsList != null)
+                        {
+                            @Html.DropDownListFor(m => m.SelectedSkill, Model.SkillsList, new Dictionary<string, object> {{"class", "form-control"}})
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-4">
+
+                <div class="form-group">
+                    <label class="control-label">Språk</label>
+                    <div>
+                        @if (Model.LanguageList != null)
+                        {
+                            @Html.DropDownListFor(m => m.SelectedLanguage, Model.LanguageList, new Dictionary<string, object> {{"class", "form-control"}})
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-4">
+
+                <div class="form-group">
+                    <label class="control-label">City</label>
+                    <div>
+                        @if (Model.CityList != null)
+                        {
+                            @Html.DropDownListFor(m => m.SelectedCity, Model.CityList, new Dictionary<string, object> {{"class", "form-control"}})
+                        }
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+    <div class="col-md-1">
+
+        <br/><br/>
+        <a>
+            <input type='submit' class="btn btn-primary btn-lg" value='SÖK'/>
+        </a>
+    </div>
 
     <div class="row">
-        <div class="col-md-4">
-            <br /><h5 class="card-title">Yrkesområde</h5>
-            <select>
-                <option value="Väljyrke">Välj yrke</option>
-                <option value="Backendutvecklare">Backendutvecklare</option>
-                <option value="Frontendutvecklare">Frontendutvecklare</option>
-                <option value="Javautvecklare">Javautvecklare</option>
-                <option value="Mjukvaruutvecklare">Mjukvaruutvecklare</option>
-                <option value="Programmerare">ProgrammerareL</option>
-                <option value="Scrummaster">Scrummaster</option>
-                <option value="Systemutvecklare">Systemutvecklare</option>
-                <option value="Webbutvecklare">Webbutvecklare</option>
-            </select>
-        </div>
-
-        <div class="col-md-4">
-
-            <br /><h5 class="card-title">Kompetens</h5>
-            <select>
-                <option value="Väljkompetens">Välj kompetens</option>
-                <option value="C#">C#</option>
-                <option value="C++">C++</option>
-                <option value="CSS">CSS</option>
-                <option value="HTML">HTML</option>
-                <option value="Javascript">Javascript</option>
-                <option value="Java">Java</option>
-                <option value="Jquery">Jquery</option>
-                <option value="SQL">SQL</option>
-            </select>
-        </div>
+        <div class="col-md-6">
+            <h3 class="card-header">Resultat</h3>
+            <div class="card-body">
+                <table class="table">
+                    <tr>
+                        <th>
+                            <h5 class="card-title">Förnamn</h5>
+                        </th>
+                        <th>
+                            <h5 class="card-title">Efternamn</h5>
+                        </th>
+                        <th>
+                            <h5 class="card-title">Yrke</h5>
+                        </th>
+                        <th>
+                            <h5 class="card-title">Kompetens</h5>
+                        </th>
+                        <th>
+                            <h5 class="card-title">Språk</h5>
+                        </th>
+                        <th>
+                            <h5 class="card-title">Stad</h5>
+                        </th>
+                        <th></th>
+                    </tr>
 
 
-        <div class="col-md-4">
-            <br /><h5 class="card-title">Språk</h5>
-
-            <select>
-                <option value="Väljspråk">Välj språk</option>
-                <option value="Svenska">Svenska</option>
-                <option value="Engelska">Engelska</option>
-                <option value="Danska">Danska</option>
-                <option value="Norska">Norska</option>
-                <option value="Franska">Franska</option>
-                <option value="Spanska">Spanska</option>
-                <option value="Tyska">Tyska</option>
-            </select>
-        </div>
-    </div>
-</div>
-
-<div class="col-md-4">
-    <br /><h5 class="card-title">Stad</h5>
-
-    <select>
-        <option value="Väljstad">Välj stad</option>
-        <option value="Helsingborg">Helsingborg</option>
-        <option value="Kristianstad">Kristianstad</option>
-        <option value="Landskrona">Landskrona</option>
-        <option value="Lund">Lund</option>
-        <option value="Malmö">Malmö</option>
-        <option value="Ystad">Ystad</option>
-    </select>
-</div>
-
-
-<div class="col-md-1">
-    
-        <br /><br />
-    <a>
-        <input type='button' class="btn btn-primary btn-lg" value='SÖK' />
-    </a>
-</div>
-
-<div class="row">
-    <div class="col-md-6">
-        <h3 class="card-header">Resultat</h3>
-        <div class="card-body">
-            <table class="table">
-                <tr>
-                    <th>
-                        <h5 class="card-title">Förnamn</h5>
-                    </th>
-                    <th>
-                        <h5 class="card-title">Efternamn</h5>
-                    </th>
-                    <th>
-                        <h5 class="card-title">Yrke</h5>
-                    </th>
-                    <th>
-                        <h5 class="card-title">Kompetens</h5>
-                    </th>
-                    <th>
-                        <h5 class="card-title">Språk</h5>
-                    </th>
-                    <th>
-                        <h5 class="card-title">Stad</h5>
-                    </th>
-                    <th></th>
-                </tr>
-            </table>
+                    @if (Model.SearchResults != null && Model.SearchResults.Any())
+                    {
+                        foreach (var item in Model.SearchResults)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Firstname
+                                </td>
+                                <td>
+                                    @item.Lastname
+                                </td>
+                                <td>
+                                    @item.Professions
+                                </td>
+                                <td>
+                                    @item.Skills
+                                </td>
+                                <td>
+                                    @item.Languages
+                                </td>
+                                <td>
+                                   
+                                </td>
+                                <th></th>
+                            </tr>
+                        }
+                    }
+                </table>
+            </div>
         </div>
     </div>
-</div>
+
+}
 
 
 

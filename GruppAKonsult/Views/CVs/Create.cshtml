@@ -1,74 +1,245 @@
-﻿@model GruppAKonsult.Models.CV
+﻿@model GruppAKonsult.ViewModels.CVViewModel
 
 @{
+    /**/                           //Vägen stämmer inte?
+
     ViewBag.Title = "Create";
 }
+@using (Html.BeginForm("Profilefreelancer", "CVs", FormMethod.Post))           
 
-<h2>Create</h2>
-
-
-@using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>CV</h4>
+        <br>
+        <h2>Mitt CV</h2>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.CV_Id, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.CV_Id, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CV_Id, "", new { @class = "text-danger" })
-            </div>
-        </div>
 
-        <div class="form-group">
+        @*//Bortkommenterad orignalkod*@
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.CV_Id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CV_Id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CV_Id, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+
+        @*//Kommenterat bort ID då det inte ska finnas med i formuläret*@
+        @*<div class="form-group">
             @Html.LabelFor(model => model.Candidate_Id, "Candidate_Id", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @*@Html.DropDownList("Candidate_Id", null, htmlAttributes: new { @class = "form-control" })*@
-                @Html.ValidationMessageFor(model => model.Candidate_Id, "", new { @class = "text-danger" })
+            <div class="col-md-10">*@
+        @*@Html.DropDownList("Candidate_Id", null, htmlAttributes: new { @class = "form-control" })*@
+        @*@Html.ValidationMessageFor(model => model.Candidate_Id, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Drivinglicense, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Drivinglicense, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Drivinglicense, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Education, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Education, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Workexperience, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Workexperience, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Workexperience, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        @*//Test av eget formulär*@
+
+        <div class="col-md-7" id="FreelancerContactInfo">
+            <div class="card-header">Kontaktuppgifter</div>
+            <div class="row">
+                <div class="card-body">
+                    @Html.LabelFor(model => model.Freelancer.Firstname, "Förnamn")<br>
+                    @Html.TextBoxFor(m => m.Freelancer.Firstname, new Dictionary<string, object> { { "placeholder", "Förnamn" } })<br>
+                    @*@Html.EditorFor(model => model.Freelancer.Firstname, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Freelancer.Firstname, "", new { @class = "text-danger" })
+
+                    @Html.LabelFor(model => model.Freelancer.Lastname, "Efternamn")<br>
+                    @Html.TextBoxFor(m => m.Freelancer.Lastname, new Dictionary<string, object> { { "placeholder", "Efternamn" } })<br>
+                    @*@Html.EditorFor(model => model.Freelancer.Lastname, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Freelancer.Lastname, "", new { @class = "text-danger" })
+
+                    @Html.LabelFor(model => model.Freelancer.Email, "Epost")<br>
+                    @Html.TextBoxFor(m => m.Freelancer.Email, new Dictionary<string, object> { { "placeholder", "exempel@exempel.se" } })<br>
+                    @*@Html.EditorFor(model => model.Freelancer.Email, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Freelancer.Email, "", new { @class = "text-danger" })
+
+                    @Html.LabelFor(model => model.Freelancer.Phonenumber, "Telefonnummer")<br>
+                    @Html.TextBoxFor(m => m.Freelancer.Phonenumber, new Dictionary<string, object> { { "placeholder", "Ex. 070*******" } })<br>
+                    @*@Html.EditorFor(model => model.Freelancer.Phonenumber, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Freelancer.Phonenumber, "", new { @class = "text-danger" })
+
+                    @Html.LabelFor(model => model.Freelancer.Nationality, "Nationalitet")<br>
+                    @Html.TextBoxFor(m => m.Freelancer.Nationality, new Dictionary<string, object> { { "placeholder", "Ex. Sverige" } })<br>
+                    @*@Html.EditorFor(model => model.Freelancer.Nationality, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Freelancer.Nationality, "", new { @class = "text-danger" })
+
+                    @Html.LabelFor(model => model.Freelancer.Birthdate, "Födelsedatum")<br>
+                    @Html.TextBoxFor(m => m.Freelancer.Birthdate, new Dictionary<string, object> { { "placeholder", "Ex. YYMMDD" } })<br>
+                    @*@Html.EditorFor(model => model.Freelancer.Birthdate, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Freelancer.Birthdate, "", new { @class = "text-danger" })
+
+                    @Html.LabelFor(model => model.Freelancer.Cityofbirth, "Födelseort")<br>
+                    @Html.TextBoxFor(m => m.Freelancer.Cityofbirth, new Dictionary<string, object> { { "placeholder", "Ex. Stockholm" } })<br>
+                    @*@Html.EditorFor(model => model.Freelancer.Cityofbirth, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Freelancer.Cityofbirth, "", new { @class = "text-danger" })
+
+                    @Html.LabelFor(model => model.Freelancer.Address, "Adress")<br>
+                    @Html.TextBoxFor(m => m.Freelancer.Address, new Dictionary<string, object> { { "placeholder", "Ex. Storgatan 1" } })<br>
+                    @*@Html.EditorFor(model => model.Freelancer.Address, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Freelancer.Address, "", new { @class = "text-danger" })
+
+                    @Html.LabelFor(model => model.Freelancer.Postalnumber, "Postnummer")<br>
+                    @Html.TextBoxFor(m => m.Freelancer.Postalnumber, new Dictionary<string, object> { { "placeholder", "Ex. 331 50" } })<br>
+                    @*@Html.EditorFor(model => model.Freelancer.Postalnumber, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Freelancer.Postalnumber, "", new { @class = "text-danger" })
+
+                    @Html.LabelFor(model => model.Freelancer.City, "Stad")<br>
+                    @Html.TextBoxFor(m => m.Freelancer.City, new Dictionary<string, object> { { "placeholder", "Ex. Stockholm" } })<br>
+                    @*@Html.EditorFor(model => model.Freelancer.City, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Freelancer.City, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
+        <br>
+    </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Drivinglicense, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Drivinglicense, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Drivinglicense, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Education, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Education, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Workexperience, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Workexperience, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Workexperience, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+    <div class="col-md-7" id="Profession">
+        <div class="card-header">Yrke</div>
+        <div class="row">
+            @*//Fungerar inte ännu*@
+            <div class="card-body">
+                @*@Html.LabelFor(model => model.Profession, "Ange ditt huvudsakliga yrke")<br>*@
+                @*@Html.ListBoxFor(m => m.SelectedProfessions, Model.ProfessionList)*@
+                @*@Html.TextAreaFor(model => model.Profession, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Profession, "", new { @class = "text-danger" })*@
+                <br>
             </div>
         </div>
     </div>
+
+    <div class="col-md-7" id="Skills">
+        <div class="card-header">Färdigheter</div>
+        <div class="row">
+            @*//Fungerar inte ännu*@
+            <div class="card-body">
+                @Html.LabelFor(model => model.Freelancer.Skills, "Ange dina kompetenser och kunskaper")<br>
+                @*@Html.ListBoxFor(m => m.SelectedSkills, Model.SkillsList)*@
+                @Html.TextAreaFor(model => model.Freelancer.Skills, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Freelancer.Skills, "", new { @class = "text-danger" })
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-7" id="Language">
+        <div class="card-header">Språk</div>
+        <div class="row">
+            @*//Denna fungerar inte än*@
+            <div class="card-body">
+                @Html.LabelFor(model => model.Freelancer.Language, "Ange dina språkkunskaper")<br>
+                @*@Html.ListBoxFor(m => m.SelectedLanguage, Model.LanguageList)*@
+                @Html.TextAreaFor(model => model.Freelancer.Language, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Freelancer.Language, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-7" id="Drivinglicense">
+        <div class="card-header">Körkort</div>
+        <div class="row">
+            <div class="card-body">
+                <div class="custom-control custom-checkbox">
+                    @Html.RadioButtonFor(m => m.Drivinglicense, "Ja")
+                    <label class="" for="licenseCheckYes">Ja</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    @Html.RadioButtonFor(m => m.Drivinglicense, new Dictionary<string, object> { { "id", "licenseCheckNo" } })
+                    <label class="" for="licenseCheckNo">Nej</label>
+                </div><br>
+                @*@Html.LabelFor(model => model.Drivinglicense, "Svara Ja/Nej")<br>
+                    @Html.EditorFor(model => model.Drivinglicense, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.Drivinglicense, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7" id="Descripton">
+        <div class="card-header">Beskrivning</div>
+        <div class="row">
+            <div class="card-body">
+                @Html.LabelFor(model => model.Description, "Skriv kort om dig själv")<br>
+                @Html.TextAreaFor(m => m.Description, new Dictionary<string, object> { { "row", "5" }, { "class", "form-control" } })
+                @*@Html.TextAreaFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-md-7" id="Education">
+        <div class="card-header">Utbildning</div>
+        <div class="row">
+            <div class="card-body">
+                @Html.LabelFor(model => model.Education, "Ange skolans namn, datum, ämne och examen")<br>
+                @Html.TextAreaFor(m => m.Education,
+                      new Dictionary<string, object> { { "id","educationTextarea" }, { "row","5" }, { "class","form-control" } })
+
+                @Html.ValidationMessageFor(model => model.Education, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-7" id="Workexperience">
+        <div class="card-header">Arbetslivserfarenhet</div>
+        <div class="row">
+            <div class="card-body">
+                @Html.LabelFor(model => model.Education, "Ange företag, datum och arbetsuppgifter")<br>
+                @Html.TextAreaFor(m => m.Workexperience,
+                      new Dictionary<string, object> { { "id","workTextarea" }, { "row","5" }, { "class","form-control" } })
+                @Html.ValidationMessageFor(model => model.Workexperience, "", new { @class = "text-danger" })
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <a href='@Url.Action("ProfileFreelancer", "ProfileFreelancer")'>
+        <input id="EditBtn" type='button' class="btn btn-primary btn-lg" value='Spara' />
+    </a>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+
 }
 
 <div>

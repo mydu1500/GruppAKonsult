@@ -1,7 +1,43 @@
-﻿h2{
-    font-size: 20px;
+﻿h1{
+    font-size: 40px;
+    text-align: center;
+}
+
+h2{
+    font-size: 30px;
+    text-align: center;
+}
+
+#registerText{
+    text-align: left;
+    
 }
 
 #EditBtn{
+    text-align: center;
+    font-size: 50px;
+    color: white;
+ 
+}
+
+#btnRegisterFreelancer{
     text-align: right;
 }
+
+#btnRegisterEmployer{
+    text-align: right;
+}
+
+footer {
+
+    text-align: center;
+}
+
+#LinkGithub, LinkLinkedin{
+    text-align: right;
+    list-style: none;
+    display: inline;
+    
+}
+
+  
