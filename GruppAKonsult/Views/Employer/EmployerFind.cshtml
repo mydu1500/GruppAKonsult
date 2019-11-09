@@ -18,7 +18,7 @@
                     <div>
                         @if (Model.ProfessionList != null)
                         {
-                            @Html.DropDownListFor(m => m.SelectedProfession, Model.ProfessionList, new Dictionary<string, object> {{"class", "form-control"}})
+                            @Html.DropDownListFor(m => m.SelectedProfession, Model.ProfessionList, new Dictionary<string, object> { { "class", "form-control" } })
                         }
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <div>
                         @if (Model.SkillsList != null)
                         {
-                            @Html.DropDownListFor(m => m.SelectedSkill, Model.SkillsList, new Dictionary<string, object> {{"class", "form-control"}})
+                            @Html.DropDownListFor(m => m.SelectedSkill, Model.SkillsList, new Dictionary<string, object> { { "class", "form-control" } })
                         }
                     </div>
                 </div>
@@ -43,15 +43,36 @@
                     <div>
                         @if (Model.LanguageList != null)
                         {
-                            @Html.DropDownListFor(m => m.SelectedLanguage, Model.LanguageList, new Dictionary<string, object> {{"class", "form-control"}})
+                            @Html.DropDownListFor(m => m.SelectedLanguage, Model.LanguageList, new Dictionary<string, object> { { "class", "form-control" } })
                         }
                     </div>
                 </div>
             </div>
 
+            <div class="col-4">
+
+                <div class="form-group">
+                    <label class="control-label">City</label>
+                    <div>
+                        @if (Model.CityList != null)
+                        {
+                            @Html.DropDownListFor(m => m.SelectedCity, Model.CityList, new Dictionary<string, object> { { "class", "form-control" } })
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-1">
+
+                <br /><br />
+                <a>
+                    <input type='submit' class="btn btn-primary btn-lg" value='SÖK' />
+                </a>
+            </div>
+
         </div>
 
-        <div class="row">
+        @*<div class="row">
             <div class="col-4">
 
                 <div class="form-group">
@@ -68,19 +89,18 @@
 
 
 
-        </div>
+        </div>*@
     </div>
 
 
 
-
-    <div class="col-md-1">
+    @*<div class="col-md-1">
 
         <br/><br/>
         <a>
             <input type='submit' class="btn btn-primary btn-lg" value='SÖK'/>
         </a>
-    </div>
+    </div>*@
 
     <div class="row">
         <div class="col-md-6">
