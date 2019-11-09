@@ -177,7 +177,7 @@ namespace GruppAKonsult.Controllers
 
                 db.SaveChanges();
 
-                var languages = model.SelectedLanguage;
+                var languages = model.SelectedLanguages;
 
                 var l = new Language
                 {
