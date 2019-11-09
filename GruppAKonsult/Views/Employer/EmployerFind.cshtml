@@ -5,74 +5,58 @@
 
 @using (Html.BeginForm("EmployerFind", "Employer", FormMethod.Post))
 {
-    <div class="col-md-6">
-        <h3 class="card-header">Sök kandidat</h3>
-
-        @*Dropboxarna ser inte så fina ut och kolumn är inte så fina heller. Har provat column 3-4-5 men ser fortfarande ful ut.*@
-
+    <div class="col-md-10">
+        <br>
+        <h3 class="card-header">Sök kandidat</h3><br />
         <div class="row">
-            <div class="col-4">
-
-                <div class="form-group">
-                    <label class="control-label">Yrkesområde</label>
-                    <div>
-                        @if (Model.ProfessionList != null)
-                        {
-                            @Html.DropDownListFor(m => m.SelectedProfession, Model.ProfessionList, new Dictionary<string, object> { { "class", "form-control" } })
-                        }
-                    </div>
+            <div class="form-group col-md-2">
+                <label class="control-label">Yrkesområde</label><br />
+                <div>
+                    @if (Model.ProfessionList != null)
+                    {
+                        @Html.DropDownListFor(m => m.SelectedProfession, Model.ProfessionList, new Dictionary<string, object> { { "class", "form-control" } })
+                    }
                 </div>
             </div>
-            <div class="col-4">
-
-                <div class="form-group">
-                    <label class="control-label">Kompetenser</label>
-                    <div>
-                        @if (Model.SkillsList != null)
-                        {
-                            @Html.DropDownListFor(m => m.SelectedSkill, Model.SkillsList, new Dictionary<string, object> { { "class", "form-control" } })
-                        }
-                    </div>
+            <br>
+            <div class="form-group col-md-2">
+                <label class="control-label">Kompetenser</label><br />
+                <div>
+                    @if (Model.SkillsList != null)
+                    {
+                        @Html.DropDownListFor(m => m.SelectedSkill, Model.SkillsList, new Dictionary<string, object> { { "class", "form-control" } })
+                    }
                 </div>
             </div>
+            <br>
+            <div class="form-group col-md-2">
+                <label class="control-label">Språk</label><br />
 
-            <div class="col-4">
-
-                <div class="form-group">
-                    <label class="control-label">Språk</label>
-                    <div>
-                        @if (Model.LanguageList != null)
-                        {
-                            @Html.DropDownListFor(m => m.SelectedLanguage, Model.LanguageList, new Dictionary<string, object> { { "class", "form-control" } })
-                        }
-                    </div>
-                </div>
+                @if (Model.LanguageList != null)
+                {
+                    @Html.DropDownListFor(m => m.SelectedLanguage, Model.LanguageList, new Dictionary<string, object> { { "class", "form-control" } })
+                }
             </div>
+            <div class="form-group col-md-2">
+                <label class="control-label">Stad</label><br />
 
-            <div class="col-4">
-
-                <div class="form-group">
-                    <label class="control-label">City</label>
-                    <div>
-                        @if (Model.CityList != null)
-                        {
-                            @Html.DropDownListFor(m => m.SelectedCity, Model.CityList, new Dictionary<string, object> { { "class", "form-control" } })
-                        }
-                    </div>
-                </div>
+                @if (Model.CityList != null)
+                {
+                    @Html.DropDownListFor(m => m.SelectedCity, Model.CityList, new Dictionary<string, object> { { "class", "form-control" } })
+                }
             </div>
-
-            <div class="col-md-1">
-
-                <br /><br />
+            <div class="form-group col-md-2">
+                <br>
                 <a>
                     <input type='submit' class="btn btn-primary btn-lg" value='SÖK' />
                 </a>
             </div>
-
         </div>
+    </div>
+    <br>
 
-        @*<div class="row">
+
+    @*<div class="row">
             <div class="col-4">
 
                 <div class="form-group">
@@ -90,20 +74,20 @@
 
 
         </div>*@
-    </div>
+
 
 
 
     @*<div class="col-md-1">
 
-        <br/><br/>
-        <a>
-            <input type='submit' class="btn btn-primary btn-lg" value='SÖK'/>
-        </a>
-    </div>*@
+            <br/><br/>
+            <a>
+                <input type='submit' class="btn btn-primary btn-lg" value='SÖK'/>
+            </a>
+        </div>*@
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-10">
             <h3 class="card-header">Resultat</h3>
             <div class="card-body">
                 <table class="table">
@@ -150,9 +134,7 @@
                                 <td>
                                     @item.Languages
                                 </td>
-                                <td>
-                                   
-                                </td>
+                                <td></td>
                                 <th></th>
                             </tr>
                         }
