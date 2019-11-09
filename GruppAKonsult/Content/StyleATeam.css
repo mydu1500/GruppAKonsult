@@ -1,5 +1,5 @@
 ﻿h1{
-    font-size: 40px;
+    font-size: 60px;
     text-align: center;
 }
 
@@ -7,6 +7,11 @@ h2{
     font-size: 30px;
     text-align: center;
 }
+ 
+/*h3{
+    font-size: 20px;
+    text-align: center;
+}*/
 
 #registerText{
     text-align: left;
@@ -15,17 +20,19 @@ h2{
 
 #EditBtn{
     text-align: center;
-    font-size: 50px;
+    font-size: 25px;
     color: white;
- 
+    margin-left: 3cm;
 }
 
-#btnRegisterFreelancer{
+#btnRegisterFreelancer {
     text-align: right;
+    padding-right: 5cm;
 }
 
 #btnRegisterEmployer{
     text-align: right;
+    padding-right: 5cm;
 }
 
 footer {
@@ -37,7 +44,8 @@ footer {
     text-align: right;
     list-style: none;
     display: inline;
-    
+    /*height: 50px;*/
 }
+
 
   
