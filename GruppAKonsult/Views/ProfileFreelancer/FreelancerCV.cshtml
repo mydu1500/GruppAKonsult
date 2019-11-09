@@ -86,20 +86,29 @@
                        new Dictionary<string, object> { { "id","workTextarea" }, { "row","5" }, { "class","form-control" } })
                     </div>
                     <div class="form-group">
-                        @Html.ListBoxFor(m => m.SelectedLanguage, Model.LanguageList)
+                        @if (Model.LanguageList != null)
+                        {
+                            @Html.DropDownListFor(m => m.SelectedLanguage, Model.LanguageList)
+                        }
                     </div><br><br>
                     <div class="card-header">Yrke och kunskaper</div>
                     <div class="card-body">
                         <div class="form-group">
                             <label for="Profession">Kompetenser</label>
                             <div class="form-group">
-                                @Html.ListBoxFor(m => m.SelectedProfessions, Model.ProfessionList)
+                            @if (Model.ProfessionList != null)
+                            {
+                                @Html.DropDownListFor(m => m.SelectedProfession, Model.ProfessionList)
+                            }
                             </div><br><br>
                         </div>
                         <div class="form-group">
                             <label for="Skills">Kunskaper</label>
                             <div class="form-group">
-                                @Html.ListBoxFor(m => m.SelectedSkills, Model.SkillsList)
+                                @if (Model.SkillsList != null)
+                                {
+                                    @Html.DropDownListFor(m => m.SelectedSkill, Model.SkillsList)
+                                }
                             </div><br><br>
                         </div>
                     </div>

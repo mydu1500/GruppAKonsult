@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="ProfileFreelancer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GruppAKonsult\GruppAKonsult.csproj">

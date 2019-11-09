@@ -14,6 +14,7 @@ namespace GruppAKonsult.ViewModels
             AddLanguageList();
             AddProfessionList();
             AddSkillsList();
+            AddCityList();
         }
 
         //Egenskaper från CV
@@ -47,11 +48,19 @@ namespace GruppAKonsult.ViewModels
 
         public CV CV { get; set; }
 
-        public string[] SelectedLanguage { get; set; }
+        public string[] SelectedLanguages { get; set; }
 
         public string[] SelectedProfessions { get; set; }
 
         public string[] SelectedSkills { get; set; }
+
+        public string SelectedProfession { get; set; }
+
+        public string SelectedSkill { get; set; }
+
+        public string SelectedLanguage { get; set; }
+
+        public string SelectedCity { get; set; }
 
         public IEnumerable<SelectListItem> LanguageList { get; set; }
 
@@ -59,11 +68,13 @@ namespace GruppAKonsult.ViewModels
 
         public IEnumerable<SelectListItem> SkillsList { get; set; }
 
+        public IEnumerable<SelectListItem> CityList { get; set; }
+
         private void AddLanguageList()
         {
             LanguageList = new List<SelectListItem>()
             {
-                new SelectListItem { Value = "1", Text = "Språk"},
+               
                 new SelectListItem { Value = "2", Text = "Svenska"},
                 new SelectListItem { Value = "3", Text = "Engelska"},
                 new SelectListItem { Value = "4", Text = "Franska"},
@@ -75,6 +86,7 @@ namespace GruppAKonsult.ViewModels
 
             };
         }
+
         private void AddProfessionList()
         {
             ProfessionList = new List<SelectListItem>()
@@ -102,6 +114,21 @@ namespace GruppAKonsult.ViewModels
                 new SelectListItem { Value = "6", Text = "HTML" },
                 new SelectListItem { Value = "7", Text = "CSS" },
                 new SelectListItem { Value = "7", Text = "SQL" }
+            };
+        }
+
+        private void AddCityList()
+        {
+            CityList = new List<SelectListItem>()
+            {
+                new SelectListItem { Value = "1", Text = "Helsingborg" },
+                new SelectListItem { Value = "2", Text = "Kristianstad" },
+                new SelectListItem { Value = "3", Text = "Landskrona" },
+                new SelectListItem { Value = "4", Text = "Lund" },
+                new SelectListItem { Value = "5", Text = "Malmö" },
+                new SelectListItem { Value = "6", Text = "Ystad" },
+                new SelectListItem { Value = "7", Text = "Stockholm" },
+                new SelectListItem { Value = "7", Text = "Göteborg" }
             };
         }
     }
