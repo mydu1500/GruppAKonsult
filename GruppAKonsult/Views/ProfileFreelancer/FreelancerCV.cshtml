@@ -17,39 +17,40 @@
                 <div class="card-header">Kontaktuppgifter</div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Förnamn</label>
+                        <label class="col-form-label" for="inputDefault">Förnamn</label><br />
                         @Html.TextBoxFor(m => m.Freelancer.Firstname, new Dictionary<string, object> { { "placeholder", "Förnamn" } })
                     </div>
-
                     <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Efternamn</label>
+                        <label class="col-form-label" for="inputDefault">Efternamn</label><br />
                         @Html.TextBoxFor(m => m.Freelancer.Lastname, new Dictionary<string, object> { { "placeholder", "Efternamn" } })
                     </div>
-
                     <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Nationalitet</label>
-                        @Html.TextBoxFor(m => m.Freelancer.Nationality, new Dictionary<string, object> { { "placeholder", "Nationalitet" } })
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Epost</label>
-                        @Html.TextBoxFor(m => m.Freelancer.Email, new Dictionary<string, object> { { "placeholder", "exempel@exempel.se" } })
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Telefonnummer</label>
-                        @Html.TextBoxFor(m => m.Freelancer.Phonenumber, new Dictionary<string, object> { { "placeholder", "Ex. 070*******" } })
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Födelsedatum</label>
-                        @Html.TextBoxFor(m => m.Freelancer.Birthdate, new Dictionary<string, object> { { "placeholder", "Ex. YYMMDD" } })
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Adress</label>
+                        <label class="col-form-label" for="inputDefault">Adress</label><br/>
                         @Html.TextBoxFor(m => m.Freelancer.Address, new Dictionary<string, object> { { "placeholder", "Ex. Storgatan 1" } })
                     </div>
                     <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Stad</label>
-                        @Html.TextBoxFor(m => m.Freelancer.City, new Dictionary<string, object> { { "placeholder", "Ex. Stockholm" } })
+                        <label class="col-form-label" for="inputDefault">Postnummer</label><br />
+                        @Html.TextBoxFor(m => m.Freelancer.Postalnumber, new Dictionary<string, object> { { "placeholder", "Ex. 291 53" } })
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputDefault">Stad</label><br />
+                        @Html.TextBoxFor(m => m.Freelancer.City, new Dictionary<string, object> { { "placeholder", "Ex. Malmö" } })
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputDefault">Födelsedatum</label><br />
+                        @Html.TextBoxFor(m => m.Freelancer.Birthdate, new Dictionary<string, object> { { "placeholder", "Ex. YYMMDD" } })
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputDefault">Epost</label><br />
+                        @Html.TextBoxFor(m => m.Freelancer.Email, new Dictionary<string, object> { { "placeholder", "exempel@exempel.se" } })
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputDefault">Telefonnummer</label><br />
+                        @Html.TextBoxFor(m => m.Freelancer.Phonenumber, new Dictionary<string, object> { { "placeholder", "Ex. 070*******" } })
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label" for="inputDefault">Nationalitet</label><br />
+                        @Html.TextBoxFor(m => m.Freelancer.Nationality, new Dictionary<string, object> { { "placeholder", "Nationalitet" } })
                     </div>
                 </div>
                 <div class="card-header">Allmänt</div>
