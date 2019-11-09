@@ -61,7 +61,8 @@
                             <label class="" for="licenseCheckYes">Ja</label>
                         </div>
                         <div class="custom-control custom-checkbox">
-                            @Html.RadioButtonFor(m => m.CV.Drivinglicense, new Dictionary<string, object> { { "id", "licenseCheckNo" } })
+                            @Html.RadioButtonFor(m => m.CV.Drivinglicense, "Nej")
+                            @*@Html.RadioButtonFor(m => m.CV.Drivinglicense, new Dictionary<string, object> { { "id", "licenseCheckNo" } })*@
                             <label class="" for="licenseCheckNo">Nej</label>
                         </div><br>
                     </div>
