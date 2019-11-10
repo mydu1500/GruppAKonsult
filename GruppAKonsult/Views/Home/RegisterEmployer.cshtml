@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "RegisterEmployer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <br>
 <h3 id="registerText">Här registrerar du som är arbetsgivare dig</h3>
@@ -20,7 +21,7 @@
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*******" required>
         </div>
     </fieldset>
+    <a href='@Url.Action("", "")'>
+        <input type='button' id="btnRegisterEmployer2" class="btn btn-primary btn-lg" value='Registrera' />
+    </a>
 </form>
-<a href='@Url.Action("", "")'>
-    <input type='button' id="btnRegisterEmployer" class="btn btn-primary btn-lg" value='Registrera' />
-</a>

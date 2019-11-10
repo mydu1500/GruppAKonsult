@@ -10,130 +10,134 @@
 
     <br>
     <h2>Mitt CV</h2><br>
-
+    
+   
     <div class="card border-primary" style="max-width: 100rem;">
         @*<div class="row">*@
-            <div class="col-md-5">
-                <div class="card-header">Kontaktuppgifter</div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Förnamn</label><br />
-                        @Html.TextBoxFor(m => m.Freelancer.Firstname, new Dictionary<string, object> { { "placeholder", "Hanna" } }) 
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Efternamn</label><br />
-                        @Html.TextBoxFor(m => m.Freelancer.Lastname, new Dictionary<string, object> { { "placeholder", "Svensson" } })
-                    </div>
-
-                    <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Nationalitet</label><br />
-                        @Html.TextBoxFor(m => m.Freelancer.Nationality, new Dictionary<string, object> { { "placeholder", "Svensk" } })
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Epost</label><br />
-                        @Html.TextBoxFor(m => m.Freelancer.Email, new Dictionary<string, object> { { "placeholder", "exempel@exempel.se" } })
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Telefonnummer</label><br />
-                        @Html.TextBoxFor(m => m.Freelancer.Phonenumber, new Dictionary<string, object> { { "placeholder", "Ex. 070*******" } })
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Födelsedatum</label><br />
-                        @Html.TextBoxFor(m => m.Freelancer.Birthdate, new Dictionary<string, object> { { "placeholder", "Ex. YYMMDD" } })
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Födelseort</label><br />
-                        @Html.TextBoxFor(m => m.Freelancer.Cityofbirth, new Dictionary<string, object> { { "placeholder", "Ex. Kristianstad" } })
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Adress</label><br />
-                        @Html.TextBoxFor(m => m.Freelancer.Address, new Dictionary<string, object> { { "placeholder", "Ex. Storgatan 1" } })
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Postnummer</label><br />
-                        @Html.TextBoxFor(m => m.Freelancer.Postalnumber, new Dictionary<string, object> { { "placeholder", "Ex. 291 53" } })
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label" for="inputDefault">Stad</label><br />
-                        @Html.TextBoxFor(m => m.Freelancer.City, new Dictionary<string, object> { { "placeholder", "Ex. Malmö" } })
-                    </div>
+        <div class="col-md-5">
+            <div class="card-header">Kontaktuppgifter</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Förnamn</label><br />
+                    @Html.TextBoxFor(m => m.Freelancer.Firstname, new Dictionary<string, object> { { "placeholder", "Hanna" } })
+                  
                 </div>
-                <div class="card-header">Allmänt</div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label>Körkort</label>
-                        <div class="custom-control custom-checkbox">
-                            @Html.RadioButtonFor(m => m.CV.Drivinglicense, "Ja")
-                            <label class="" for="licenseCheckYes">Ja</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            @Html.RadioButtonFor(m => m.CV.Drivinglicense, "Nej")
-                            @*@Html.RadioButtonFor(m => m.CV.Drivinglicense, new Dictionary<string, object> { { "id", "licenseCheckNo" } })*@
-                            <label class="" for="licenseCheckNo">Nej</label>
-                        </div><br>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleTextarea">Berätta lite om dig själv</label>
-                        @Html.TextAreaFor(m => m.CV.Description, new Dictionary<string, object> { { "row", "5" }, { "class", "form-control" } })
-                    </div><br>
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Efternamn</label><br />
+                    @Html.TextBoxFor(m => m.Freelancer.Lastname, new Dictionary<string, object> { { "placeholder", "Svensson" } })
+                </div>
+
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Nationalitet</label><br />
+                    @Html.TextBoxFor(m => m.Freelancer.Nationality, new Dictionary<string, object> { { "placeholder", "Svensk" } })
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Epost</label><br />
+                    @Html.TextBoxFor(m => m.Freelancer.Email, new Dictionary<string, object> { { "placeholder", "exempel@exempel.se" } })
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Telefonnummer</label><br />
+                    @Html.TextBoxFor(m => m.Freelancer.Phonenumber, new Dictionary<string, object> { { "placeholder", "Ex. 070*******" } })
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Födelsedatum</label><br />
+                    @Html.TextBoxFor(m => m.Freelancer.Birthdate, new Dictionary<string, object> { { "placeholder", "Ex. YYMMDD" } })
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Födelseort</label><br />
+                    @Html.TextBoxFor(m => m.Freelancer.Cityofbirth, new Dictionary<string, object> { { "placeholder", "Ex. Kristianstad" } })
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Adress</label><br />
+                    @Html.TextBoxFor(m => m.Freelancer.Address, new Dictionary<string, object> { { "placeholder", "Ex. Storgatan 1" } })
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Postnummer</label><br />
+                    @Html.TextBoxFor(m => m.Freelancer.Postalnumber, new Dictionary<string, object> { { "placeholder", "Ex. 291 53" } })
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="inputDefault">Stad</label><br />
+                    @Html.TextBoxFor(m => m.Freelancer.City, new Dictionary<string, object> { { "placeholder", "Ex. Malmö" } })
                 </div>
             </div>
+            <div class="card-header">Allmänt</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label>Körkort</label>
+                    <div class="custom-control custom-checkbox">
+                        @Html.RadioButtonFor(m => m.CV.Drivinglicense, "Ja")
+                        <label class="" for="licenseCheckYes">Ja</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        @Html.RadioButtonFor(m => m.CV.Drivinglicense, "Nej")
+                        @*@Html.RadioButtonFor(m => m.CV.Drivinglicense, new Dictionary<string, object> { { "id", "licenseCheckNo" } })*@
+                        <label class="" for="licenseCheckNo">Nej</label>
+                    </div><br>
+                </div>
+                <div class="form-group">
+                    <label for="exampleTextarea">Berätta lite om dig själv</label>
+                    @Html.TextAreaFor(m => m.CV.Description, new Dictionary<string, object> { { "row", "5" }, { "class", "form-control" } })
+                </div><br>
+            </div>
+        </div>
 
-            <div class="col-md-7">
-                <div class="card-header">Utbildning och arbetslivserfarenhet</div>
+        <div class="col-md-7">
+            <div class="card-header">Utbildning och arbetslivserfarenhet</div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="exampleTextarea">Utbildning (skolans namn, datum, ämne, examen)</label>
+                    @Html.TextAreaFor(m => m.CV.Education,
+                   new Dictionary<string, object> { { "id","educationTextarea" }, { "row","5" }, { "class","form-control" } })
+                </div>
+                <div class="form-group">
+                    <label for="exampleTextarea">Arbetsliv (befattning, datum, arbetsuppgifter)</label>
+                    @Html.TextAreaFor(m => m.CV.Workexperience,
+                   new Dictionary<string, object> { { "id","workTextarea" }, { "row","5" }, { "class","form-control" } })
+
+                </div>
+                <div class="form-group">
+                    @if (Model.LanguageList != null)
+                    {
+                        @Html.DropDownListFor(m => m.SelectedLanguage, Model.LanguageList)
+                    }
+                </div><br><br>
+                <div class="card-header">Yrke och kunskaper</div>
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="exampleTextarea">Utbildning (skolans namn, datum, ämne, examen)</label>
-                        @Html.TextAreaFor(m => m.CV.Education,
-                       new Dictionary<string, object> { { "id","educationTextarea" }, { "row","5" }, { "class","form-control" } })
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleTextarea">Arbetsliv (befattning, datum, arbetsuppgifter)</label>
-                        @Html.TextAreaFor(m => m.CV.Workexperience,
-                       new Dictionary<string, object> { { "id","workTextarea" }, { "row","5" }, { "class","form-control" } })
-                    </div>
-                    <div class="form-group">
-                        @if (Model.LanguageList != null)
-                        {
-                            @Html.DropDownListFor(m => m.SelectedLanguage, Model.LanguageList)
-                        }
-                    </div><br><br>
-                    <div class="card-header">Yrke och kunskaper</div>
-                    <div class="card-body">
+                        <label for="Profession">Kompetenser</label>
                         <div class="form-group">
-                            <label for="Profession">Kompetenser</label>
-                            <div class="form-group">
                             @if (Model.ProfessionList != null)
                             {
                                 @Html.DropDownListFor(m => m.SelectedProfession, Model.ProfessionList)
                             }
-                            </div><br><br>
-                        </div>
-                        <div class="form-group">
-                            <label for="Skills">Kunskaper</label>
-                            <div class="form-group">
-                                @if (Model.SkillsList != null)
-                                {
-                                    @Html.DropDownListFor(m => m.SelectedSkill, Model.SkillsList)
-                                }
-                            </div><br><br>
-                        </div>
+                           
+                        </div><br><br>
                     </div>
                     <div class="form-group">
-                        <div class="input-group mb-2">
-                            <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputFile">
-                                <label class="custom-file-label" for="inputFile">Välj fil</label>
-                            </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="">Upload</span>
-                            </div>
-                        </div>
-                    </div><br>
+                        <label for="Skills">Kunskaper</label>
+                        <div class="form-group">
+                            @if (Model.SkillsList != null)
+                            {
+                                @Html.DropDownListFor(m => m.SelectedSkill, Model.SkillsList)
+                            }
+                        </div><br><br>
+                    </div>
                 </div>
+                <div class="form-group">
+                    <div class="input-group mb-2">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="inputFile">
+                            <label class="custom-file-label" for="inputFile">Välj fil</label>
+                        </div>
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="">Upload</span>
+                        </div>
+                    </div>
+                </div><br>
             </div>
+        </div>
 
-        @*</div*@>
+        @*</div>*@
     </div>
 
     <br>
