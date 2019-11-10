@@ -114,7 +114,7 @@ namespace GruppAKonsult.Controllers
                         JQuery = skills.Contains("5") ? "True" : "False",
                         HTML = skills.Contains("6") ? "True" : "False",
                         CSS = skills.Contains("7") ? "True" : "False",
-                        SQL = skills.Contains("7") ? "True" : "False"
+                        SQL = skills.Contains("8") ? "True" : "False"
 
                     };
 
