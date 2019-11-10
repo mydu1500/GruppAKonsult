@@ -1,5 +1,6 @@
-﻿h1{
-    font-size: 40px;
+﻿/*//Allmänt och övergripande*/
+h1{
+    font-size: 50px;
     text-align: center;
 }
 
@@ -7,25 +8,40 @@ h2{
     font-size: 30px;
     text-align: center;
 }
+ 
+/*h3{
+    font-size: 20px;
+    text-align: center;
+}*/
 
-#registerText{
-    text-align: left;
-    
-}
 
 #EditBtn{
     text-align: center;
-    font-size: 50px;
+    font-size: 25px;
     color: white;
- 
+    margin-left: 3cm;
 }
 
-#btnRegisterFreelancer{
-    text-align: right;
+/*//Registeringssidorna*/
+#btnRegisterEmployer2 {
+    margin-left: 1cm;
+}
+#btnRegisterFreelancer2 {
+    margin-left: 1cm;
 }
 
-#btnRegisterEmployer{
-    text-align: right;
+/*//Startsidan*/
+#registerText {
+    text-align: left;
+}
+#registerparagraf{
+    text-align: center;
+}
+#indexBtnRegisterFreelancer, indexBtnRegisterEmployer {
+    margin-left: 3cm;
+}
+#indexBtnRegisterEmployer {
+    margin-left: 3cm; 
 }
 
 footer {
@@ -33,11 +49,13 @@ footer {
     text-align: center;
 }
 
+/*//Frilansarens profilsida (ProfileFreelancer)*/
 #LinkGithub, LinkLinkedin{
     text-align: right;
     list-style: none;
     display: inline;
-    
+    /*height: 50px;*/
 }
+
 
   
