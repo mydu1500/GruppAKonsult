@@ -109,7 +109,7 @@
                         <div class="form-group">
                             @if (Model.ProfessionList != null)
                             {
-                                @Html.DropDownListFor(m => m.SelectedProfession, Model.ProfessionList, new Dictionary<string, object> { { "class", "form-control" } });
+                                @Html.DropDownListFor(m => m.SelectedProfessions, Model.ProfessionList, new Dictionary<string, object> { { "class", "form-control" } });
                                 @*@Html.DropDownListFor(m => m.SelectedProfession, Model.ProfessionList)*@
                             }
 
