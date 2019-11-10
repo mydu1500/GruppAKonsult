@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using GruppAKonsult.Models;
 using GruppAKonsult.ViewModels;
 
+
 namespace GruppAKonsult.Controllers
 {
     public class ProfileFreelancerController : Controller
