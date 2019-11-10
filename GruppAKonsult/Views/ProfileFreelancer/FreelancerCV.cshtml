@@ -91,7 +91,7 @@
                         <label for="language">Välj Språk</label>
                         @if (Model.LanguageList != null)
                         {
-                            @Html.DropDownListFor(m => m.SelectedLanguage, Model.LanguageList, new Dictionary<string, object> { { "class", "form-control" } })
+                            @Html.DropDownListFor(m => m.SelectedLanguages, Model.LanguageList, new Dictionary<string, object> { { "class", "form-control" } })
                         }
                     </div><br><br>
                     <div class="card-header">Yrke och kunskaper</div>
@@ -101,7 +101,7 @@
                             <div class="form-group">
                                 @if (Model.ProfessionList != null)
                                 {
-                                    @Html.DropDownListFor(m => m.SelectedProfession, Model.ProfessionList, new Dictionary<string, object> { { "class", "form-control" } })
+                                    @Html.DropDownListFor(m => m.SelectedProfessions, Model.ProfessionList, new Dictionary<string, object> { { "class", "form-control" } })
                                 }
                             </div><br><br>
                         </div>
@@ -110,7 +110,7 @@
                             <div class="form-group">
                                 @if (Model.SkillsList != null)
                                 {
-                                    @Html.DropDownListFor(m => m.SelectedSkill, Model.SkillsList, new Dictionary<string, object> { { "class", "form-control" } })
+                                    @Html.DropDownListFor(m => m.SelectedSkills, Model.SkillsList, new Dictionary<string, object> { { "class", "form-control" } })
                                 }
                             </div><br><br>
                         </div>
