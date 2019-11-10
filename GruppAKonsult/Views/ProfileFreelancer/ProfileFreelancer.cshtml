@@ -1,4 +1,4 @@
-﻿
+﻿@model GruppAKonsult.ViewModels.ProfileFreeLancerViewModel
 @{
     ViewBag.Title = "ProfileFreelancer";
 }
@@ -6,55 +6,59 @@
 <br>
 <h1>Profil</h1><br><br>
 
-<div class="jumbotron">
-    <h2>Mitt CV</h2><br>
-    <div class="row">
-        <div class="col-md-6">
-            <h3 class="card-header">Kontakuppgifter</h3>
-            <div class="card-body">
-                <h5 class="card-title">Namn</h5>
-                <h6 class="card-subtitle text-muted"> Petter Pettersson</h6><br>
+@if (Model.Freelancer != null)
+{
 
-                <h5 class="card-title">Epost</h5>
-                <h6 class="card-subtitle text-muted">PetterPetterson@gmail.com</h6><br>
 
-                <h5 class="card-title">Telefonnummer</h5>
-                <h6 class="card-subtitle text-muted">0700000000</h6><br>
+    <div class="jumbotron">
+        <h2>Mitt CV</h2><br>
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="card-header">Kontakuppgifter</h3>
+                <div class="card-body">
+                    <h5 class="card-title">Namn</h5>
+                    <h6 class="card-subtitle text-muted">@Model.Freelancer.Firstname</h6><br>
 
-                <h5 class="card-title">Födelsedatum</h5>
-                <h6 class="card-subtitle text-muted">19801030</h6><br>
+                    <h5 class="card-title">Epost</h5>
+                    <h6 class="card-subtitle text-muted">@Model.Freelancer.Email</h6><br>
 
-                <h5 class="card-title">Adress</h5>
-                <h6 class="card-subtitle text-muted">Storgatan 1</h6><br>
+                    <h5 class="card-title">Telefonnummer</h5>
+                    <h6 class="card-subtitle text-muted">@Model.Freelancer.Phonenumber</h6><br>
 
-                <h5 class="card-title">Stad</h5>
-                <h6 class="card-subtitle text-muted">Stockholm</h6><br>
+                    <h5 class="card-title">Födelsedatum</h5>
+                    <h6 class="card-subtitle text-muted">@Model.Freelancer.Birthdate</h6><br>
+
+                    <h5 class="card-title">Adress</h5>
+                    <h6 class="card-subtitle text-muted">@Model.Freelancer.Address</h6><br>
+
+                    <h5 class="card-title">Stad</h5>
+                    <h6 class="card-subtitle text-muted">@Model.Freelancer.City</h6><br>
+                </div>
             </div>
-        </div>
 
 
-        <div class="col-md-6">
-            <h3 class="card-header">Foto</h3>
-            <div class="card-body">
-                <img style="height: 300px; width: 100%; display: block;" src="~/Content/Img/ProfilePic.png" alt="Card image"><br>
-                <div class="row">
-                    <li id="LinkGithub"><a href="#"> <img style="list-style:none; text-align:center; margin: 15px; height:70px; width:70px; display:inline-block;" src="~/Content/Pictures/github.png"> </a></li>
-                    <li id="LinkLinkedin"><a href="#"> <img style="list-style:none; text-align:center; margin: 15px; height:70px; width:70px; display:inline-block;" src="~/Content/Pictures/linkedin.png"></a></li>
+            <div class="col-md-6">
+                <h3 class="card-header">Foto</h3>
+                <div class="card-body">
+                    <img style="height: 300px; width: 100%; display: block;" src="@Url.Content(Model.ProfilePicPath)" alt="Card image"><br>
+                    <div class="row">
+                        <li id="LinkGithub"><a href="#"> <img style="list-style: none; text-align: center; margin: 15px; height: 70px; width: 70px; display: inline-block;" src="~/Content/Pictures/github.png"> </a></li>
+                        <li id="LinkLinkedin"><a href="#"> <img style="list-style: none; text-align: center; margin: 15px; height: 70px; width: 70px; display: inline-block;" src="~/Content/Pictures/linkedin.png"></a></li>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="EditBtn">
-        <div class="row">
-            <a href='@Url.Action("FreelancerCV", "ProfileFreelancer")'>
-                <input id="EditBtn" type='button' class="btn btn-primary btn-lg" value='Redigera CV' />
-            </a><br><br>
+        <div class="EditBtn">
+            <div class="row">
+                <a href='@Url.Action("FreelancerCV", "ProfileFreelancer")'>
+                    <input id="EditBtn" type='button' class="btn btn-primary btn-lg" value='Redigera CV'/>
+                </a><br><br>
+            </div>
         </div>
-    </div>
 
 
-    @*<div class="row">
+        @*<div class="row">
         <div class="col-md-6">
             <h3 class="card-header">Allmänt</h3>
             <div class="card-body">
@@ -102,8 +106,9 @@
                         </div><br><br>
                     </div>
                 </div>*@
-</div><br><br><br>
+    </div>
 
 
+}
 
 

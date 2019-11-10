@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,9 +20,41 @@ namespace GruppAKonsult.Controllers
         //    return View();
         //}
 
-        public ActionResult ProfileFreelancer()
+        //visa profile efter id 
+        public ActionResult ProfileFreelancer(int? id)
         {
-            return View();
+           
+
+            if (!id.HasValue)
+            {
+                return RedirectToAction("FreelancerCV");
+            }
+
+            var model = new ProfileFreeLancerViewModel();
+
+            try
+            {
+                var candidateId = id.HasValue ? id.Value : 0;
+
+                var freelancer = db.Freelancer.FirstOrDefault(x => x.Candidate_Id == candidateId);
+
+                if (freelancer != null)
+                {
+                    model.Freelancer = freelancer;
+                }
+
+                var fileName = string.Format("~/Content/Uploads/{0}.jpg", candidateId);
+
+                //var path = Path.Combine("/Content/Uploads/", fileName);
+
+                model.ProfilePicPath = fileName;
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+            return View(model);
         }
 
 
@@ -47,8 +80,17 @@ namespace GruppAKonsult.Controllers
 
                 db.SaveChanges();
 
-                
                 model.CV.Candidate_Id = candidate.Candidate_Id;
+
+                if (model.ProfilePic != null && model.ProfilePic.ContentLength > 0)
+                {
+                    var basePath = Server.MapPath("~/Content/Uploads");
+                    var extension = Path.GetExtension(model.ProfilePic.FileName);
+                    var fileName = string.Format("{0}{1}", candidate.Candidate_Id, extension);
+                    var path =     Path.Combine(basePath,  fileName);
+
+                    model.ProfilePic.SaveAs(path);
+                }
 
 
                 //CV_ID får 0 värde och det är därför vi summerar 1 till vår query 
@@ -60,67 +102,78 @@ namespace GruppAKonsult.Controllers
 
                 var languages = model.SelectedLanguage;
 
-                var l = new Language
+                if (languages != null)
                 {
-                    CV_Id = cv.CV_Id,
-                    Candidate_Id = candidate.Candidate_Id,
-                    Swedish = languages.Contains("2") ? "True" : "False",
-                    English = languages.Contains("3") ? "True" : "False",
-                    French = languages.Contains("4") ? "True" : "False",
-                    Spanish = languages.Contains("5") ? "True" : "False",
-                    German = languages.Contains("6") ? "True" : "False",
-                    Norwegian = languages.Contains("7") ? "True" : "False",
-                    Danish = languages.Contains("8") ? "True" : "False",
-                    Finnish = languages.Contains("9") ? "True" : "False",
-                };
 
-                db.Language.Add(l);
+                    var l = new Language
+                    {
+                        CV_Id = cv.CV_Id,
+                        Candidate_Id = candidate.Candidate_Id,
+                        Swedish = languages.Contains("2") ? "True" : "False",
+                        English = languages.Contains("3") ? "True" : "False",
+                        French = languages.Contains("4") ? "True" : "False",
+                        Spanish = languages.Contains("5") ? "True" : "False",
+                        German = languages.Contains("6") ? "True" : "False",
+                        Norwegian = languages.Contains("7") ? "True" : "False",
+                        Danish = languages.Contains("8") ? "True" : "False",
+                        Finnish = languages.Contains("9") ? "True" : "False",
+                    };
+
+                    db.Language.Add(l);
+                }
+
 
                 var professions = model.SelectedProfessions;
 
-                var p = new Profession
+                if (professions != null)
                 {
-                    CV_Id = cv.CV_Id,
-                    Candidate_Id = candidate.Candidate_Id,
+                    var p = new Profession
+                    {
+                        CV_Id = cv.CV_Id,
+                        Candidate_Id = candidate.Candidate_Id,
 
-                    Webbdeveloper = professions.Contains("2") ? "True" : "False",
-                    Systemdeveloper = professions.Contains("3") ? "True" : "False",
-                    Programmer = professions.Contains("4") ? "True" : "False",
-                    Softwareengineer = professions.Contains("5") ? "True" : "False",
-                    Frontenddeveloper = professions.Contains("6") ? "True" : "False",
-                    Backenddeveloper = professions.Contains("7") ? "True" : "False",
-                    Javadeveloper = professions.Contains("8") ? "True" : "False",
-                    Scrummaster = professions.Contains("9") ? "True" : "False",
-                };
+                        Webbdeveloper = professions.Contains("2") ? "True" : "False",
+                        Systemdeveloper = professions.Contains("3") ? "True" : "False",
+                        Programmer = professions.Contains("4") ? "True" : "False",
+                        Softwareengineer = professions.Contains("5") ? "True" : "False",
+                        Frontenddeveloper = professions.Contains("6") ? "True" : "False",
+                        Backenddeveloper = professions.Contains("7") ? "True" : "False",
+                        Javadeveloper = professions.Contains("8") ? "True" : "False",
+                        Scrummaster = professions.Contains("9") ? "True" : "False",
+                    };
 
-                db.Profession.Add(p);
+                    db.Profession.Add(p);
+                }
 
                 var skills = model.SelectedSkills;
 
-                var s = new Skills
+                if (skills != null)
                 {
-                    CV_Id = cv.CV_Id,
-                    Candidate_Id = candidate.Candidate_Id,
-                    C_ = skills.Contains("1") ? "True" : "False",
-                    JavaScript = skills.Contains("2") ? "True" : "False",
-                    Java = skills.Contains("3") ? "True" : "False",
-                    C__ = skills.Contains("4") ? "True" : "False",
-                    JQuery = skills.Contains("5") ? "True" : "False",
-                    HTML = skills.Contains("6") ? "True" : "False",
-                    CSS = skills.Contains("7") ? "True" : "False",
-                    SQL = skills.Contains("7") ? "True" : "False"
 
-                };
+                    var s = new Skills
+                    {
+                        CV_Id = cv.CV_Id,
+                        Candidate_Id = candidate.Candidate_Id,
+                        C_ = skills.Contains("1") ? "True" : "False",
+                        JavaScript = skills.Contains("2") ? "True" : "False",
+                        Java = skills.Contains("3") ? "True" : "False",
+                        C__ = skills.Contains("4") ? "True" : "False",
+                        JQuery = skills.Contains("5") ? "True" : "False",
+                        HTML = skills.Contains("6") ? "True" : "False",
+                        CSS = skills.Contains("7") ? "True" : "False",
+                        SQL = skills.Contains("7") ? "True" : "False"
 
-                db.Skills.Add(s);
+                    };
 
+                    db.Skills.Add(s);
+                }
 
                 db.SaveChanges();
 
-                //return RedirectToAction("Index");
+                return RedirectToAction("ProfileFreelancer", new { id = candidate.Candidate_Id });
             }
 
-            return View();
+            return View(model);
         }
     }
 }

@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 using GruppAKonsult.Models;
 
 namespace GruppAKonsult.ViewModels
 {
-    public class FreelancerCVViewModel : CVViewModel
+    public class ProfileFreeLancerViewModel
     {
-
         public Freelancer Freelancer { get; set; }
 
-        public CV CV { get; set; }
-
-        public HttpPostedFileBase ProfilePic { get; set; }
-
-       
+        public string ProfilePicPath { get; set; }
     }
 }
