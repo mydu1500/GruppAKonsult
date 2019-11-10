@@ -45,7 +45,7 @@ namespace GruppAKonsult.Controllers
 
                 db.SaveChanges();
 
-                
+
                 model.CV.Candidate_Id = candidate.Candidate_Id;
 
 
@@ -58,21 +58,24 @@ namespace GruppAKonsult.Controllers
 
                 var languages = model.SelectedLanguage;
 
-                var l = new Language
-                {
-                    CV_Id = cv.CV_Id,
-                    Candidate_Id = candidate.Candidate_Id,
-                    Swedish = languages.Contains("2") ? "True" : "False",
-                    English = languages.Contains("3") ? "True" : "False",
-                    French = languages.Contains("4") ? "True" : "False",
-                    Spanish = languages.Contains("5") ? "True" : "False",
-                    German = languages.Contains("6") ? "True" : "False",
-                    Norwegian = languages.Contains("7") ? "True" : "False",
-                    Danish = languages.Contains("8") ? "True" : "False",
-                    Finnish = languages.Contains("9") ? "True" : "False",
-                };
+                if (languages != null)
+                { 
+                    var l = new Language
+                    {
+                        CV_Id = cv.CV_Id,
+                        Candidate_Id = candidate.Candidate_Id,
+                        Swedish = languages.Contains("2") ? "True" : "False",
+                        English = languages.Contains("3") ? "True" : "False",
+                        French = languages.Contains("4") ? "True" : "False",
+                        Spanish = languages.Contains("5") ? "True" : "False",
+                        German = languages.Contains("6") ? "True" : "False",
+                        Norwegian = languages.Contains("7") ? "True" : "False",
+                        Danish = languages.Contains("8") ? "True" : "False",
+                        Finnish = languages.Contains("9") ? "True" : "False",
+                    };
 
                 db.Language.Add(l);
+                }
 
                 var professions = model.SelectedProfessions;
 
@@ -95,24 +98,27 @@ namespace GruppAKonsult.Controllers
 
                     db.Profession.Add(p);
                 }
+
                 var skills = model.SelectedSkills;
+                if (skills != null)
+                {
+                    var s = new Skills
+                    {
+                        CV_Id = cv.CV_Id,
+                        Candidate_Id = candidate.Candidate_Id,
+                        C_ = skills.Contains("1") ? "True" : "False",
+                        JavaScript = skills.Contains("2") ? "True" : "False",
+                        Java = skills.Contains("3") ? "True" : "False",
+                        C__ = skills.Contains("4") ? "True" : "False",
+                        JQuery = skills.Contains("5") ? "True" : "False",
+                        HTML = skills.Contains("6") ? "True" : "False",
+                        CSS = skills.Contains("7") ? "True" : "False",
+                        SQL = skills.Contains("7") ? "True" : "False"
 
-                //var s = new Skills
-                //{
-                //    CV_Id = cv.CV_Id,
-                //    Candidate_Id = candidate.Candidate_Id,
-                //    C_ = skills.Contains("1") ? "True" : "False",
-                //    JavaScript = skills.Contains("2") ? "True" : "False",
-                //    Java = skills.Contains("3") ? "True" : "False",
-                //    C__ = skills.Contains("4") ? "True" : "False",
-                //    JQuery = skills.Contains("5") ? "True" : "False",
-                //    HTML = skills.Contains("6") ? "True" : "False",
-                //    CSS = skills.Contains("7") ? "True" : "False",
-                //    SQL = skills.Contains("7") ? "True" : "False"
+                    };
 
-                //};
-
-                //db.Skills.Add(s);
+                    db.Skills.Add(s);
+                }
 
 
                 db.SaveChanges();
