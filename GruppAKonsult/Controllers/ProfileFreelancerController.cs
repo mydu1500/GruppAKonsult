@@ -37,6 +37,11 @@ namespace GruppAKonsult.Controllers
             return View(model);
         }
 
+        public ActionResult UpdatedCV()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult ProfileFreelancer(FreelancerCVViewModel model)
         {

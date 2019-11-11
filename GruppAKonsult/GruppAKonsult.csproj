@@ -346,6 +346,7 @@
     <Content Include="Views\Skills\Edit.cshtml" />
     <Content Include="Views\Skills\Index.cshtml" />
     <Content Include="Views\ProfileFreelancer\EmptyNewProfile.cshtml" />
+    <Content Include="Views\ProfileFreelancer\UpdatedCV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
