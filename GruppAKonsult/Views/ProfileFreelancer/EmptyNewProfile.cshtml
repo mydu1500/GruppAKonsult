@@ -5,13 +5,19 @@
 }
 <br>
 <h2>Välkommen till din profil</h2><br>
-<p>Kul att du registrerat dig hos oss. Detta är din profil, för att lägga till ett CV som potentiella
+<p>
+    Kul att du registrerat dig hos oss. Detta är din profil, för att lägga till ett CV som potentiella
     arbetsgivare kommer kunna ta del av så klickar du på Lägg till CV.<br>
-    Kontaktuppgifterna fyller du i samtidigt som du skapar ditt CV.</p>
+    Kontaktuppgifterna fyller du i samtidigt som du skapar ditt CV.
+</p><br>
+<a href='@Url.Action("FreelancerCV", "ProfileFreelancer")'>
+    <input id="CreateCVBtn" type='button' class="btn btn-primary btn-lg" value='Lägg till CV' />
+</a>
+<br><br>
 
 <div class="card border-primary" style="max-width: 100rem;">
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-12">
             <div class="card-header">Kontaktuppgifter</div>
             <div class="card-body">
                 <label class="col-form-label" for="inputDefault">Namn</label>
@@ -30,9 +36,6 @@
         </div><br>
         <br>
         <br>
-        <a href='@Url.Action("FreelancerCV", "ProfileFreelancer")'>
-            <input id="EditBtn" type='button' class="btn btn-primary btn-lg" value='Lägg till CV' />
-        </a>
     </div>
 </div>
 
