@@ -6,9 +6,11 @@
 <br>
 <h1>Profil</h1><br><br>
 
+
+
 @if (Model.Freelancer != null)
 {
-
+    @Html.HiddenFor(m => m.Freelancer.Candidate_Id)
 
     <div class="jumbotron">
         <h2>Mitt CV</h2><br>
@@ -51,9 +53,8 @@
 
         <div class="EditBtn">
             <div class="row">
-                <a href='@Url.Action("FreelancerCV", "ProfileFreelancer")'>
-                    <input id="EditBtn" type='button' class="btn btn-primary btn-lg" value='Redigera CV'/>
-                </a><br><br>
+                @Html.ActionLink("Redigera CV", "FreelancerCV", "ProfileFreelancer", new { id = Model.Freelancer.Candidate_Id }, new { @class = "btn btn-sm btn-primary"  })
+               
             </div>
         </div>
 

@@ -72,63 +72,63 @@ namespace GruppAKonsult.ViewModels
 
         private void AddLanguageList()
         {
-            LanguageList = new List<SelectListItem>()
+            LanguageList = new List<SelectListItem>() //move to db in future
             {
                
-                new SelectListItem { Value = "2", Text = "Svenska"},
-                new SelectListItem { Value = "3", Text = "Engelska"},
-                new SelectListItem { Value = "4", Text = "Franska"},
-                new SelectListItem { Value = "5", Text = "Spanska"},
-                new SelectListItem { Value = "6", Text = "Tyska"},
-                new SelectListItem { Value = "7", Text = "Norska"},
-                new SelectListItem { Value = "8", Text = "Danska"},
-                new SelectListItem { Value = "9", Text = "Finska"}
+                new SelectListItem { Value = "Svenska", Text = "Svenska"},
+                new SelectListItem { Value = "Engelska", Text = "Engelska"},
+                new SelectListItem { Value = "Franska", Text = "Franska"},
+                new SelectListItem { Value = "Spanska", Text = "Spanska"},
+                new SelectListItem { Value = "Tyska", Text = "Tyska"},
+                new SelectListItem { Value = "Norska", Text = "Norska"},
+                new SelectListItem { Value = "Danska", Text = "Danska"},
+                new SelectListItem { Value = "Finska", Text = "Finska"}
 
             };
         }
 
         private void AddProfessionList()
         {
-            ProfessionList = new List<SelectListItem>()
+            ProfessionList = new List<SelectListItem>() //move to db in future
             {
-                new SelectListItem { Value = "1", Text = "Webbutvecklare" },
-                new SelectListItem { Value = "2", Text = "Systemutvecklare" },
-                new SelectListItem { Value = "3", Text = "Programmerare" },
-                new SelectListItem { Value = "4", Text = "Mjukvaruutveklare" },
-                new SelectListItem { Value = "5", Text = "Frontendutvecklare" },
-                new SelectListItem { Value = "6", Text = "Backendutvecklare" },
-                new SelectListItem { Value = "7", Text = "Javautvecklare" },
-                new SelectListItem { Value = "8", Text = "Scrummaster" }
+                new SelectListItem { Value = "Webbutvecklare", Text = "Webbutvecklare" },
+                new SelectListItem { Value = "Systemutvecklare", Text = "Systemutvecklare" },
+                new SelectListItem { Value = "Programmerare", Text = "Programmerare" },
+                new SelectListItem { Value = "Mjukvaruutveklare", Text = "Mjukvaruutveklare" },
+                new SelectListItem { Value = "Frontendutvecklare", Text = "Frontendutvecklare" },
+                new SelectListItem { Value = "Backendutvecklare", Text = "Backendutvecklare" },
+                new SelectListItem { Value = "Javautvecklare", Text = "Javautvecklare" },
+                new SelectListItem { Value = "Scrummaster", Text = "Scrummaster" }
             };
         }
 
         private void AddSkillsList()
         {
-            SkillsList = new List<SelectListItem>()
+            SkillsList = new List<SelectListItem>() //move to db in future save id and name e.g. Id = 1, name = c#
             {
-                new SelectListItem { Value = "1", Text = "C#" },
-                new SelectListItem { Value = "2", Text = "Javascript" },
-                new SelectListItem { Value = "3", Text = "Java" },
-                new SelectListItem { Value = "4", Text = "C++" },
-                new SelectListItem { Value = "5", Text = "JQuery" },
-                new SelectListItem { Value = "6", Text = "HTML" },
-                new SelectListItem { Value = "7", Text = "CSS" },
-                new SelectListItem { Value = "7", Text = "SQL" }
+                new SelectListItem { Value = "C#", Text = "C#" },
+                new SelectListItem { Value = "Javascript", Text = "Javascript" },
+                new SelectListItem { Value = "Java", Text = "Java" },
+                new SelectListItem { Value = "C++", Text = "C++" },
+                new SelectListItem { Value = "JQuery", Text = "JQuery" },
+                new SelectListItem { Value = "HTML", Text = "HTML" },
+                new SelectListItem { Value = "CSS", Text = "CSS" },
+                new SelectListItem { Value = "SQL", Text = "SQL" }
             };
         }
 
         private void AddCityList()
         {
-            CityList = new List<SelectListItem>()
+            CityList = new List<SelectListItem>() //move to db in future
             {
-                new SelectListItem { Value = "1", Text = "Helsingborg" },
-                new SelectListItem { Value = "2", Text = "Kristianstad" },
-                new SelectListItem { Value = "3", Text = "Landskrona" },
-                new SelectListItem { Value = "4", Text = "Lund" },
-                new SelectListItem { Value = "5", Text = "Malmö" },
-                new SelectListItem { Value = "6", Text = "Ystad" },
-                new SelectListItem { Value = "7", Text = "Stockholm" },
-                new SelectListItem { Value = "7", Text = "Göteborg" }
+                new SelectListItem { Value = "Helsingborg", Text = "Helsingborg" },
+                new SelectListItem { Value = "Kristianstad", Text = "Kristianstad" },
+                new SelectListItem { Value = "Landskrona", Text = "Landskrona" },
+                new SelectListItem { Value = "Lund", Text = "Lund" },
+                new SelectListItem { Value = "Malmö", Text = "Malmö" },
+                new SelectListItem { Value = "Ystad", Text = "Ystad" },
+                new SelectListItem { Value = "Stockholm", Text = "Stockholm" },
+                new SelectListItem { Value = "Göteborg", Text = "Göteborg" }
             };
         }
     }
