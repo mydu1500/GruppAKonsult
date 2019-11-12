@@ -10,8 +10,8 @@
 
     <br>
     <h2>Mitt CV</h2><br>
-    
-   
+
+
     <div class="card border-primary" style="max-width: 100rem;">
         @*<div class="row">*@
         <div class="col-md-5">
@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label class="col-form-label" for="inputDefault">Förnamn</label><br />
                     @Html.TextBoxFor(m => m.Freelancer.Firstname, new Dictionary<string, object> { { "placeholder", "Hanna" } })
-                  
+
                 </div>
                 <div class="form-group">
                     <label class="col-form-label" for="inputDefault">Efternamn</label><br />
@@ -100,7 +100,7 @@
                     {
                         @Html.DropDownListFor(m => m.SelectedLanguages, Model.LanguageList, new Dictionary<string, object> { { "class", "form-control" } });
                         @*@Html.DropDownListFor(m => m.SelectedLanguage, Model.LanguageList) *@
-                        }
+                    }
                 </div><br><br>
                 <div class="card-header">Yrke och kunskaper</div>
                 <div class="card-body">
@@ -144,10 +144,11 @@
     </div>
 
     <br>
-    <a href='@Url.Action("ProfileFreelancer", "ProfileFreelancer")'>
-        <input id="EditBtn" type='submit' class="btn btn-primary btn-lg" value='Spara' />
-    </a>
+    //undersök knappen
 
+    <a href='@Url.Action("ProfileFreelancer", "ProfileFreelancer")'>
+        <input id="SaveBtn" type='submit' class="btn btn-primary btn-lg" value='Spara' />
+    </a>
 
 }
 
