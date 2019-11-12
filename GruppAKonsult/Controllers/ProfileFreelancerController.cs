@@ -125,10 +125,7 @@ namespace GruppAKonsult.Controllers
 
                     db.Skills.Add(s);
                 }
-
-
                 db.SaveChanges();
-
                 //return RedirectToAction("Index");
             }
 
