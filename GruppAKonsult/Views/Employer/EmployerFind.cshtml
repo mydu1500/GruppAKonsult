@@ -1,4 +1,5 @@
-﻿@model GruppAKonsult.ViewModels.EmployerFindViewModel
+﻿@using GruppAKonsult.Controllers
+@model GruppAKonsult.ViewModels.EmployerFindViewModel
 @{
     ViewBag.Title = "EmployerFind";
 }
@@ -134,7 +135,7 @@
                                 <td>
                                     @item.Languages
                                 </td>
-                                <td></td>
+                                <td>@Html.ActionLink("Visa Profil","UpdatedCV","ProfileFreelancer",new {id=item.Candidate_Id},new {@class="btn btn-sm btn-primary"}  )</td>
                                 <th></th>
                             </tr>
                         }
