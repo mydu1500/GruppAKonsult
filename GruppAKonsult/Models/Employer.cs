@@ -24,7 +24,7 @@ namespace GruppAKonsult.Models
         public int Employer_Id { get; set; }
         public string Companyname { get; set; }
         public string Email { get; set; }
-        public Nullable<int> Phonenumber { get; set; }
+        public int Phonenumber { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Jobbank> Jobbank { get; set; }

@@ -27,7 +27,7 @@ namespace GruppAKonsult.ViewModels
         public string Companyname { get; set; }
         public string Email { get; set; }
         //public Nullable<int> Phonenumber { get; set; }
-        public int? Phonenumber { get; set; }
+        public int Phonenumber { get; set; }
 
         //Egenskaper från freelancer
         public int Candidate_Id { get; set; }
@@ -96,14 +96,14 @@ namespace GruppAKonsult.ViewModels
         {
             ProfessionList = new List<SelectListItem>()
             {
-                new SelectListItem { Value = "1", Text = "Webbutvecklare" },
-                new SelectListItem { Value = "2", Text = "Systemutvecklare" },
-                new SelectListItem { Value = "3", Text = "Programmerare" },
-                new SelectListItem { Value = "4", Text = "Mjukvaruutveklare" },
-                new SelectListItem { Value = "5", Text = "Frontendutvecklare" },
-                new SelectListItem { Value = "6", Text = "Backendutvecklare" },
-                new SelectListItem { Value = "7", Text = "Javautvecklare" },
-                new SelectListItem { Value = "8", Text = "Scrummaster" }
+                new SelectListItem { Value = "2", Text = "Webbutvecklare" },
+                new SelectListItem { Value = "3", Text = "Systemutvecklare" },
+                new SelectListItem { Value = "4", Text = "Programmerare" },
+                new SelectListItem { Value = "5", Text = "Mjukvaruutveklare" },
+                new SelectListItem { Value = "6", Text = "Frontendutvecklare" },
+                new SelectListItem { Value = "7", Text = "Backendutvecklare" },
+                new SelectListItem { Value = "8", Text = "Javautvecklare" },
+                new SelectListItem { Value = "9", Text = "Scrummaster" }
             };
         }
 
@@ -111,14 +111,14 @@ namespace GruppAKonsult.ViewModels
         {
             SkillsList = new List<SelectListItem>()
             {
-                new SelectListItem { Value = "1", Text = "C#" },
-                new SelectListItem { Value = "2", Text = "Javascript" },
-                new SelectListItem { Value = "3", Text = "Java" },
-                new SelectListItem { Value = "4", Text = "C++" },
-                new SelectListItem { Value = "5", Text = "JQuery" },
-                new SelectListItem { Value = "6", Text = "HTML" },
-                new SelectListItem { Value = "7", Text = "CSS" },
-                new SelectListItem { Value = "7", Text = "SQL" }
+                new SelectListItem { Value = "2", Text = "C#" },
+                new SelectListItem { Value = "3", Text = "Javascript" },
+                new SelectListItem { Value = "4", Text = "Java" },
+                new SelectListItem { Value = "5", Text = "C++" },
+                new SelectListItem { Value = "6", Text = "JQuery" },
+                new SelectListItem { Value = "7", Text = "HTML" },
+                new SelectListItem { Value = "8", Text = "CSS" },
+                new SelectListItem { Value = "9", Text = "SQL" }
             };
         }
 

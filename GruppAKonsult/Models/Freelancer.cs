@@ -34,7 +34,7 @@ namespace GruppAKonsult.Models
         public Nullable<int> Birthdate { get; set; }
         public string Cityofbirth { get; set; }
         public string Email { get; set; }
-        public Nullable<int> Phonenumber { get; set; }
+        public int Phonenumber { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CV> CV { get; set; }
