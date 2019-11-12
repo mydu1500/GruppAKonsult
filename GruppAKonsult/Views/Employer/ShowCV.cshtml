@@ -1,26 +1,20 @@
 ﻿
 @{
-    ViewBag.Title = "UpdatedCV";
+    ViewBag.Title = "ShowCV";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-//Lägg till namn med CV
+<br>
 <h2>CV</h2>
 <br />
-<a href='@Url.Action("ProfileFreelancer", "ProfileFreelancer")'>
+<a href='@Url.Action("FreelancerProfileView", "Employer")'>
     <input id="ShowBtn" type='button' class="btn btn-primary btn-lg" value='Tillbaka till profil' />
 </a><br>
 <br />
-
 <div class="card border-primary" style="max-width: 80rem;">
-    @*<div class="row">*@
-
     <div class="card-header">Kontaktuppgifter</div>
     <div class="card-body">
         <div class="form-group">
             <label class="col-form-label" for="inputDefault">Förnamn</label><br />
-
-
         </div>
         <div class="form-group">
             <label class="col-form-label" for="inputDefault">Efternamn</label><br />
@@ -73,3 +67,4 @@
         </div>
     </div>
 </div>
+

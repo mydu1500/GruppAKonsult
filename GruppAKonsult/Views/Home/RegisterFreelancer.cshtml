@@ -11,16 +11,19 @@
 
 <form>
     <fieldset>
-        <legend>Ange din epost (detta kommer att bli ditt användarnamn) och välj ett säkert lösenord</legend>
         <div class="form-group row">
         </div>
         <div class="form-group">
-            <label for="exampleInputEmail1">Email</label>
+            <label for="exampleInputEmail1">Email (Detta blir ditt användarnamn)</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="frilansare@frilansare.se" required>
 
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Lösenord</label>
+            <label for="exampleInputPassword1">Välj ett lösenord</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*******" required>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Upprepa lösenord</label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="*******" required>
         </div>
     </fieldset>

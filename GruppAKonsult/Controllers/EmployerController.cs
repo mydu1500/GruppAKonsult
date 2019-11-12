@@ -38,6 +38,11 @@ namespace GruppAKonsult.Controllers
             return View();
         }
 
+        public ActionResult ShowCV()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult EmployerFind(EmployerFindViewModel model)
         {
