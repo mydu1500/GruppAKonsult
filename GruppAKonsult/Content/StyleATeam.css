@@ -19,7 +19,7 @@ h2{
     text-align: center;
     font-size: 25px;
     color: white;
-    margin-left: 2cm;
+    margin-left: 3cm;
 }
 
 /*//Registeringssidorna*/
@@ -57,13 +57,5 @@ footer {
     /*height: 50px;*/
 }
 
-/*//Freelancer CV*/
-#SaveBtn{
-    margin-left: 5cm;
-    text-align: center;
-}
 
-#CreateCVBtn{
-    margin-left: 10cm;
-}
   
