@@ -26,7 +26,8 @@ namespace GruppAKonsult.ViewModels
         //Egenskaper från employer   
         public string Companyname { get; set; }
         public string Email { get; set; }
-        public Nullable<int> Phonenumber { get; set; }
+        //public Nullable<int> Phonenumber { get; set; }
+        public int? Phonenumber { get; set; }
 
         //Egenskaper från freelancer
         public int Candidate_Id { get; set; }
@@ -34,9 +35,13 @@ namespace GruppAKonsult.ViewModels
         public string Lastname { get; set; }
         public string Nationality { get; set; }
         public string Address { get; set; }
-        public Nullable<int> Postalnumber { get; set; }
+        //public Nullable<int> Postalnumber { get; set; }
+        public int Postalnumber { get; set; }
+
         public string City { get; set; }
-        public Nullable<int> Birthdate { get; set; }
+        //public Nullable<int> Birthdate { get; set; }
+
+        public int Birthdate { get; set; }
         public string Cityofbirth { get; set; }
 
         //Onödig??

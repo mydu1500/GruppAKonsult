@@ -37,10 +37,15 @@ namespace GruppAKonsult.Controllers
             return View(model);
         }
 
+        public ActionResult UpdatedCV()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult ProfileFreelancer(FreelancerCVViewModel model)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 var candidate = db.Freelancer.Add(model.Freelancer);
 
@@ -51,13 +56,13 @@ namespace GruppAKonsult.Controllers
 
 
                 //CV_ID får 0 värde och det är därför vi summerar 1 till vår query 
-                model.CV.CV_Id = db.CV.Max(x => x.CV_Id) + 1;
+               model.CV.CV_Id = db.CV.Max(x => x.CV_Id) + 1;
 
                 var cv = db.CV.Add(model.CV);
 
                 db.SaveChanges();
 
-                var languages = model.SelectedLanguage;
+                var languages = model.SelectedLanguages;
 
                 if (languages != null)
                 { 
@@ -107,14 +112,14 @@ namespace GruppAKonsult.Controllers
                     {
                         CV_Id = cv.CV_Id,
                         Candidate_Id = candidate.Candidate_Id,
-                        C_ = skills.Contains("1") ? "True" : "False",
-                        JavaScript = skills.Contains("2") ? "True" : "False",
-                        Java = skills.Contains("3") ? "True" : "False",
-                        C__ = skills.Contains("4") ? "True" : "False",
-                        JQuery = skills.Contains("5") ? "True" : "False",
-                        HTML = skills.Contains("6") ? "True" : "False",
-                        CSS = skills.Contains("7") ? "True" : "False",
-                        SQL = skills.Contains("8") ? "True" : "False"
+                        C_ = skills.Contains("2") ? "True" : "False",
+                        JavaScript = skills.Contains("3") ? "True" : "False",
+                        Java = skills.Contains("4") ? "True" : "False",
+                        C__ = skills.Contains("5") ? "True" : "False",
+                        JQuery = skills.Contains("6") ? "True" : "False",
+                        HTML = skills.Contains("7") ? "True" : "False",
+                        CSS = skills.Contains("8") ? "True" : "False",
+                        SQL = skills.Contains("9") ? "True" : "False"
 
                     };
 
