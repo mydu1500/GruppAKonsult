@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "FreelancerProfileView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br>
+<h1>Petter Petterssons profil</h1><br><br>
+
+<div class="jumbotron">
+    <h2>Mitt CV</h2><br>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card-header">Kontakuppgifter</div>
+            <div class="card-body">
+                <h5 class="card-title">Namn</h5>
+                <h6 class="card-subtitle text-muted"> Petter Pettersson</h6><br>
+
+                <h5 class="card-title">Epost</h5>
+                <h6 class="card-subtitle text-muted">PetterPetterson@gmail.com</h6><br>
+
+                <h5 class="card-title">Telefonnummer</h5>
+                <h6 class="card-subtitle text-muted">0700000000</h6><br>
+
+                <h5 class="card-title">Födelsedatum</h5>
+                <h6 class="card-subtitle text-muted">19801030</h6><br>
+
+                <h5 class="card-title">Adress</h5>
+                <h6 class="card-subtitle text-muted">Storgatan 1</h6><br>
+
+                <h5 class="card-title">Stad</h5>
+                <h6 class="card-subtitle text-muted">Stockholm</h6><br>
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="card-header">Foto</div>
+            <div class="card-body">
+                <img style="height: 300px; width: 100%; display: block;" src="~/Content/Img/ProfilePic.png" alt="Card image"><br><br>
+                <div class="row">
+                    <link id="LinkGithub"><a href="#"> <img style="text-align:center; margin: 15px; height:70px; width:70px; display:inline-block;" src="~/Content/Pictures/github.png"> </a>
+                    <link id="LinkLinkedin"><a href="#"> <img style="text-align:center; margin: 15px; height:70px; width:70px; display:inline-block;" src="~/Content/Pictures/linkedin.png"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr />
+    <br />
+
+        <a href='@Url.Action("UpdatedCV", "ProfileFreelancer")'>
+            <input id="ShowBtn" type='button' class="btn btn-primary btn-lg" value='Visa CV' />
+        </a><br><br>
+    </div>
+

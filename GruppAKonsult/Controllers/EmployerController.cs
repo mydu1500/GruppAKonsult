@@ -33,6 +33,11 @@ namespace GruppAKonsult.Controllers
             return View(model);
         }
 
+        public ActionResult FreelancerProfileView()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult EmployerFind(EmployerFindViewModel model)
         {
