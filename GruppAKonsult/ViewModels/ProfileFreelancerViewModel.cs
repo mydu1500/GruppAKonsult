@@ -10,6 +10,6 @@ namespace GruppAKonsult.ViewModels
     {
         public Freelancer Freelancer { get; set; }
 
-        public  ProfilePicPath { get; set; }
-}
+        public string ProfilePicPath { get; set; }
+    }
 }
