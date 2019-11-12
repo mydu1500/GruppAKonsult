@@ -1,4 +1,5 @@
-﻿@model GruppAKonsult.ViewModels.EmployerFindViewModel
+﻿@using GruppAKonsult.Controllers
+@model GruppAKonsult.ViewModels.EmployerFindViewModel
 @{
     ViewBag.Title = "EmployerFind";
 }
@@ -29,7 +30,7 @@
                 </div>
             </div>
             <br>
-            @*<div class="form-group col-md-2">
+            <div class="form-group col-md-2">
                 <label class="control-label">Språk</label><br />
 
                 @if (Model.LanguageList != null)
@@ -44,7 +45,7 @@
                 {
                     @Html.DropDownListFor(m => m.SelectedCity, Model.CityList, new Dictionary<string, object> { { "class", "form-control" } })
                 }
-            </div>*@
+            </div>
             <div class="form-group col-md-2">
                 <br>
                 <a>
@@ -104,12 +105,12 @@
                         <th>
                             <h5 class="card-title">Kompetens</h5>
                         </th>
-                        @*<th>
-                    <h5 class="card-title">Språk</h5>
-                </th>*@
-                        @*<th>
-                    <h5 class="card-title">Stad</h5>
-                </th>*@
+                        <th>
+                            <h5 class="card-title">Språk</h5>
+                        </th>
+                        <th>
+                            <h5 class="card-title">Stad</h5>
+                        </th>
                         <th></th>
                     </tr>
 
@@ -131,19 +132,15 @@
                                 <td>
                                     @item.Skills
                                 </td>
-                                @*<td>
-                            @item.Languages
-                        </td>*@
-                                <td></td>
+                                <td>
+                                    @item.Languages
+                                </td>
+                                <td>@Html.ActionLink("Visa Profil","UpdatedCV","ProfileFreelancer",new {id=item.Candidate_Id},new {@class="btn btn-sm btn-primary"}  )</td>
                                 <th></th>
                             </tr>
                         }
-
                     }
                 </table>
-                <a href='@Url.Action("ProfileFreelancer", "UpdatedCV")'>
-                    <input id="ShowProfileBtn" type='submit' class="btn btn-primary btn-lg" value='Visa profil' />
-                </a>
             </div>
         </div>
     </div>

@@ -191,6 +191,7 @@
     <Compile Include="ViewModels\CVViewModel.cs" />
     <Compile Include="ViewModels\EmployerFindViewModel.cs" />
     <Compile Include="ViewModels\FreeLancerCVViewModel.cs" />
+    <Compile Include="ViewModels\ProfileFreelancerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
