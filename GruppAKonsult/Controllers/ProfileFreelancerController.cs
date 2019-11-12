@@ -62,7 +62,7 @@ namespace GruppAKonsult.Controllers
 
                 db.SaveChanges();
 
-                var languages = model.SelectedLanguages;
+                var languages = model.SelectedLanguage;
 
                 if (languages != null)
                 { 

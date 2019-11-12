@@ -98,7 +98,7 @@
                 <div class="form-group">
                     @if (Model.LanguageList != null)
                     {
-                        @Html.DropDownListFor(m => m.SelectedLanguages, Model.LanguageList, new Dictionary<string, object> { { "class", "form-control" } });
+                        @Html.DropDownListFor(m => m.SelectedLanguage, Model.LanguageList, new Dictionary<string, object> { { "class", "form-control" } });
                         @*@Html.DropDownListFor(m => m.SelectedLanguage, Model.LanguageList) *@
                         }
                 </div><br><br>
