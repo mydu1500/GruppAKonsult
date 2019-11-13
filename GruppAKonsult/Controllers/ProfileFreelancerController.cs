@@ -30,12 +30,76 @@ namespace GruppAKonsult.Controllers
             return View();
         }
 
-        public ActionResult FreelancerCV()
+        public ActionResult FreelancerCV( int? id)
         {
-            var model = new FreelancerCVViewModel();
+            var model = new FreelancerCVViewModel()
+            {
+                Freelancer = new Freelancer(),
+                CV = new CV()
+            };
+            if (id.HasValue)
+            {
+                var candidateId = id.Value;
+
+                var freelancer = db.Freelancer.FirstOrDefault(x => x.Candidate_Id == candidateId);
+
+                model.Freelancer = freelancer;
+
+                var cv = db.CV.FirstOrDefault(x => x.Candidate_Id == candidateId);
+
+                var language = db.Language.FirstOrDefault(x => x.CV_Id == cv.CV_Id && x.Candidate_Id == candidateId);
+
+                if (language != null)
+                {
+                    var selectedLanguage = "";
+
+                    if (language.Swedish == "True")
+                    {
+                        selectedLanguage = "Svenska";
+                    }
+
+                    if (language.English == "True")
+                    {
+                        selectedLanguage = "Engelska";
+                    }
+                    if (language.French == "True")
+                    {
+                        selectedLanguage = "Franska";
+                    }
+                    if (language.Spanish == "True")
+                    {
+                        selectedLanguage = "Spanska";
+                    }
+                    if (language.German == "True")
+                    {
+                        selectedLanguage = "Tyska";
+                    }
+                    if (language.Norwegian == "True")
+                    {
+                        selectedLanguage = "Norska";
+                    }
+                    if (language.Danish == "True")
+                    {
+                        selectedLanguage = "Danska";
+                    }
+                    if (language.Finnish == "True")
+                    {
+                        selectedLanguage = "Finska";
+                    }
+
+                    model.SelectedLanguage = selectedLanguage;
+                }
+
+
+                model.CV = cv;
+            }
+
+
 
             return View(model);
         }
+
+
 
         public ActionResult UpdatedCV()
         {
@@ -131,5 +195,87 @@ namespace GruppAKonsult.Controllers
 
             return View();
         }
+
+        [HttpPost]
+        public ActionResult FreelancerCV(FreelancerCVViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+
+                if (model.Freelancer.Candidate_Id <= 0)
+                {
+                    _addFreelancer(model);
+                }
+                else
+                {
+                    _editFreelancer(model);
+                }
+
+                return RedirectToAction("UpdatedCV", new { id = model.Freelancer.Candidate_Id });
+            }
+
+            return View(model);
+        }
+
+
+        #region Helper Methods
+
+        private Language _getLanguage(int cvId, int candidateId, string language)
+        {
+            return new Language
+            {
+                CV_Id = cvId,
+                Candidate_Id = candidateId,
+                Swedish = language.Contains("Svenska").ToString(), 
+                English = language.Contains("Engelska").ToString(),
+                French = language.Contains("Franska").ToString(),
+                Spanish = language.Contains("Spanska").ToString(),
+                German = language.Contains("Tyska").ToString(),
+                Norwegian = language.Contains("Norska").ToString(),
+                Danish = language.Contains("Danska").ToString(),
+                Finnish = language.Contains("Finska").ToString(),
+            };
+
+        }
+
+        private Profession _getProfession(int cvId, int candidateId, string profession)
+        {
+            return new Profession
+            {
+                CV_Id = cvId,
+                Candidate_Id = candidateId,
+
+                Webbdeveloper = profession.Contains("Webbutvecklare") ? "True" : "False",
+                Systemdeveloper = profession.Contains("Systemutvecklare") ? "True" : "False",
+                Programmer = profession.Contains("Programmerare") ? "True" : "False",
+                Softwareengineer = profession.Contains("Mjukvaruutveklare") ? "True" : "False",
+                Frontenddeveloper = profession.Contains("Frontendutvecklare") ? "True" : "False",
+                Backenddeveloper = profession.Contains("Backendutvecklare") ? "True" : "False",
+                Javadeveloper = profession.Contains("Javautvecklare") ? "True" : "False",
+                Scrummaster = profession.Contains("Scrummaster") ? "True" : "False",
+            };
+
+        }
+
+        private Skills _getSkills(int cvId, int candidateId, string skill)
+        {
+            return new Skills
+            {
+                CV_Id = cvId,
+                Candidate_Id = candidateId,
+                C_ = skill.Contains("C#") ? "True" : "False",
+                JavaScript = skill.Contains("Javascript") ? "True" : "False",
+                Java = skill.Contains("Java") ? "True" : "False",
+                C__ = skill.Contains("C++") ? "True" : "False",
+                JQuery = skill.Contains("JQuery") ? "True" : "False",
+                HTML = skill.Contains("HTML") ? "True" : "False",
+                CSS = skill.Contains("CSS") ? "True" : "False",
+                SQL = skill.Contains("SQL") ? "True" : "False"
+
+            };
+
+        }
+        #endregion
+
     }
 }
