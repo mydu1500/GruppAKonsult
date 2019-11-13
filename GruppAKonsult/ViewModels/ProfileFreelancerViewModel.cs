@@ -11,5 +11,9 @@ namespace GruppAKonsult.ViewModels
         public Freelancer Freelancer { get; set; }
 
         public string ProfilePicPath { get; set; }
+
+        public string CandidateSkill { get; set; }
+        public string CandidateProfession { get;  set; }
+        public string CandidateLanguage { get; set; }
     }
 }

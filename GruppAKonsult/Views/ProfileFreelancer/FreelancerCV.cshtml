@@ -2,16 +2,24 @@
 @{
     ViewBag.Title = "FreelancerCV";
 }
-@using (Html.BeginForm("ProfileFreelancer", "ProfileFreelancer", FormMethod.Post))
+@using (Html.BeginForm("FreelancerCV", "ProfileFreelancer", FormMethod.Post))
 {
 
+    @Html.HiddenFor(m => m.Freelancer.Candidate_Id)
+    @Html.HiddenFor(m => m.CV.Candidate_Id)
+    @Html.HiddenFor(m => m.CV.CV_Id)
+
+    
+    <div class="alert-danger alert">
+        @Html.ValidationSummary()
+    </div>
     <br>
     <h2>Mitt CV</h2><br>
     <br />
-<a href='@Url.Action("ProfileFreelancer", "ProfileFreelancer")'>
-    <input id="ShowBtn" type='button' class="btn btn-primary btn-lg" value='Tillbaka till profil' />
-</a><br>
-<br />
+    <a href='@Url.Action("ProfileFreelancer", "ProfileFreelancer")'>
+        <input id="ShowBtn" type='button' class="btn btn-primary btn-lg" value='Tillbaka till profil' />
+    </a><br>
+    <br />
 
     <div class="card border-primary" style="max-width: 100rem;">
         @*<div class="row">*@
@@ -147,9 +155,9 @@
     <br>
     //undersök knappen
 
-    <a href='@Url.Action("ProfileFreelancer", "ProfileFreelancer")'>
+   
         <input id="SaveBtn" type='submit' class="btn btn-primary btn-lg" value='Spara' />
-    </a>
+    
 
 }
 

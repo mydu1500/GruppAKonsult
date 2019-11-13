@@ -38,9 +38,86 @@ namespace GruppAKonsult.Controllers
             return View();
         }
 
-        public ActionResult ShowCV()
+        public ActionResult ShowCV(int? id)
         {
-            return View();
+            if (!id.HasValue)
+            {
+                return RedirectToAction("EmployerView");
+            }
+
+            var model = new ProfileFreelancerViewModel();
+
+            try
+            {
+                var candidateId = id.HasValue ? id.Value : 0;
+
+                var freelancer = db.Freelancer
+                    //.Include(x => x.Skills)
+                    .FirstOrDefault(x => x.Candidate_Id == candidateId);
+
+                if (freelancer != null)
+                {
+                    model.Freelancer = freelancer;
+                }
+
+                var cvId = db.CV.FirstOrDefault(x => x.Candidate_Id == candidateId)?.CV_Id;
+                var skills = db.Skills.FirstOrDefault(x => x.Candidate_Id == candidateId && x.CV_Id == cvId);
+
+                if (skills != null)
+                {
+                    model.CandidateSkill = string.Format("{0}",
+                        (skills.C_ == "True" ? "C#" : ""),
+                        (skills.SQL == "True" ? "SQL" : ""),
+                        (skills.JavaScript == "True" ? "Javascript" : ""),
+                        (skills.Java == "True" ? "Java" : ""),
+                        (skills.CSS == "True" ? "CSS" : ""),
+                        (skills.HTML == "True" ? "HTML" : ""),
+                        (skills.JQuery == "True" ? "JQuery" : "")
+                    );
+                }
+
+                var profession = db.Profession.FirstOrDefault(x => x.Candidate_Id == candidateId && x.CV_Id == cvId);
+
+
+                if (profession != null)
+                {
+                    model.CandidateProfession = string.Format("{0}",
+                        (profession.Webbdeveloper == "True" ? "Webbdeveloper" : ""),
+                        (profession.Backenddeveloper == "True" ? "Backenddeveloper" : ""),
+                        (profession.Frontenddeveloper == "True" ? "Frontenddeveloper" : ""),
+                        (profession.Javadeveloper == "True" ? "Javadeveloper" : ""),
+                        (profession.Programmer == "True" ? "Programmer" : ""),
+                        (profession.Scrummaster == "True" ? "Scrummaster" : ""),
+                        (profession.Softwareengineer == "True" ? "Softwareengineer" : ""),
+                        (profession.Systemdeveloper == "True" ? "Systemdeveloper" : "")
+                    );
+                }
+
+                var language = db.Language.FirstOrDefault(x => x.Candidate_Id == candidateId && x.CV_Id == cvId);
+
+                if (language != null)
+                {
+                    model.CandidateLanguage = string.Format("{0}",
+                        (language.Danish == "True" ? "Danska" : ""),
+                        (language.Spanish == "True" ? "Spanska" : ""),
+                        (language.English == "True" ? "Engelska" : ""),
+                        (language.Finnish == "True" ? "Finska" : ""),
+                        (language.French == "True" ? "Franska" : ""),
+                        (language.German == "True" ? "Tyska" : ""),
+                        (language.Swedish == "True" ? "Svenska" : ""),
+                        (language.Norwegian == "True" ? "Norska" : "")
+                    );
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+
+            return View(model);
         }
 
 
