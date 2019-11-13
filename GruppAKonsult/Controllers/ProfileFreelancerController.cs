@@ -101,9 +101,33 @@ namespace GruppAKonsult.Controllers
 
 
 
-        public ActionResult UpdatedCV()
+        public ActionResult UpdatedCV(int? id)
         {
-            return View();
+            if (!id.HasValue)
+            {
+                return RedirectToAction("FreelancerCV");
+            }
+
+            var model = new ProfileFreelancerViewModel();
+
+            try
+            {
+                var candidateId = id.HasValue ? id.Value : 0;
+
+                var freelancer = db.Freelancer.FirstOrDefault(x => x.Candidate_Id == candidateId);
+
+                if (freelancer != null)
+                {
+                    model.Freelancer = freelancer;
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+
+
+            return View(model);
         }
 
         [HttpPost]
@@ -262,10 +286,87 @@ namespace GruppAKonsult.Controllers
             }
 
             db.SaveChanges();
+            }
 
+
+            private void _editFreelancer(FreelancerCVViewModel model)
+            {
+
+                var existingFreelancer = db.Freelancer.FirstOrDefault(x => x.Candidate_Id == model.Freelancer.Candidate_Id);
+
+                if (existingFreelancer != null)
+                {
+                    db.Entry(existingFreelancer).CurrentValues.SetValues(model.Freelancer);
+                }
+
+                var existingCV = db.Freelancer.FirstOrDefault(x => x.Candidate_Id == model.Freelancer.Candidate_Id);
+
+                if (existingCV != null)
+                {
+                    db.Entry(existingCV).CurrentValues.SetValues(model.CV);
+                }
+
+
+
+                var selectedLanguage = model.SelectedLanguage;
+
+                if (selectedLanguage != null)
+                {
+                    var existingLanguage = db.Language.FirstOrDefault(x => x.Candidate_Id == model.Freelancer.Candidate_Id && x.CV_Id == model.CV.CV_Id);
+
+                    var language = _getLanguage(model.CV.CV_Id, model.Freelancer.Candidate_Id, selectedLanguage);
+
+                    if (existingLanguage == null)
+                    {
+                        db.Language.Add(language);
+                    }
+                    else
+                    {
+                        db.Entry(existingLanguage).CurrentValues.SetValues(language);
+                    }
+
+                }
+
+
+                var selectedProfession = model.SelectedProfession;
+
+                if (selectedProfession != null)
+                {
+                    var existingProfession = db.Profession.FirstOrDefault(x => x.Candidate_Id == model.Freelancer.Candidate_Id && x.CV_Id == model.CV.CV_Id);
+                    var profession = _getProfession(model.CV.CV_Id, model.Freelancer.Candidate_Id, selectedProfession);
+
+                    if (existingProfession == null)
+                    {
+                        db.Profession.Add(profession);
+                    }
+                    else
+                    {
+                        db.Entry(existingProfession).CurrentValues.SetValues(profession);
+                    }
+                }
+
+                var selectedSkill = model.SelectedSkill;
+
+                if (selectedSkill != null)
+                {
+
+                    var existingSkills = db.Skills.FirstOrDefault(x => x.Candidate_Id == model.Freelancer.Candidate_Id && x.CV_Id == model.CV.CV_Id);
+                    var skill = _getSkills(model.CV.CV_Id, model.Freelancer.Candidate_Id, selectedSkill);
+
+                    if (existingSkills == null)
+                    {
+                        db.Skills.Add(skill);
+                    }
+                    else
+                    {
+                        db.Entry(existingSkills).CurrentValues.SetValues(skill);
+                    }
+                }
+
+            }
 
             #endregion
-            #region Helper Methods
+            #region Metoder 
 
             private Language _getLanguage(int cvId, int candidateId, string language)
         {
