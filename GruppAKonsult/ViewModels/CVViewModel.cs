@@ -96,6 +96,7 @@ namespace GruppAKonsult.ViewModels
         {
             ProfessionList = new List<SelectListItem>()
             {
+                new SelectListItem { Text = "Välj Yrkesområde" },
                 new SelectListItem { Value = "2", Text = "Webbutvecklare" },
                 new SelectListItem { Value = "3", Text = "Systemutvecklare" },
                 new SelectListItem { Value = "4", Text = "Programmerare" },
@@ -111,9 +112,10 @@ namespace GruppAKonsult.ViewModels
         {
             SkillsList = new List<SelectListItem>()
             {
+                new SelectListItem { Text = "Välj kompetens" },
                 new SelectListItem { Value = "2", Text = "C#" },
-                new SelectListItem { Value = "3", Text = "Javascript" },
-                new SelectListItem { Value = "4", Text = "Java" },
+                new SelectListItem { Value = "3", Text = "JavaScript" },
+                //new SelectListItem { Value = "4", Text = "Java" },
                 new SelectListItem { Value = "5", Text = "C++" },
                 new SelectListItem { Value = "6", Text = "JQuery" },
                 new SelectListItem { Value = "7", Text = "HTML" },
