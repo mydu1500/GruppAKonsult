@@ -217,10 +217,57 @@ namespace GruppAKonsult.Controllers
             return View(model);
         }
 
+        #region Add/Edit Freelancer
 
-        #region Helper Methods
+        private void _addFreelancer(FreelancerCVViewModel model)
+        {
+            var candidate = db.Freelancer.Add(model.Freelancer);
 
-        private Language _getLanguage(int cvId, int candidateId, string language)
+            db.SaveChanges();
+
+            model.CV.Candidate_Id = candidate.Candidate_Id;
+
+            if (model.CV.CV_Id <= 0)
+            {
+                model.CV.CV_Id = db.CV.Max(x => x.CV_Id) + 1;
+            }
+
+
+            var cv = db.CV.Add(model.CV);
+
+            db.SaveChanges();
+
+            var language = model.SelectedLanguage;
+
+            if (language != null)
+            {
+                db.Language.Add(_getLanguage(cv.CV_Id, candidate.Candidate_Id, language));
+            }
+
+
+            var profession = model.SelectedProfession;
+
+            if (profession != null)
+            {
+
+                db.Profession.Add(_getProfession(cv.CV_Id, candidate.Candidate_Id, profession));
+            }
+
+            var skill = model.SelectedSkill;
+
+            if (skill != null)
+            {
+
+                db.Skills.Add(_getSkills(cv.CV_Id, candidate.Candidate_Id, skill));
+            }
+
+            db.SaveChanges();
+
+
+            #endregion
+            #region Helper Methods
+
+            private Language _getLanguage(int cvId, int candidateId, string language)
         {
             return new Language
             {
