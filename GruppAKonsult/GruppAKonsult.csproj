@@ -190,6 +190,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CVViewModel.cs" />
     <Compile Include="ViewModels\EmployerFindViewModel.cs" />
+    <Compile Include="ViewModels\EmployerViewModel.cs" />
     <Compile Include="ViewModels\FreeLancerCVViewModel.cs" />
     <Compile Include="ViewModels\ProfileFreeLancerViewModel.cs" />
   </ItemGroup>

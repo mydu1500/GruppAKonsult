@@ -6,11 +6,8 @@ using GruppAKonsult.Models;
 
 namespace GruppAKonsult.ViewModels
 {
-
-    public class ProfileFreeLancerViewModel
+    public class EmployerViewModel
     {
         public Freelancer Freelancer { get; set; }
-
     }
-   
 }
