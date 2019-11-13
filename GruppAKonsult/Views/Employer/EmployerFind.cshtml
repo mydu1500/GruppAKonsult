@@ -4,6 +4,23 @@
     ViewBag.Title = "EmployerFind";
 }
 
+//JqueryKod som ska filtrera dropbox
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script>
+
+    $(document).ready(function () {
+        var options = $("#DropDownList2").html();
+        $("#DropDownList1").change(function (e) {
+            var text = $("#DropDownList1 :selected").text();
+            $("#DropDownList2").html(options);
+            if (text == "All") return;
+            $('#DropDownList2 :not([value^="' + text.substr(0, 3) + '"])').remove();
+
+        });
+</script>
+
+
+
 @using (Html.BeginForm("EmployerFind", "Employer", FormMethod.Post))
 {
     <div class="col-md-10">
@@ -55,6 +72,28 @@
         </div>
     </div>
     <br>
+
+    <div>
+        <select ID="DropDownList1" Height="72px" Width="184px">
+            <option Value="1">All</option>
+            <option Value="2">Apples</option>
+            <option Value="2">Orange</option>
+            <option Value="3">Onion</option>
+        </select>
+        <br />
+        <select ID="DropDownList2" Height="18px" Width="187px">
+            <option Value="Apple_Style_1">Apple Style 1</option>
+            <option Value="Apple_Style_2">Apple Style 2</option>
+            <option Value="Apple_Style_3">Apple Style 3</option>
+            <option Value="Orange_Style_1">Orange Style 1</option>
+            <option Value="Orange_Style_2">Orange Style 2</option>
+            <option Value="Orange_Style_3">Orange Style 3</option>
+            <option Value="Orange_Style_4">Orange Style 4</option>
+            <option Value="Onion_Style_1">Onion Style 1</option>
+            <option Value="Onion_Style_2">Onion Style 2</option>
+        </select>
+    </div>
+
 
 
     @*<div class="row">
@@ -135,7 +174,7 @@
                                 <td>
                                     @item.Languages
                                 </td>
-                                <td>@Html.ActionLink("Visa Profil","ShowCV","Employer",new {id=item.Candidate_Id},new {@class="btn btn-sm btn-primary"}  )</td>
+                                <td>@Html.ActionLink("Visa Profil", "ShowCV", "Employer", new { id = item.Candidate_Id }, new { @class = "btn btn-sm btn-primary" })</td>
                                 <th></th>
                             </tr>
                         }

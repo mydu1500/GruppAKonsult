@@ -43,6 +43,7 @@ namespace GruppAKonsult.Controllers
             return View();
         }
 
+
         [HttpPost]
         public ActionResult EmployerFind(EmployerFindViewModel model)
         {
@@ -109,6 +110,8 @@ namespace GruppAKonsult.Controllers
             model.SearchResults = list;
 
             return View(model);
+
+
         }
 
         
