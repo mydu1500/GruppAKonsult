@@ -112,7 +112,30 @@
                     </tr>
 
 
-                    @if (Model.SearchResults != null && Model.SearchResults.Any())
+                    @*@if (Model.SearchResults != null && Model.SearchResults.Any())
+        {
+            foreach (var item in Model.SearchResults)
+            {
+                <tr>
+                    <td>
+                        @item.Firstname
+                    </td>
+                    <td>
+                        @item.Lastname
+                    </td>
+                    <td>
+                        @item.Professions
+                    </td>
+                    <td>
+                        @item.Skills
+                    </td>
+                    <td>@Html.ActionLink("Visa Profil", "ShowCV", "Employer", new { id = item.Candidate_Id }, new { @class = "btn btn-sm btn-primary" })</td>
+                    <th></th>
+                </tr>
+            }*@
+
+                  
+                    @if (Model.SearchResults != null && @Model.SearchResults.Any())
                     {
                         foreach (var item in Model.SearchResults)
                         {
@@ -133,16 +156,24 @@
                                 <th></th>
                             </tr>
                         }
+
                     }
-                </table>
+                    else
+                    {
+                            <tr>
+                                <td>
+                                    <p>Tyvärr finns det ingen kandidat som matchar dina sökningar</p>
+                                </td>
+                                
+                                
+                            </tr>
+                    }
+                    </table>
             </div>
         </div>
     </div>
 
 }
-
-
-
 
 
 
