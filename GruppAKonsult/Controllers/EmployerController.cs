@@ -42,7 +42,7 @@ namespace GruppAKonsult.Controllers
         {
             if (!id.HasValue)
             {
-                return RedirectToAction("EmployerView");
+                return View();
             }
 
             var model = new ProfileFreelancerViewModel();
