@@ -48,15 +48,15 @@
     <hr />
     <br />
     <div class="EditBtn">
-        @*<div class="row">*@
-        <a href='@Url.Action("FreelancerCV", "ProfileFreelancer")'>
-            <input id="EditBtn" type='button' class="btn btn-primary btn-lg" value='Redigera CV' />
-        </a><br><br>
-        @*</div>*@
-                <a href='@Url.Action("UpdatedCV", "ProfileFreelancer")'>
-                    <input id="EditBtn" type='button' class="btn btn-primary btn-lg" value='Visa CV' />
-                    @Html.ActionLink("Visa CV", "UpdatedCV", "ProfileFreelancer",new { @class = "btn btn-sm btn-primary" })
-                </a><br><br>
+        <div class="row">
+            <a href='@Url.Action("FreelancerCV", "ProfileFreelancer")'>
+                <input id="EditBtn" type='button' class="btn btn-primary btn-lg" value='Redigera CV' />
+            </a>
+        </div><br><br>
+        @*<a href='@Url.Action("UpdatedCV", "ProfileFreelancer")'>
+        <input id="EditBtn" type='button' class="btn btn-primary btn-lg" value='Visa CV' />*@
+        @Html.ActionLink("Visa CV", "UpdatedCV", "ProfileFreelancer", new { @class = "btn btn-lg btn-primary" })
+        @*</a>*@<br><br>
     </div>
 
 
