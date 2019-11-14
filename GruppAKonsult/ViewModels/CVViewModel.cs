@@ -79,7 +79,7 @@ namespace GruppAKonsult.ViewModels
         {
             LanguageList = new List<SelectListItem>()
             {
-                new SelectListItem { Text = "Välj Språk" },
+                
                 new SelectListItem { Value = "2", Text = "Svenska"},
                 new SelectListItem { Value = "3", Text = "Engelska"},
                 new SelectListItem { Value = "4", Text = "Franska"},
