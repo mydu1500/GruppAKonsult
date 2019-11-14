@@ -81,7 +81,7 @@ namespace GruppAKonsult.Controllers
 
                 if (profession != null)
                 {
-                    model.CandidateProfession = string.Format("0}{1}{2}{3}{4}{5}{6}{7}",
+                    model.CandidateProfession = string.Format("{0}{1}{2}{3}{4}{5}{6}{7}",
                         (profession.Webbdeveloper == "True" ? "Webbdeveloper" : ""),
                         (profession.Backenddeveloper == "True" ? "Backenddeveloper" : ""),
                         (profession.Frontenddeveloper == "True" ? "Frontenddeveloper" : ""),
@@ -97,7 +97,7 @@ namespace GruppAKonsult.Controllers
 
                 if (language != null)
                 {
-                    model.CandidateLanguage = string.Format("0}{1}{2}{3}{4}{5}{6}{7}",
+                    model.CandidateLanguage = string.Format("{0}{1}{2}{3}{4}{5}{6}{7}",
                         (language.Danish == "True" ? "Danska" : ""),
                         (language.Spanish == "True" ? "Spanska" : ""),
                         (language.English == "True" ? "Engelska" : ""),
