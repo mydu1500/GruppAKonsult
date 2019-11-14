@@ -12,6 +12,6 @@ namespace GruppAKonsult.ViewModels
 
         public CV CV { get; set; }
 
-       
+       //test
     }
 }
