@@ -134,9 +134,8 @@
                 </tr>
             }*@
 
-                    
-
-                    @if (Model.SearchResults != null && Model.SearchResults.Any())
+                  
+                    @if (Model.SearchResults != null && @Model.SearchResults.Any())
                     {
                         foreach (var item in Model.SearchResults)
                         {
@@ -163,7 +162,7 @@
                     {
                             <tr>
                                 <td>
-                                    <p>Tyvärr finns det ingen kandidat som matchar sina sökningar</p>
+                                    <p>Tyvärr finns det ingen kandidat som matchar dina sökningar</p>
                                 </td>
                                 
                                 
