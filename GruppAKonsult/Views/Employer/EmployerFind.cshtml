@@ -138,6 +138,86 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+
+        $(function() {
+
+            var professionId = "#@Html.IdFor(m => m.SelectedProfession)";
+            var skillId = "#@Html.IdFor(m => m.SelectedSkill)";
+
+
+            $(professionId).change(function () {
+
+                let val = $(this).val(); //profession
+
+                $(skillId).children("option").hide();
+
+                if (val == "2") {
+
+
+                    $(skillId).children("option[value='6']").show(); //refers to skills
+                    $(skillId).children("option[value='7']").show(); 
+                    $(skillId).children("option[value='8']").show();
+                    $(skillId).children("option[value='3']").show(); 
+                }
+                else if (val == "3") {
+
+                    $(skillId).children("option[value='2']").show(); //refers to skills
+                    $(skillId).children("option[value='5']").show(); 
+                }
+                else if (val == "4") {
+
+                    $(skillId).children("option[value='2']").show(); //refers to skills
+                    $(skillId).children("option[value='3']").show();
+                    $(skillId).children("option[value='5']").show();
+                    $(skillId).children("option[value='6']").show();
+                    $(skillId).children("option[value='7']").show();
+                    $(skillId).children("option[value='8']").show();
+                    $(skillId).children("option[value='9']").show();
+
+                }
+                else if (val == "5") {
+
+                    $(skillId).children("option[value='2']").show(); //refers to skills
+                    $(skillId).children("option[value='3']").show();
+                    $(skillId).children("option[value='5']").show();
+                    $(skillId).children("option[value='6']").show();
+                    $(skillId).children("option[value='7']").show();
+                    $(skillId).children("option[value='8']").show();
+                    $(skillId).children("option[value='9']").show();
+                }
+
+                else if (val == "6") {
+
+                    $(skillId).children("option[value='6']").show(); //refers to skills
+                    $(skillId).children("option[value='7']").show(); 
+                    $(skillId).children("option[value='8']").show();
+                    $(skillId).children("option[value='3']").show(); 
+                }
+                else if (val == "7") {
+
+                    $(skillId).children("option[value='2']").show(); //refers to skills
+                    $(skillId).children("option[value='5']").show();
+                }
+
+                else if (val == "8") {
+
+                    $(skillId).children("option[value='3']").show(); //refers to skills
+                    $(skillId).children("option[value='6']").show();
+                }
+                else if (val == "9") {
+
+                  
+                    $(skillId).children("option[value='9']").show();
+                }
+
+               
+
+            })
+
+        })
+
+    </script>
 
 }
 
