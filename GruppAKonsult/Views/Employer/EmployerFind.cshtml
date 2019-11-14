@@ -33,21 +33,21 @@
             </div>
             <br>
             @*<div class="form-group col-md-2">
-                <label class="control-label">Språk</label><br />
+                    <label class="control-label">Språk</label><br />
 
-                @if (Model.LanguageList != null)
-                {
-                    @Html.DropDownListFor(m => m.SelectedLanguage, Model.LanguageList, new Dictionary<string, object> { { "class", "form-control" } })
-                }
-            </div>*@
+                    @if (Model.LanguageList != null)
+                    {
+                        @Html.DropDownListFor(m => m.SelectedLanguage, Model.LanguageList, new Dictionary<string, object> { { "class", "form-control" } })
+                    }
+                </div>*@
             @*<div class="form-group col-md-2">
-                <label class="control-label">Stad</label><br />
+                    <label class="control-label">Stad</label><br />
 
-                @if (Model.CityList != null)
-                {
-                    @Html.DropDownListFor(m => m.SelectedCity, Model.CityList, new Dictionary<string, object> { { "class", "form-control" } })
-                }
-            </div>*@
+                    @if (Model.CityList != null)
+                    {
+                        @Html.DropDownListFor(m => m.SelectedCity, Model.CityList, new Dictionary<string, object> { { "class", "form-control" } })
+                    }
+                </div>*@
             <div class="form-group col-md-2">
                 <br>
                 <a>
@@ -134,6 +134,7 @@
                             </tr>
                         }
                     }
+
                 </table>
             </div>
         </div>
