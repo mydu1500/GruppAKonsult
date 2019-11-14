@@ -9,16 +9,19 @@
 <br />
 
 <div class="row">
+    @*<div class="form-group col-md-2">
+            @Html.ActionLink("Visa profil", "UpdatedCV", "ProfileFreelancer", new { id = @Model.Freelancer.Candidate_Id}, new { @class = "btn btn-sm btn-primary"})
+        </div>
+
+        <br>*@
     <div class="form-group col-md-2">
-        @Html.ActionLink("Visa profil", "UpdatedCV", "ProfileFreelancer", new { id = @Model.Freelancer.Candidate_Id}, new { @class = "btn btn-sm btn-primary"})
+        <a href='@Url.Action("EmployerView", "Employer")'>
+            <input id="CustomerBtn" type='button' class="btn btn-primary btn-lg" value='Visa Kundsida' />
     </div>
-    
-   
-    <br>
 
     <div class="form-group col-md-2">
         <a href='@Url.Action("EmployerFind", "Employer")'>
-            <input id="SearchBtn" type='button' class="btn btn-primary btn-lg" value='Tillbaka' />
+            <input id="SearchBtn" type='button' class="btn btn-primary btn-lg" value='Tillbaka till sök' />
     </div>
 </div>
     </a><br>
