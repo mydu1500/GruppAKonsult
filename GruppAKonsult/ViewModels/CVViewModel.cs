@@ -79,7 +79,7 @@ namespace GruppAKonsult.ViewModels
         {
             LanguageList = new List<SelectListItem>()
             {
-               
+                new SelectListItem { Text = "Välj Språk" },
                 new SelectListItem { Value = "2", Text = "Svenska"},
                 new SelectListItem { Value = "3", Text = "Engelska"},
                 new SelectListItem { Value = "4", Text = "Franska"},
@@ -112,7 +112,7 @@ namespace GruppAKonsult.ViewModels
         {
             SkillsList = new List<SelectListItem>()
             {
-                new SelectListItem { Text = "Välj kompetens" },
+                new SelectListItem { Text = "Välj Kompetens" },
                 new SelectListItem { Value = "2", Text = "C#" },
                 new SelectListItem { Value = "3", Text = "JavaScript" },
                 //new SelectListItem { Value = "4", Text = "Java" },
