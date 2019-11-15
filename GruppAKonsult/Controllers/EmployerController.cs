@@ -151,9 +151,10 @@ namespace GruppAKonsult.Controllers
                                  (l.Norwegian == "True" ? "Norska," : "") +
                                  (l.Danish == "True" ? "Danska," : "") +
                                  (l.Finnish == "True" ? "Finska," : "")),
-                    Skills = ((s.C_ == "True" ? "c," : "") +
+                    Skills = ((s.C_ == "True" ? "C#" : "") +
                               (s.JavaScript == "True" ? "JavaScript," : "") +
                               (s.Java == "True" ? "Java," : "") +
+                              (s.C__ == "True" ? "C++" : "") +
                               (s.JQuery == "True" ? "JQuery," : "") +
                               (s.HTML == "True" ? "HTML," : "") +
                               (s.CSS == "True" ? "CSS," : "") +
