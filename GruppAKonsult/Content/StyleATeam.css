@@ -51,20 +51,33 @@ footer {
     text-align: center;
 }
 
+/*//Om oss-sidan*/
+
+#TextAboutUs{
+    text-align: center;
+}
 /*//Frilansarens profilsida (ProfileFreelancer)*/
-#LinkGithub, LinkLinkedin{
+#LinkGithub, LinkLinkedin {
     text-align: right;
     list-style: none;
     display: inline;
-    /*height: 50px;*/
 }
 
 #CreateCVBtn{
     margin-left: 12cm;
 }
 
+/*//Kontakt-sidan*/
 #ContactPic{
     margin-left: 3cm;
    
+}
+
+/*//Logga in-sidorna*/
+#LogInPage{
+    margin-left: 9cm;
+}
+#LogInText{
+    margin-left: 9cm;
 }
   
