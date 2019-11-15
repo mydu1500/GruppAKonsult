@@ -135,15 +135,16 @@ namespace GruppAKonsult.Controllers
 
                 if (skills != null)
                 {
-                    model.CandidateSkill = string.Format("{0}{1}{2}{3}{4}{5}{6}",
+                    model.CandidateSkill = string.Format("{0}{1}{2}{3}{4}{5}{6}{7}",
                         (skills.C_ == "True" ? "C#" : ""),
                         (skills.SQL == "True" ? "SQL" : ""),
                         (skills.JavaScript == "True" ? "Javascript" : ""),
                         (skills.Java == "True" ? "Java" : ""),
                         (skills.CSS == "True" ? "CSS" : ""),
                         (skills.HTML == "True" ? "HTML" : ""),
-                        (skills.JQuery == "True" ? "JQuery" : "")
-                       
+                        (skills.JQuery == "True" ? "JQuery" : ""),
+                        (skills.C__ == "True" ? "C++" : "")
+
                     );
                 }
 
@@ -211,7 +212,7 @@ namespace GruppAKonsult.Controllers
 
                 db.SaveChanges();
 
-                var languages = model.SelectedLanguages;
+                var languages = new string[] { model.SelectedLanguage };
 
                 if (languages != null)
                 { 
@@ -232,7 +233,7 @@ namespace GruppAKonsult.Controllers
                 db.Language.Add(l);
                 }
 
-                var professions = model.SelectedProfessions;
+                var professions = new string[] { model.SelectedProfession};
 
                 if (professions != null)
                 {
@@ -254,7 +255,7 @@ namespace GruppAKonsult.Controllers
                     db.Profession.Add(p);
                 }
 
-                var skills = model.SelectedSkills;
+                var skills =new string[] { model.SelectedSkill };
                 if (skills != null)
                 {
                     var s = new Skills
@@ -435,14 +436,14 @@ namespace GruppAKonsult.Controllers
             {
                 CV_Id = cvId,
                 Candidate_Id = candidateId,
-                Swedish = language.Contains("Svenska").ToString(), 
-                English = language.Contains("Engelska").ToString(),
-                French = language.Contains("Franska").ToString(),
-                Spanish = language.Contains("Spanska").ToString(),
-                German = language.Contains("Tyska").ToString(),
-                Norwegian = language.Contains("Norska").ToString(),
-                Danish = language.Contains("Danska").ToString(),
-                Finnish = language.Contains("Finska").ToString(),
+                Swedish = language.Contains("2")? "True" : "False",
+                English = language.Contains("3") ? "True" : "False",
+                French = language.Contains("4") ? "True" : "False",
+                Spanish = language.Contains("5") ? "True" : "False",
+                German = language.Contains("6") ? "True" : "False",
+                Norwegian = language.Contains("7") ? "True" : "False",
+                Danish = language.Contains("8") ? "True" : "False",
+                Finnish = language.Contains("9") ? "True" : "False",
             };
 
         }
@@ -454,14 +455,14 @@ namespace GruppAKonsult.Controllers
                 CV_Id = cvId,
                 Candidate_Id = candidateId,
 
-                Webbdeveloper = profession.Contains("Webbutvecklare") ? "True" : "False",
-                Systemdeveloper = profession.Contains("Systemutvecklare") ? "True" : "False",
-                Programmer = profession.Contains("Programmerare") ? "True" : "False",
-                Softwareengineer = profession.Contains("Mjukvaruutveklare") ? "True" : "False",
-                Frontenddeveloper = profession.Contains("Frontendutvecklare") ? "True" : "False",
-                Backenddeveloper = profession.Contains("Backendutvecklare") ? "True" : "False",
-                Javadeveloper = profession.Contains("Javautvecklare") ? "True" : "False",
-                Scrummaster = profession.Contains("Scrummaster") ? "True" : "False",
+                Webbdeveloper = profession.Contains("2") ? "True" : "False",
+                Systemdeveloper = profession.Contains("3") ? "True" : "False",
+                Programmer = profession.Contains("4") ? "True" : "False",
+                Softwareengineer = profession.Contains("5") ? "True" : "False",
+                Frontenddeveloper = profession.Contains("6") ? "True" : "False",
+                Backenddeveloper = profession.Contains("7") ? "True" : "False",
+                Javadeveloper = profession.Contains("8") ? "True" : "False",
+                Scrummaster = profession.Contains("9") ? "True" : "False",
             };
 
         }
@@ -472,14 +473,14 @@ namespace GruppAKonsult.Controllers
             {
                 CV_Id = cvId,
                 Candidate_Id = candidateId,
-                C_ = skill.Contains("C#") ? "True" : "False",
-                JavaScript = skill.Contains("Javascript") ? "True" : "False",
-                Java = skill.Contains("Java") ? "True" : "False",
-                C__ = skill.Contains("C++") ? "True" : "False",
-                JQuery = skill.Contains("JQuery") ? "True" : "False",
-                HTML = skill.Contains("HTML") ? "True" : "False",
-                CSS = skill.Contains("CSS") ? "True" : "False",
-                SQL = skill.Contains("SQL") ? "True" : "False"
+                C_ = skill.Contains("2") ? "True" : "False",
+                JavaScript = skill.Contains("3") ? "True" : "False",
+                Java = skill.Contains("4") ? "True" : "False",
+                C__ = skill.Contains("5") ? "True" : "False",
+                JQuery = skill.Contains("6") ? "True" : "False",
+                HTML = skill.Contains("7") ? "True" : "False",
+                CSS = skill.Contains("8") ? "True" : "False",
+                SQL = skill.Contains("9") ? "True" : "False"
 
             };
 

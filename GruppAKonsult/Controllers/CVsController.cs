@@ -177,7 +177,7 @@ namespace GruppAKonsult.Controllers
 
                 db.SaveChanges();
 
-                var languages = model.SelectedLanguages;
+                var languages = new string[] { model.SelectedLanguage };
 
                 var l = new Language
                 {
@@ -195,7 +195,7 @@ namespace GruppAKonsult.Controllers
 
                 db.Language.Add(l);
 
-                var professions = model.SelectedProfessions;
+                var professions = new string[] { model.SelectedProfession };
 
                 var p = new Profession
                 {
@@ -214,7 +214,7 @@ namespace GruppAKonsult.Controllers
 
                 db.Profession.Add(p);
 
-                var skills = model.SelectedSkills;
+                var skills = new string[] { model.SelectedSkill };
 
                 var s = new Skills
                 {

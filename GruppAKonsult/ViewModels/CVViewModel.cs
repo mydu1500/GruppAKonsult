@@ -53,11 +53,11 @@ namespace GruppAKonsult.ViewModels
 
         public CV CV { get; set; }
 
-        public string[] SelectedLanguages { get; set; }
+        //public string[] SelectedLanguages { get; set; }
 
-        public string[] SelectedProfessions { get; set; }
+        //public string[] SelectedProfessions { get; set; }
 
-        public string[] SelectedSkills { get; set; }
+        //public string[] SelectedSkills { get; set; }
 
         public string SelectedProfession { get; set; }
 
