@@ -14,12 +14,9 @@ h2{
     height: 120px;
 }
 
-
-
-
 #EditBtn{
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
     margin-left: 3cm;
 }
@@ -53,15 +50,14 @@ h2{
 }
 
 footer {
-
     text-align: center;
 }
 
 /*//Om oss-sidan*/
-
 #TextAboutUs{
     text-align: center;
 }
+
 /*//Frilansarens profilsida (ProfileFreelancer)*/
 #LinkGithub, LinkLinkedin {
     text-align: right;
@@ -93,5 +89,9 @@ footer {
 }
 #LogInText{
     margin-left: 9cm;
+}
+
+#LogInBtn{
+    margin-left: 2cm;
 }
   
