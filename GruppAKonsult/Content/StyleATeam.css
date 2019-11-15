@@ -63,9 +63,17 @@ footer {
     display: inline;
 }
 
-#CreateCVBtn{
+/*#CreateCVBtn{
     margin-left: 12cm;
+}*/
+
+#ProfileButtons{
+    margin: 0,5cm;
 }
+#ShowCVbtn{
+    margin-left: 0,5cm;
+}
+
 
 /*//Kontakt-sidan*/
 #ContactPic{

@@ -14,14 +14,21 @@
         </div>
 
         <br>*@
-    <div class="form-group col-md-2">
-        <a href='@Url.Action("EmployerView", "Employer")'>
-            <input id="CustomerBtn" type='button' class="btn btn-primary btn-lg" value='Visa Kundsida' />
-    </div>
 
     <div class="form-group col-md-2">
         <a href='@Url.Action("EmployerFind", "Employer")'>
             <input id="SearchBtn" type='button' class="btn btn-primary btn-lg" value='Tillbaka till sök' />
+    </div>
+
+    <div class="form-group col-md-2">
+        <a href='@Url.Action("EmployerView", "Employer")'>
+            <input id="CustomerBtn" type='button' class="btn btn-primary btn-lg" value='Min profilsida' />
+    </div>
+
+
+    <div class="form-group col-md-2">
+        <a href='@Url.Action("FreelancerProfileView", "Employer")'>
+            <input id="SearchBtn" type='button' class="btn btn-primary btn-lg" value='Kandidatens profil' />
     </div>
 </div>
     </a><br>
@@ -93,5 +100,5 @@
 
         </div>
     </div>
-</div>
+</div><br>
 

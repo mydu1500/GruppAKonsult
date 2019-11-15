@@ -200,6 +200,8 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Pictures\BusinessPic.jpg" />
+    <Content Include="Content\Pictures\Computer.jpg" />
     <Content Include="Content\Pictures\contactUs.jpg" />
     <Content Include="Content\Pictures\facebook1.png" />
     <Content Include="Content\Pictures\github.png" />
