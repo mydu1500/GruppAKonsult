@@ -9,11 +9,12 @@ h2{
     font-size: 30px;
     text-align: center;
 }
- 
-/*h3{
-    font-size: 20px;
-    text-align: center;
-}*/
+
+#Navbar{
+    height: 120px;
+}
+
+
 
 
 #EditBtn{
@@ -62,5 +63,8 @@ footer {
     margin-left: 12cm;
 }
 
-
+#ContactPic{
+    margin-left: 3cm;
+   
+}
   

@@ -13,19 +13,20 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav id="Navbar" class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
             @Html.ActionLink("A-Team Consulting", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <br>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item">@Html.ActionLink("Start", "Index", "Home", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Om oss", "About", "Home", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Kontakta oss", "Contact", "Home", null, new { @class = "nav-link" })</li>
+                    <li id="MenuPage" class="nav-item">@Html.ActionLink("Start", "Index", "Home", null, new { @class = "nav-link" })</li>
+                    <li id="MenuPage" class="nav-item">@Html.ActionLink("Om oss", "About", "Home", null, new { @class = "nav-link" })</li>
+                    <li id="MenuPage" class="nav-item">@Html.ActionLink("Kontakta oss", "Contact", "Home", null, new { @class = "nav-link" })</li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logga in</a>
+                        <a id="LogInMenu" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Logga in</a>
                         <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 45px, 0px);">
                             <a class="dropdown-item bg-light" href='@Url.Action("FreelancerLogIn", "LogIn")'>Frilansare</a>
                             <a class="dropdown-item bg-light" href='@Url.Action("EmployerLogIn", "LogIn")'>Arbetsgivare</a>
