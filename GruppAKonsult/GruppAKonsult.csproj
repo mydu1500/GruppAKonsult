@@ -200,6 +200,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Pictures\Businessman.jpg" />
     <Content Include="Content\Pictures\BusinessPic.jpg" />
     <Content Include="Content\Pictures\Computer.jpg" />
     <Content Include="Content\Pictures\contactUs.jpg" />
@@ -207,6 +208,7 @@
     <Content Include="Content\Pictures\github.png" />
     <Content Include="Content\Pictures\googleplus.png" />
     <Content Include="Content\Pictures\linkedin.png" />
+    <Content Include="Content\Pictures\Nerd.png" />
     <Content Include="Content\Pictures\twitter1.png" />
     <Content Include="Content\Pictures\workplace.jpg" />
     <Content Include="Content\Pictures\youtube1.png" />
